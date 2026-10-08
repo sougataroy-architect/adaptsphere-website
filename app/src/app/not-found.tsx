@@ -1,0 +1,2 @@
+import { PageHeader,Section,Container,ButtonLink } from "@/components/UI";
+export default function NotFound(){return <><PageHeader label="404" title="That page is not here." text="Explore our services or start a conversation about your AI environment." path="/404"/><Section><Container><div className="actions"><ButtonLink href="/services">Explore services</ButtonLink><ButtonLink href="/" secondary>Return home</ButtonLink></div></Container></Section></>;}

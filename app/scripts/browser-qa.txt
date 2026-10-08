@@ -1,0 +1,258 @@
+async (page) => {
+ const out="output/playwright"; const path={join:(...p)=>p.join("/")}; const axePath="node_modules/axe-core/axe.min.js";
+ const errors=[]; page.on('pageerror',e=>errors.push(e.message));
+ const services=[
+  {
+    "slug": "governed-ai-architecture",
+    "title": "Governed AI Architecture & Implementation",
+    "short": "Architecture that can be operated.",
+    "summary": "Design and build enterprise AI around the systems, identities, and responsibilities you already have.",
+    "problem": "An AI pilot can work in isolation and still fail when it reaches production systems. Access, integration, data boundaries, and ownership need to be designed together.",
+    "examine": [
+      "Applications, workflows, data sources, and existing AI usage",
+      "User, application, and agent identities",
+      "Integration constraints and operational responsibilities"
+    ],
+    "change": [
+      "Define target architecture and approved agent actions",
+      "Modernize interfaces and integrate models, tools, and data",
+      "Implement access controls, approval points, and operating records"
+    ],
+    "deliver": [
+      "Current-state system map and target architecture",
+      "An agreed implementation scope with control requirements",
+      "Working integrations, verification evidence, and operational handover"
+    ]
+  },
+  {
+    "slug": "ai-governance-assessment",
+    "title": "AI Governance Assessment",
+    "short": "Find the gaps before they spread.",
+    "summary": "Review AI usage, agent access, data exposure, ownership, and the controls surrounding deployment.",
+    "problem": "Policies can describe an intended state without explaining what deployed systems can actually do. An assessment connects governance expectations to technical reality.",
+    "examine": [
+      "AI tools, agents, permissions, and data reach",
+      "Owners, deployment approvals, logging, and review cadence",
+      "Existing policies and how they map to configured controls"
+    ],
+    "change": [
+      "Identify gaps and separate immediate risks from longer-term changes",
+      "Map accountable owners to remediation decisions",
+      "Define a practical implementation scope"
+    ],
+    "deliver": [
+      "Executive findings and prioritized gaps",
+      "Technical control map with supporting observations",
+      "Remediation priorities and next-step scope"
+    ]
+  },
+  {
+    "slug": "agent-governance",
+    "title": "Agent Governance & Authorization",
+    "short": "Give every agent a boundary.",
+    "summary": "Define agent identity, tool access, approval gates, accountability, and lifecycle controls.",
+    "problem": "An agent that can retrieve data or take actions becomes part of the operating environment. Its authority must be explicit, reviewable, and removable.",
+    "examine": [
+      "Identity and authentication paths for each agent",
+      "Tool permissions, delegated access, and resource boundaries",
+      "Owner, sponsor, approvals, monitoring, and retirement"
+    ],
+    "change": [
+      "Define least-privilege resource and action permissions",
+      "Place review gates around consequential actions",
+      "Connect access reviews, ownership changes, and offboarding"
+    ],
+    "deliver": [
+      "Agent operating record and authorization map",
+      "Configured controls and verification scenarios",
+      "Lifecycle and access-review responsibilities"
+    ]
+  },
+  {
+    "slug": "microsoft-ai-governance",
+    "title": "Microsoft AI Governance",
+    "short": "Connect the Microsoft control layers.",
+    "summary": "Align Microsoft AI deployment with tenant identity, data protection, environment controls, and operating ownership.",
+    "problem": "Microsoft AI capabilities span products and control planes. A setting in one layer does not automatically establish a complete governance model across the environment.",
+    "examine": [
+      "Microsoft 365 Copilot and Copilot Studio usage",
+      "Entra identities, resource access, and agent lifecycle",
+      "Purview controls, Power Platform environments, and integration paths"
+    ],
+    "change": [
+      "Map relevant controls to actual workloads and licensing",
+      "Review source permissions and environment boundaries",
+      "Implement and verify the agreed tenant-specific changes"
+    ],
+    "deliver": [
+      "Microsoft AI environment and control map",
+      "Prioritized configuration and implementation work",
+      "Ownership, review, and evidence requirements"
+    ]
+  },
+  {
+    "slug": "ai-integration-modernization",
+    "title": "AI Integration & Legacy Modernization",
+    "short": "Make existing systems AI-ready.",
+    "summary": "Modernize applications, APIs, data access, and workflows without bypassing the controls around them.",
+    "problem": "The most useful enterprise data often lives behind older applications and fragmented workflows. Connecting an agent directly to it can create uncontrolled access and brittle operations.",
+    "examine": [
+      "Legacy application interfaces and integration dependencies",
+      "Data access patterns, authorization, and failure handling",
+      "Hosting, deployment, maintenance, and migration constraints"
+    ],
+    "change": [
+      "Create governed API and data access boundaries",
+      "Refactor integration points and modernize selected application layers",
+      "Connect AI functionality with approval and exception handling"
+    ],
+    "deliver": [
+      "Integration and modernization plan",
+      "Tested interfaces and workflow implementation",
+      "Migration, recovery, and maintenance guidance"
+    ]
+  },
+  {
+    "slug": "platform-engineering",
+    "title": "Platform Engineering & Technical Operations",
+    "short": "Build it. Deploy it. Keep it usable.",
+    "summary": "Develop and maintain modern web platforms, integrations, deployment pipelines, and technical operations.",
+    "problem": "A platform needs more than a launch. Deployment, content architecture, integrations, maintenance, and recovery must remain understandable as the system changes.",
+    "examine": [
+      "Application architecture, hosting, and deployment process",
+      "Content and integration requirements",
+      "Performance constraints and ongoing maintenance needs"
+    ],
+    "change": [
+      "Build or improve Next.js applications and integration layers",
+      "Establish reproducible deployment and maintenance workflows",
+      "Use AI-assisted development with human review and verification"
+    ],
+    "deliver": [
+      "Working platform and integration changes",
+      "Deployment and recovery documentation",
+      "An agreed technical operations scope"
+    ]
+  },
+  {
+    "slug": "governance-remediation",
+    "title": "Governance Remediation & Implementation",
+    "short": "Turn findings into working controls.",
+    "summary": "Implement the identity, permissions, lifecycle, logging, and architecture changes identified in a review.",
+    "problem": "A findings document does not change a permission or retire an agent. Remediation needs engineering ownership, a defined scope, and evidence that changes behave as intended.",
+    "examine": [
+      "Assessment findings and affected systems",
+      "Dependencies, accountable owners, and change constraints",
+      "Current configuration and verification evidence"
+    ],
+    "change": [
+      "Apply permission, identity, and data-boundary changes",
+      "Implement approval, inventory, and lifecycle controls",
+      "Update integrations and operating procedures"
+    ],
+    "deliver": [
+      "Implemented changes with verification evidence",
+      "Updated control map and operating documentation",
+      "Remaining risks and a handover plan"
+    ]
+  }
+]
+;
+ const insights=[
+  {
+    "slug": "agent-authorization-before-autonomy",
+    "title": "Authorization comes before autonomy.",
+    "category": "Agent governance",
+    "summary": "Five questions to answer before an agent can act on enterprise systems.",
+    "sections": [
+      {
+        "title": "Start with the action, not the model",
+        "text": "A capable model does not establish permission to act. List the resources an agent needs, the actions it can take, and the conditions under which those actions are allowed. Reading a document, changing a record, and sending a message are different permissions."
+      },
+      {
+        "title": "Make the authority traceable",
+        "text": "Record the business owner, technical maintainer, identity, permitted tools, and approval gates. Distinguish actions taken with a user\u2019s delegated authority from those taken with an application or agent identity. The distinction affects access decisions and evidence."
+      },
+      {
+        "title": "Test the boundary",
+        "text": "Verify allowed actions and denied actions. Include revoked access, unavailable tools, unexpected input, and actions requiring review. A successful demonstration should not be the only test of an agent."
+      },
+      {
+        "title": "Plan for ownership to change",
+        "text": "Assign a review cadence and a retirement path. When a sponsor leaves or the workflow changes, someone must decide whether the agent still needs its access. Useful autonomy requires an authority model that can change."
+      }
+    ]
+  },
+  {
+    "slug": "modernization-is-an-ai-control",
+    "title": "Modernization is also an AI control.",
+    "category": "Architecture",
+    "summary": "Why an integration boundary matters more than a direct connection to a legacy database.",
+    "sections": [
+      {
+        "title": "A connection is not an integration design",
+        "text": "Connecting a model to a database may make a prototype possible. It does not establish which records may be read, which operations are safe, or how failures should be handled. The application\u2019s operating rules still matter."
+      },
+      {
+        "title": "Expose a deliberate interface",
+        "text": "An API can make approved actions explicit, validate input, enforce authorization, and produce an audit trail. Modernization can begin with a narrow interface around a useful workflow rather than a replacement of the entire application."
+      },
+      {
+        "title": "Preserve the business rules",
+        "text": "Review validation, approval, exception handling, and transaction boundaries before introducing agent access. Rules embedded in an older screen or manual process may not exist at the database layer."
+      },
+      {
+        "title": "Migrate in a controlled scope",
+        "text": "Define the workflow, allowed actions, verification scenarios, and recovery process. Separate AI-assisted software development from AI-enabled functionality: using a coding assistant does not mean the resulting system contains an agent."
+      }
+    ]
+  },
+  {
+    "slug": "governance-that-survives-deployment",
+    "title": "Governance that survives deployment.",
+    "category": "Operating models",
+    "summary": "Translate policy into identities, permissions, reviews, and evidence.",
+    "sections": [
+      {
+        "title": "Give the policy an implementation address",
+        "text": "For each requirement, identify the system, configuration, process, and accountable owner that enforce it. A rule about data access should point to an actual authorization boundary. A rule about approval should identify the decision and the person responsible."
+      },
+      {
+        "title": "Separate configuration from operation",
+        "text": "A configured control needs an operating process. Access reviews, incident response, ownership transfers, and retirement depend on people and records as well as technical settings."
+      },
+      {
+        "title": "Collect useful evidence",
+        "text": "Choose records that explain what happened, what authority was used, and which control applied. Define retention and access responsibilities. More logs do not automatically provide more accountability."
+      },
+      {
+        "title": "Review when the system changes",
+        "text": "New tools, data sources, models, and business purposes can change the risk of an existing agent. Make material capability changes a trigger for review rather than waiting for a calendar date."
+      }
+    ]
+  }
+]
+;
+ const routes=['/','/services','/agent-governance','/microsoft-ai','/how-we-work','/about','/contact','/insights','/privacy','/terms','/accessibility',...services.filter(s=>s.slug!=='microsoft-ai-governance').map(s=>'/services/'+s.slug),...insights.map(s=>'/insights/'+s.slug)];
+ const results=[]; const links=new Set();
+ for(const width of [1440,768,390,320]){
+  await page.setViewportSize({width,height:1000});
+  for(const route of routes){
+   const response=await page.goto('http://localhost:3215'+route); await page.waitForLoadState('networkidle');
+   await page.addScriptTag({path:axePath});
+   const audit=await page.evaluate(async()=>{const a=await axe.run({runOnly:{type:'tag',values:['wcag2a','wcag2aa','wcag21aa']}}); return {overflow:document.documentElement.scrollWidth>innerWidth,h1:document.querySelectorAll('h1').length,canonical:document.querySelector('link[rel=canonical]')?.href,description:document.querySelector('meta[name=description]')?.content,violations:a.violations.map(v=>({id:v.id,impact:v.impact,nodes:v.nodes.map(n=>n.target)})),links:[...document.querySelectorAll('a[href]')].map(a=>a.getAttribute('href'))};});
+   audit.links.filter(l=>l.startsWith('/')&&!l.startsWith('//')).forEach(l=>links.add(l.split('#')[0])); delete audit.links;
+   results.push({width,route,status:response.status(),...audit});
+   if(route==='/'&&width!==320)await page.screenshot({path:path.join(out,'home-'+width+'.png'),fullPage:true});
+  }
+ }
+ const linkResults=[];for(const route of links){const r=await page.request.get('http://localhost:3215'+route);linkResults.push({route,status:r.status()});}
+ const missing=await page.goto('http://localhost:3215/does-not-exist'); const notFound=missing.status();
+ await page.goto('http://localhost:3215/'); await page.keyboard.press('Tab'); const skip=await page.evaluate(()=>document.activeElement.textContent);
+ await page.keyboard.press('Enter'); const skipTarget=await page.evaluate(()=>document.activeElement.id);
+ await page.getByRole('button',{name:'Open menu'}).click(); await page.getByRole('dialog').waitFor();
+ const dialogFocus=await page.evaluate(()=>!!document.activeElement.closest('[role=dialog]'));
+ await page.keyboard.press('Escape'); const restoredFocus=await page.getByRole('button',{name:'Open menu'}).evaluate(el=>el===document.activeElement);
+ await page.emulateMedia({reducedMotion:'reduce'});const motion=await page.evaluate(()=>getComputedStyle(document.documentElement).scrollBehavior);
+ const report={results,linkResults,errors,notFound,keyboard:{skip,skipTarget,dialogFocus,restoredFocus},reducedMotion:motion};return report;
+}

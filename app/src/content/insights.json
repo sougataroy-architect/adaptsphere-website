@@ -1,0 +1,74 @@
+[
+  {
+    "slug": "agent-authorization-before-autonomy",
+    "title": "Authorization comes before autonomy.",
+    "category": "Agent governance",
+    "summary": "Five questions to answer before an agent can act on enterprise systems.",
+    "sections": [
+      {
+        "title": "Start with the action, not the model",
+        "text": "A capable model does not establish permission to act. List the resources an agent needs, the actions it can take, and the conditions under which those actions are allowed. Reading a document, changing a record, and sending a message are different permissions."
+      },
+      {
+        "title": "Make the authority traceable",
+        "text": "Record the business owner, technical maintainer, identity, permitted tools, and approval gates. Distinguish actions taken with a user\u2019s delegated authority from those taken with an application or agent identity. The distinction affects access decisions and evidence."
+      },
+      {
+        "title": "Test the boundary",
+        "text": "Verify allowed actions and denied actions. Include revoked access, unavailable tools, unexpected input, and actions requiring review. A successful demonstration should not be the only test of an agent."
+      },
+      {
+        "title": "Plan for ownership to change",
+        "text": "Assign a review cadence and a retirement path. When a sponsor leaves or the workflow changes, someone must decide whether the agent still needs its access. Useful autonomy requires an authority model that can change."
+      }
+    ]
+  },
+  {
+    "slug": "modernization-is-an-ai-control",
+    "title": "Modernization is also an AI control.",
+    "category": "Architecture",
+    "summary": "Why an integration boundary matters more than a direct connection to a legacy database.",
+    "sections": [
+      {
+        "title": "A connection is not an integration design",
+        "text": "Connecting a model to a database may make a prototype possible. It does not establish which records may be read, which operations are safe, or how failures should be handled. The application\u2019s operating rules still matter."
+      },
+      {
+        "title": "Expose a deliberate interface",
+        "text": "An API can make approved actions explicit, validate input, enforce authorization, and produce an audit trail. Modernization can begin with a narrow interface around a useful workflow rather than a replacement of the entire application."
+      },
+      {
+        "title": "Preserve the business rules",
+        "text": "Review validation, approval, exception handling, and transaction boundaries before introducing agent access. Rules embedded in an older screen or manual process may not exist at the database layer."
+      },
+      {
+        "title": "Migrate in a controlled scope",
+        "text": "Define the workflow, allowed actions, verification scenarios, and recovery process. Separate AI-assisted software development from AI-enabled functionality: using a coding assistant does not mean the resulting system contains an agent."
+      }
+    ]
+  },
+  {
+    "slug": "governance-that-survives-deployment",
+    "title": "Governance that survives deployment.",
+    "category": "Operating models",
+    "summary": "Translate policy into identities, permissions, reviews, and evidence.",
+    "sections": [
+      {
+        "title": "Give the policy an implementation address",
+        "text": "For each requirement, identify the system, configuration, process, and accountable owner that enforce it. A rule about data access should point to an actual authorization boundary. A rule about approval should identify the decision and the person responsible."
+      },
+      {
+        "title": "Separate configuration from operation",
+        "text": "A configured control needs an operating process. Access reviews, incident response, ownership transfers, and retirement depend on people and records as well as technical settings."
+      },
+      {
+        "title": "Collect useful evidence",
+        "text": "Choose records that explain what happened, what authority was used, and which control applied. Define retention and access responsibilities. More logs do not automatically provide more accountability."
+      },
+      {
+        "title": "Review when the system changes",
+        "text": "New tools, data sources, models, and business purposes can change the risk of an existing agent. Make material capability changes a trigger for review rather than waiting for a calendar date."
+      }
+    ]
+  }
+]

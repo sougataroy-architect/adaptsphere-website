@@ -1,0 +1,156 @@
+[
+  {
+    "slug": "governed-ai-architecture",
+    "title": "Governed AI Architecture & Implementation",
+    "short": "Architecture that can be operated.",
+    "summary": "Design and build enterprise AI around the systems, identities, and responsibilities you already have.",
+    "problem": "An AI pilot can work in isolation and still fail when it reaches production systems. Access, integration, data boundaries, and ownership need to be designed together.",
+    "examine": [
+      "Applications, workflows, data sources, and existing AI usage",
+      "User, application, and agent identities",
+      "Integration constraints and operational responsibilities"
+    ],
+    "change": [
+      "Define target architecture and approved agent actions",
+      "Modernize interfaces and integrate models, tools, and data",
+      "Implement access controls, approval points, and operating records"
+    ],
+    "deliver": [
+      "Current-state system map and target architecture",
+      "An agreed implementation scope with control requirements",
+      "Working integrations, verification evidence, and operational handover"
+    ]
+  },
+  {
+    "slug": "ai-governance-assessment",
+    "title": "AI Governance Assessment",
+    "short": "Find the gaps before they spread.",
+    "summary": "Review AI usage, agent access, data exposure, ownership, and the controls surrounding deployment.",
+    "problem": "Policies can describe an intended state without explaining what deployed systems can actually do. An assessment connects governance expectations to technical reality.",
+    "examine": [
+      "AI tools, agents, permissions, and data reach",
+      "Owners, deployment approvals, logging, and review cadence",
+      "Existing policies and how they map to configured controls"
+    ],
+    "change": [
+      "Identify gaps and separate immediate risks from longer-term changes",
+      "Map accountable owners to remediation decisions",
+      "Define a practical implementation scope"
+    ],
+    "deliver": [
+      "Executive findings and prioritized gaps",
+      "Technical control map with supporting observations",
+      "Remediation priorities and next-step scope"
+    ]
+  },
+  {
+    "slug": "agent-governance",
+    "title": "Agent Governance & Authorization",
+    "short": "Give every agent a boundary.",
+    "summary": "Define agent identity, tool access, approval gates, accountability, and lifecycle controls.",
+    "problem": "An agent that can retrieve data or take actions becomes part of the operating environment. Its authority must be explicit, reviewable, and removable.",
+    "examine": [
+      "Identity and authentication paths for each agent",
+      "Tool permissions, delegated access, and resource boundaries",
+      "Owner, sponsor, approvals, monitoring, and retirement"
+    ],
+    "change": [
+      "Define least-privilege resource and action permissions",
+      "Place review gates around consequential actions",
+      "Connect access reviews, ownership changes, and offboarding"
+    ],
+    "deliver": [
+      "Agent operating record and authorization map",
+      "Configured controls and verification scenarios",
+      "Lifecycle and access-review responsibilities"
+    ]
+  },
+  {
+    "slug": "microsoft-ai-governance",
+    "title": "Microsoft AI Governance",
+    "short": "Connect the Microsoft control layers.",
+    "summary": "Align Microsoft AI deployment with tenant identity, data protection, environment controls, and operating ownership.",
+    "problem": "Microsoft AI capabilities span products and control planes. A setting in one layer does not automatically establish a complete governance model across the environment.",
+    "examine": [
+      "Microsoft 365 Copilot and Copilot Studio usage",
+      "Entra identities, resource access, and agent lifecycle",
+      "Purview controls, Power Platform environments, and integration paths"
+    ],
+    "change": [
+      "Map relevant controls to actual workloads and licensing",
+      "Review source permissions and environment boundaries",
+      "Implement and verify the agreed tenant-specific changes"
+    ],
+    "deliver": [
+      "Microsoft AI environment and control map",
+      "Prioritized configuration and implementation work",
+      "Ownership, review, and evidence requirements"
+    ]
+  },
+  {
+    "slug": "ai-integration-modernization",
+    "title": "AI Integration & Legacy Modernization",
+    "short": "Make existing systems AI-ready.",
+    "summary": "Modernize applications, APIs, data access, and workflows without bypassing the controls around them.",
+    "problem": "The most useful enterprise data often lives behind older applications and fragmented workflows. Connecting an agent directly to it can create uncontrolled access and brittle operations.",
+    "examine": [
+      "Legacy application interfaces and integration dependencies",
+      "Data access patterns, authorization, and failure handling",
+      "Hosting, deployment, maintenance, and migration constraints"
+    ],
+    "change": [
+      "Create governed API and data access boundaries",
+      "Refactor integration points and modernize selected application layers",
+      "Connect AI functionality with approval and exception handling"
+    ],
+    "deliver": [
+      "Integration and modernization plan",
+      "Tested interfaces and workflow implementation",
+      "Migration, recovery, and maintenance guidance"
+    ]
+  },
+  {
+    "slug": "platform-engineering",
+    "title": "Platform Engineering & Technical Operations",
+    "short": "Build it. Deploy it. Keep it usable.",
+    "summary": "Develop and maintain modern web platforms, integrations, deployment pipelines, and technical operations.",
+    "problem": "A platform needs more than a launch. Deployment, content architecture, integrations, maintenance, and recovery must remain understandable as the system changes.",
+    "examine": [
+      "Application architecture, hosting, and deployment process",
+      "Content and integration requirements",
+      "Performance constraints and ongoing maintenance needs"
+    ],
+    "change": [
+      "Build or improve Next.js applications and integration layers",
+      "Establish reproducible deployment and maintenance workflows",
+      "Use AI-assisted development with human review and verification"
+    ],
+    "deliver": [
+      "Working platform and integration changes",
+      "Deployment and recovery documentation",
+      "An agreed technical operations scope"
+    ]
+  },
+  {
+    "slug": "governance-remediation",
+    "title": "Governance Remediation & Implementation",
+    "short": "Turn findings into working controls.",
+    "summary": "Implement the identity, permissions, lifecycle, logging, and architecture changes identified in a review.",
+    "problem": "A findings document does not change a permission or retire an agent. Remediation needs engineering ownership, a defined scope, and evidence that changes behave as intended.",
+    "examine": [
+      "Assessment findings and affected systems",
+      "Dependencies, accountable owners, and change constraints",
+      "Current configuration and verification evidence"
+    ],
+    "change": [
+      "Apply permission, identity, and data-boundary changes",
+      "Implement approval, inventory, and lifecycle controls",
+      "Update integrations and operating procedures"
+    ],
+    "deliver": [
+      "Implemented changes with verification evidence",
+      "Updated control map and operating documentation",
+      "Remaining risks and a handover plan"
+    ]
+  }
+]

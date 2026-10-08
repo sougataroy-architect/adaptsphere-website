@@ -1,0 +1,4 @@
+# AS logo trial
+
+Flat vector concept inspired by the existing intertwined AS and globe. Header/mobile navigation: forest; footer: ivory. The existing website background stays unchanged. SVG assets: app/public/brand/as-forest-trial.svg and as-ivory-trial.svg. Earlier triangle header and favicon preserved in docs/preservation. This is a reversible identity trial, not an exact tracing or approved final brand master. Generated raster drafts were rejected because they retained glow; they are not used by the application.
+The supplied PNG now replaces the hand-drawn SVG trial. The original PNG is copied byte-for-byte to public/brand/as-supplied.png and src/app/icon.png. Header and menu preserve its actual artwork and proportions; footer uses a CSS white silhouette treatment. No generated replacement is used.

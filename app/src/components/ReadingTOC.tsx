@@ -1,0 +1,1 @@
+export function ReadingTOC({items}:{items:{title:string;id:string}[]}){return <details className="reading-toc" open><summary>On this page</summary><nav aria-label="On this page"><ol>{items.map(x=><li key={x.id}><a href={"#"+x.id}>{x.title}</a></li>)}</ol></nav></details>;}

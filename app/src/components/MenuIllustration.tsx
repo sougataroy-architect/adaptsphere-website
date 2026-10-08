@@ -1,0 +1,15 @@
+import type { ReactNode } from "react";
+const ink="#636b2f",fill="#d4de95",paper="#f6f4ee";
+const cube=(x:number,y:number)=> <g transform={`translate(${x} ${y})`}><path d="M0 9 16 0 32 9 16 18Z" fill={paper}/><path d="M0 9v19l16 9V18Z" fill={fill}/><path d="M16 18v19l16-9V9Z" fill="#bac095"/><path d="m0 9 16 9 16-9M16 18v19"/></g>;
+export function MenuIllustration({href}:{href:string}){
+ let art:ReactNode;
+ if(href.includes("architecture")||href==="/services")art=<><path d="M15 72h70M22 70V49m56 21V43M22 49l28-17 28 11" strokeDasharray="3 4"/>{cube(16,42)}{cube(50,28)}<path d="M50 16v9m-5-5 5 5 5-5"/><circle cx="50" cy="11" r="4" fill={fill}/></>;
+ else if(href.includes("assessment"))art=<><rect x="24" y="18" width="47" height="65" rx="5" fill={paper}/><rect x="36" y="13" width="22" height="11" rx="3" fill={fill}/><path d="m32 36 3 3 5-6m-8 17 3 3 5-6m-8 17 3 3 5-6M46 36h16M46 50h12M46 64h8"/><circle cx="68" cy="66" r="15" fill={fill}/><path d="m79 78 10 11" strokeWidth="4"/><path d="m61 65 5 5 9-10"/></>;
+ else if(href.includes("agent-governance"))art=<><path d="M50 15 77 26v23c0 16-13 28-27 36-14-8-27-20-27-36V26Z" fill={fill}/><rect x="35" y="37" width="30" height="24" rx="7" fill={paper}/><circle cx="43" cy="46" r="2" fill={ink}/><circle cx="57" cy="46" r="2" fill={ink}/><path d="M43 54h14M50 29v8M19 47h-8m78 0h-8M50 87v7"/><circle cx="50" cy="26" r="3" fill={paper}/></>;
+ else if(href==="/microsoft-ai")art=<><rect x="20" y="20" width="25" height="25" rx="3" fill={fill}/><rect x="53" y="20" width="25" height="25" rx="3" fill={paper}/><rect x="20" y="53" width="25" height="25" rx="3" fill={paper}/><rect x="53" y="53" width="25" height="25" rx="3" fill="#bac095"/><path d="M45 32h8M32 45v8M65 45v8M45 65h8"/><circle cx="49" cy="49" r="8" fill={ink}/><path d="m46 49 2 2 4-5" stroke={paper}/></>;
+ else if(href.includes("modernization"))art=<>{cube(8,37)}{cube(60,37)}<path d="M40 45h20m-5-5 5 5-5 5M18 30q32-28 64 0M18 83q32 12 64-2" strokeDasharray="3 4"/><circle cx="50" cy="24" r="5" fill={fill}/></>;
+ else if(href.includes("platform"))art=<><rect x="17" y="19" width="66" height="45" rx="5" fill={paper}/><path d="M17 29h66M36 44l-7 6 7 6m27-12 7 6-7 6m-9-14-7 16M43 64v12m14-12v12M32 77h36"/><circle cx="25" cy="24" r="1" fill={ink}/><circle cx="31" cy="24" r="1" fill={ink}/><path d="m70 74 9-4 9 4v8c0 7-9 12-9 12s-9-5-9-12Z" fill={fill}/><path d="m74 81 4 4 6-8"/></>;
+ else if(href.includes("remediation"))art=<><path d="M23 77 59 41a17 17 0 0 1 19-23l-9 10 3 9 9 3 10-10a17 17 0 0 1-23 20L32 86Z" fill={fill}/><circle cx="29" cy="78" r="4" fill={paper}/><path d="M18 26h28m-14-14v28M51 73h29M65 59v28" strokeDasharray="3 4"/></>;
+ else art=<><rect x="20" y="23" width="60" height="52" rx="8" fill={paper}/><path d="M30 38h40M30 48h29M30 58h35"/><circle cx="74" cy="72" r="14" fill={fill}/><path d="m68 72 4 4 9-9"/></>;
+ return <svg viewBox="0 0 100 100" className="menu-illustration" fill="none" stroke={ink} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><circle cx="50" cy="50" r="43" stroke="#bac095" strokeDasharray="1 6"/>{art}</svg>;
+}

@@ -1,0 +1,5 @@
+import { ArrowRight } from "lucide-react";
+import { ArchitectureExplorer } from "./ArchitectureExplorer";
+export function ArchitectureDiagram({compact=false}:{compact?:boolean}){return <ArchitectureExplorer compact={compact}/>;}
+export function LifecycleDiagram(){return <figure className="lifecycle"><figcaption className="eyebrow">Control follows the full lifecycle</figcaption><ol>{["Request","Approve","Provision","Operate","Review","Transfer","Retire"].map((s,i)=><li key={s}><span>0{i+1}</span><strong>{s}</strong>{i<6&&<ArrowRight size={15} aria-hidden="true"/>}</li>)}</ol></figure>;}
+export function ModernizationFlow(){return <figure className="modernization"><figcaption className="eyebrow">Connect through a deliberate boundary</figcaption><ol>{[["Existing systems","Applications, data, and business rules"],["Governed interfaces","Validated APIs and access decisions"],["AI functionality","Approved retrieval and actions"]].map(([t,d])=><li key={t}><strong>{t}</strong><p>{d}</p></li>)}</ol></figure>;}

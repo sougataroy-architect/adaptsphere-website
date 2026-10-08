@@ -1,0 +1,10 @@
+import { ServiceAnswers } from "@/components/ServiceAnswers";
+import { notFound } from "next/navigation";
+import { services } from "@/content/services";
+import { PageHeader,Section,Container,CTASection,Eyebrow } from "@/components/UI";
+import { pageMeta } from "@/lib/metadata";
+import { site } from "@/lib/site";
+import { JsonLd } from "@/components/JsonLd";
+export function generateStaticParams(){return services.filter(s=>s.slug!=="microsoft-ai-governance").map(s=>({slug:s.slug}));}
+export async function generateMetadata({params}:{params:Promise<{slug:string}>}){const {slug}=await params;const s=services.find(x=>x.slug===slug);if(!s)notFound();return pageMeta(s.title,s.summary,"/services/"+slug);}
+export default async function Page({params}:{params:Promise<{slug:string}>}){const {slug}=await params;const s=services.find(x=>x.slug===slug&&x.slug!=="microsoft-ai-governance");if(!s)notFound();return <><PageHeader label="Engagement" title={s.title} text={s.summary} path={"/services/"+slug}/><Section><Container><div className="feature-grid"><div><Eyebrow>The starting point</Eyebrow><h2>{s.short}</h2></div><p className="large-copy">{s.problem}</p></div><div className="deliver-grid">{[["What we examine",s.examine],["What we change",s.change],["What you receive",s.deliver]].map(([label,list])=><article key={String(label)}><h3>{String(label)}</h3><ul>{(list as string[]).map(x=><li key={x}>{x}</li>)}</ul></article>)}</div><div className="callout"><strong>Defined scope. Clear boundaries.</strong><p>Delivery depends on your systems, access, licensing, and agreed scope. Findings are not a certification of compliance, and a service description is not a guarantee of a particular outcome.</p></div><ServiceAnswers service={s}/></Container></Section><JsonLd data={{"@context":"https://schema.org","@type":"Service","@id":site.url+"/services/"+slug+"#service",name:s.title,serviceType:s.title,description:s.summary,url:site.url+"/services/"+slug,provider:{"@id":site.url+"/#organization"}}}/><CTASection/></>;}

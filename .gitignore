@@ -1,0 +1,15 @@
+node_modules/
+.next/
+*.tsbuildinfo
+.env*
+playwright-report/
+test-results/
+*.log
+
+.playwright-cli/
+
+# Local evidence and historical source backups
+app/output/
+docs/preservation/
+.vercel/
+.DS_Store
