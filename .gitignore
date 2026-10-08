@@ -10,6 +10,8 @@ test-results/
 
 # Local evidence and historical source backups
 app/output/
-docs/preservation/
+docs/preservation/*
+!docs/preservation/wordpress-url-inventory.json
 .vercel/
 .DS_Store
+
