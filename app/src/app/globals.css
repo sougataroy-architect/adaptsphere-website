@@ -75,7 +75,7 @@
 .dark-band .manifesto>p:not(.eyebrow){color:var(--soft)}.site-footer .footer-description,.site-footer .footer-disclaimer,.site-footer .footer-bottom p{color:var(--soft)}
 
 /* Shared type scale: equivalent roles stay equal across every section. */
-:root{--type-section:clamp(42px,5vw,64px);--type-title:32px;--type-body:18px;--type-link:16px;--type-detail:14px;--type-meta:12px}
+:root{--type-section:clamp(42px,5vw,64px);--type-title:32px;--type-body:20px;--type-link:18px;--type-detail:18px;--type-meta:14px}
 .section-heading h2,.feature-grid>div>h2,.manifesto h2,.finder-intro h2,.cta h2{font-size:var(--type-section);line-height:1.08;letter-spacing:-.025em}
 .section-heading>p:not(.eyebrow),.feature-grid>div>p:not(.eyebrow),.manifesto>p:not(.eyebrow),.finder-intro>p:not(.eyebrow),.finder-intro .finder-privacy,.cta p:not(.eyebrow),.hero-copy>p:not(.eyebrow):not(.hero-footnote){font-size:var(--type-body);line-height:1.7}
 .text-link,.feature-grid .text-link,.finder-intro .text-link,.finder-result .text-link,.button,.service-scene .button{font-size:var(--type-link);font-weight:600;line-height:1.5}
@@ -96,10 +96,21 @@
 /* Recolor the supplied alpha silhouette without redrawing the logo. */
 .wordmark .brand-gradient{display:inline-block;flex-shrink:0;background:linear-gradient(45deg,#2f6f58 15%,#52745b 52%,#8fa77b 88%);mask-image:url('/brand/as-supplied.png');mask-size:contain;mask-position:center;mask-repeat:no-repeat;-webkit-mask-image:url('/brand/as-supplied.png');-webkit-mask-size:contain;-webkit-mask-position:center;-webkit-mask-repeat:no-repeat}
 
+/* Readable supporting text on every screen, including interactive boards. */
+.wordmark .wordmark-sub{font-size:16px;line-height:1.3;letter-spacing:.08em;margin-top:6px}
+.architecture-board figcaption,.board-ref,.board-intent>span,.node-index,.control-panels dt,.board-caption,.breadcrumbs,.article-meta,.finder-progress li,.service-scene h4,.finder-result h4,.footer-grid nav h3{font-size:var(--type-meta);line-height:1.6}
+.architecture-nodes strong,.control-panels h3{font-size:22px;line-height:1.4}
+.node-description,.architecture-nodes p,.control-panels p,.control-panels dd,.control-list.control-disclosures p,.mega-description,.explorer-instruction,.explorer-hint,.small-note,.finder-result .small-note{font-size:var(--type-detail);line-height:1.65}
+.problem-grid p,.process-grid p,.delivery-steps p,.service-answers p,.service-answers li,.finder-result>p:not(.eyebrow){font-size:var(--type-body);line-height:1.7}
+.finder-options strong,.finder-actions .button,.finder-back,.finder-reset,.mega-overview,.conversation-later,.site-footer .footer-grid a.footer-link,.site-footer .footer-grid .footer-email,.mobile-sheet nav a{font-size:var(--type-link)}
+.site-footer .footer-bottom p,.footer-bottom nav{font-size:16px}
+.hero-copy .hero-footnote,.conversation-copy .conversation-note,.site-footer .footer-disclaimer{font-size:16px!important}
+
 /* A readable phone scale shared by content, controls, and footer. */
 @media (width < 768px) {
   :root { --type-body:19px; --type-detail:17px; --type-link:18px; --type-meta:13px; }
   body { font-size:18px; }
+  .wordmark .wordmark-sub { font-size:14px; }
   .problem-grid p,.process-grid p,.delivery-steps p,.service-answers p,.service-answers li,.finder-result>p:not(.eyebrow),.conversation-copy>p:not(.eyebrow),.site-footer .footer-grid p,.site-footer .footer-description { font-size:var(--type-body); line-height:1.7; }
   .node-description,.architecture-nodes p,.control-panels p,.control-panels dd,.control-list.control-disclosures p,.mega-description,.explorer-instruction { font-size:var(--type-detail); line-height:1.65; }
   .finder-options strong,.finder-actions .button,.finder-back,.finder-reset,.mega-overview,.conversation-action,.conversation-later,.footer-invitation .popup-trigger,.site-footer .footer-grid a.footer-link,.site-footer .footer-grid .footer-email,.mobile-sheet nav a { font-size:var(--type-link); }
