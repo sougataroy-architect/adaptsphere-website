@@ -117,3 +117,5 @@
   .small-note,.finder-progress li,.explorer-hint,.service-scene h4,.finder-result h4,.footer-grid nav h3,.site-footer .footer-bottom p,.footer-bottom nav { font-size:15px; }
   .hero-copy .hero-footnote,.conversation-copy .conversation-note,.site-footer .footer-disclaimer { font-size:15px!important; }
 }
+
+.wordmark .brand-trademark{font-family:var(--font-ui);font-size:14px;font-weight:500;letter-spacing:0;line-height:0;vertical-align:super;margin-left:3px}
