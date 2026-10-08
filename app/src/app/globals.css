@@ -95,3 +95,14 @@
 
 /* Recolor the supplied alpha silhouette without redrawing the logo. */
 .wordmark .brand-gradient{display:inline-block;flex-shrink:0;background:linear-gradient(45deg,#2f6f58 15%,#52745b 52%,#8fa77b 88%);mask-image:url('/brand/as-supplied.png');mask-size:contain;mask-position:center;mask-repeat:no-repeat;-webkit-mask-image:url('/brand/as-supplied.png');-webkit-mask-size:contain;-webkit-mask-position:center;-webkit-mask-repeat:no-repeat}
+
+/* A readable phone scale shared by content, controls, and footer. */
+@media (width < 768px) {
+  :root { --type-body:19px; --type-detail:17px; --type-link:18px; --type-meta:13px; }
+  body { font-size:18px; }
+  .problem-grid p,.process-grid p,.delivery-steps p,.service-answers p,.service-answers li,.finder-result>p:not(.eyebrow),.conversation-copy>p:not(.eyebrow),.site-footer .footer-grid p,.site-footer .footer-description { font-size:var(--type-body); line-height:1.7; }
+  .node-description,.architecture-nodes p,.control-panels p,.control-panels dd,.control-list.control-disclosures p,.mega-description,.explorer-instruction { font-size:var(--type-detail); line-height:1.65; }
+  .finder-options strong,.finder-actions .button,.finder-back,.finder-reset,.mega-overview,.conversation-action,.conversation-later,.footer-invitation .popup-trigger,.site-footer .footer-grid a.footer-link,.site-footer .footer-grid .footer-email,.mobile-sheet nav a { font-size:var(--type-link); }
+  .small-note,.finder-progress li,.explorer-hint,.service-scene h4,.finder-result h4,.footer-grid nav h3,.site-footer .footer-bottom p,.footer-bottom nav { font-size:15px; }
+  .hero-copy .hero-footnote,.conversation-copy .conversation-note,.site-footer .footer-disclaimer { font-size:15px!important; }
+}
