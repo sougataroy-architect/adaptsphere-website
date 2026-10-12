@@ -3,9 +3,9 @@ import { useId, useState } from "react";
 import { WorkflowScene } from "./WorkflowScene";
 import { Search, Lightbulb, Wrench, ArrowRight } from "lucide-react";
 const steps = [
-  { icon: Search, title: "Review your systems", detail: "Workflows, applications, and data", heading: "Understand the work before choosing AI.", description: "Map how work gets done, where time is lost, and which systems and data are involved.", evidence: "A current-state map and agreed business problem." },
-  { icon: Lightbulb, title: "Identify useful AI opportunities", detail: "Value, feasibility, and risk", heading: "Choose a use case worth implementing.", description: "Compare the potential benefit with data readiness, integration effort, and risk. Define how the team will evaluate the solution.", evidence: "A prioritized use case, implementation scope, and evaluation criteria." },
-  { icon: Wrench, title: "Build, integrate, and verify", detail: "Working software and operational handover", heading: "Put the solution into the existing workflow.", description: "Build the integrations, test task performance and failure cases, and prepare deployment and handover.", evidence: "Working integrations, test evidence, and operating responsibilities." }
+  { icon: Search, title: "Review your systems", detail: "Workflows, applications, and data", heading: "Understand the work before choosing AI.", description: "Map how work gets done, where time is lost, and which systems and data are involved.", evidence: "A map of your existing systems and an agreed business problem." },
+  { icon: Lightbulb, title: "Identify useful AI opportunities", detail: "Value, feasibility, and risk", heading: "Choose a use case worth implementing.", description: "Compare the potential benefit with the information available, the effort to connect systems, and the risks. Agree on how the team will test the solution.", evidence: "A priority use case, an agreed build plan, and measures for testing it." },
+  { icon: Wrench, title: "Build, integrate, and verify", detail: "Working software your team can maintain", heading: "Put the solution into the existing workflow.", description: "Build the integrations, test task performance and failure cases, and prepare deployment and handover.", evidence: "Working system connections, test results, and clear responsibilities." }
 ];
 export function DeliveryExplorer() {
   const [active, setActive] = useState(0);

@@ -19,7 +19,7 @@
       },
       {
         "title": "Plan for ownership to change",
-        "text": "Assign a review cadence and a retirement path. When a sponsor leaves or the workflow changes, someone must decide whether the agent still needs its access. Useful autonomy requires an authority model that can change."
+        "text": "Decide how often to review access and when to remove it. When a sponsor leaves or the workflow changes, someone must decide whether the agent still needs its permissions. The rules for acting independently must be able to change."
       }
     ]
   },
@@ -35,7 +35,7 @@
       },
       {
         "title": "Expose a deliberate interface",
-        "text": "An API can make approved actions explicit, validate input, enforce authorization, and produce an audit trail. Modernization can begin with a narrow interface around a useful workflow rather than a replacement of the entire application."
+        "text": "An API, an interface for exchanging information between systems, can define approved actions, check incoming information and permissions, and record what happened. Improving an older application can begin with one workflow and its connection to AI."
       },
       {
         "title": "Preserve the business rules",
@@ -54,8 +54,8 @@
     "summary": "Translate policy into identities, permissions, reviews, and evidence.",
     "sections": [
       {
-        "title": "Give the policy an implementation address",
-        "text": "For each requirement, identify the system, configuration, process, and accountable owner that enforce it. A rule about data access should point to an actual authorization boundary. A rule about approval should identify the decision and the person responsible."
+        "title": "Turn each policy requirement into a system setting or procedure",
+        "text": "For each requirement, name the system, setting, process, and owner that put it into practice. A rule about information access should identify where permissions are enforced. A rule about approval should name the decision and the person responsible."
       },
       {
         "title": "Separate configuration from operation",

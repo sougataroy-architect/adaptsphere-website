@@ -3,12 +3,12 @@
     "slug": "governed-ai-architecture",
     "title": "Governed AI Architecture & Implementation",
     "short": "Architecture that can be operated.",
-    "summary": "Design and implement AI agents and integrations with approved data access, action permissions, and an operational handover.",
+    "summary": "Design and build AI agents, tools that carry out tasks, and connect them to your systems. Define access, approvals, and how your team will maintain them.",
     "problem": "An AI pilot can work in isolation and still fail when it reaches production systems. Access, integration, data boundaries, and ownership need to be designed together.",
     "examine": [
       "Applications, workflows, data sources, and existing AI usage",
       "User, application, and agent identities",
-      "Integration constraints and operational responsibilities"
+      "Limits on connecting systems and responsibilities for running them"
     ],
     "change": [
       "Define target architecture and approved agent actions",
@@ -16,31 +16,31 @@
       "Implement access controls, approval points, and operating records"
     ],
     "deliver": [
-      "Current-state system map and target architecture",
-      "An agreed implementation scope with control requirements",
-      "Working integrations, verification evidence, and operational handover"
+      "A map of existing systems and the proposed solution design",
+      "An agreed build plan with access rules and safeguards",
+      "Working system connections, test results, and maintenance instructions"
     ]
   },
   {
     "slug": "ai-governance-assessment",
     "title": "AI Governance Assessment",
     "short": "Find the gaps before they spread.",
-    "summary": "Map deployed AI tools, permissions, and owners. Receive prioritized findings and a technical remediation scope.",
-    "problem": "Policies can describe an intended state without explaining what deployed systems can actually do. An assessment connects governance expectations to technical reality.",
+    "summary": "Review the AI tools you use, their access, and who is responsible. Receive prioritized findings and an agreed plan for technical fixes.",
+    "problem": "Your AI policies may not match what the tools in use can actually access or do. An assessment checks the settings and responsibilities against your requirements.",
     "examine": [
       "AI tools, agents, permissions, and data reach",
-      "Owners, deployment approvals, logging, and review cadence",
+      "Owners, approvals for putting AI into use, activity records, and review schedules",
       "Existing policies and how they map to configured controls"
     ],
     "change": [
       "Identify gaps and separate immediate risks from longer-term changes",
-      "Map accountable owners to remediation decisions",
+      "Name the people responsible for deciding which fixes to make",
       "Define a practical implementation scope"
     ],
     "deliver": [
-      "Executive findings and prioritized gaps",
-      "Technical control map with supporting observations",
-      "Remediation priorities and next-step scope"
+      "Findings for company leaders, with the most important issues first",
+      "A map of technical safeguards and the observations behind each finding",
+      "Priorities for fixes and an agreed next step"
     ]
   },
   {
@@ -48,29 +48,29 @@
     "title": "Agent Governance & Authorization",
     "short": "Give every agent a boundary.",
     "summary": "Specify what each AI agent can read or change, where approval is required, and how its access is reviewed and revoked.",
-    "problem": "An agent that can retrieve data or take actions becomes part of the operating environment. Its authority must be explicit, reviewable, and removable.",
+    "problem": "An AI agent can find information or use tools to carry out tasks. You need to know what it is allowed to do, review its access, and remove that access when needed.",
     "examine": [
       "Identity and authentication paths for each agent",
       "Tool permissions, delegated access, and resource boundaries",
       "Owner, sponsor, approvals, monitoring, and retirement"
     ],
     "change": [
-      "Define least-privilege resource and action permissions",
-      "Place review gates around consequential actions",
+      "Limit access and actions to what the agent needs for its task",
+      "Require review before consequential actions",
       "Connect access reviews, ownership changes, and offboarding"
     ],
     "deliver": [
-      "Agent operating record and authorization map",
-      "Configured controls and verification scenarios",
-      "Lifecycle and access-review responsibilities"
+      "A record of each agent, its owner, and its approved access and actions",
+      "Configured safeguards and test cases",
+      "Responsibilities for reviewing, changing, and removing agent access"
     ]
   },
   {
     "slug": "microsoft-ai-governance",
     "title": "Microsoft AI Governance",
     "short": "Connect the Microsoft control layers.",
-    "summary": "Review Copilot and agent deployments against Entra identities, source permissions, Purview controls, and Power Platform environments.",
-    "problem": "Microsoft AI capabilities span products and control planes. A setting in one layer does not automatically establish a complete governance model across the environment.",
+    "summary": "Review how your team uses Copilot and AI agents. Check identities, information access, data protection, and Power Platform settings.",
+    "problem": "Microsoft AI uses settings across several products. Your team needs to understand how those settings work together to control access, protect information, and assign responsibility.",
     "examine": [
       "Microsoft 365 Copilot and Copilot Studio usage",
       "Entra identities, resource access, and agent lifecycle",
@@ -82,30 +82,30 @@
       "Implement and verify the agreed tenant-specific changes"
     ],
     "deliver": [
-      "Microsoft AI environment and control map",
+      "A map of your Microsoft AI setup and its safeguards",
       "Prioritized configuration and implementation work",
-      "Ownership, review, and evidence requirements"
+      "Named owners, review requirements, and records to keep"
     ]
   },
   {
     "slug": "ai-integration-modernization",
     "title": "AI Integration & Legacy Modernization",
     "short": "Make existing systems AI-ready.",
-    "summary": "Connect AI to legacy applications through APIs, controlled data access, and workflows with approval and failure handling.",
-    "problem": "The most useful enterprise data often lives behind older applications and fragmented workflows. Connecting an agent directly to it can create uncontrolled access and brittle operations.",
+    "summary": "Connect AI to older applications through APIs, interfaces that exchange information. Define access, approval steps, and how to handle failures.",
+    "problem": "Useful business information often sits in older applications and disconnected processes. Connecting AI directly to that information can bypass access rules and make failures harder to handle.",
     "examine": [
       "Legacy application interfaces and integration dependencies",
       "Data access patterns, authorization, and failure handling",
       "Hosting, deployment, maintenance, and migration constraints"
     ],
     "change": [
-      "Create governed API and data access boundaries",
-      "Refactor integration points and modernize selected application layers",
-      "Connect AI functionality with approval and exception handling"
+      "Create APIs with clear rules for information access and permitted actions",
+      "Improve system connections and selected parts of older applications",
+      "Connect AI features with approval steps and a process for handling unexpected results"
     ],
     "deliver": [
       "Integration and modernization plan",
-      "Tested interfaces and workflow implementation",
+      "Tested system connections and working workflows",
       "Migration, recovery, and maintenance guidance"
     ]
   },
@@ -113,7 +113,7 @@
     "slug": "platform-engineering",
     "title": "Platform Engineering & Technical Operations",
     "short": "Build it. Deploy it. Keep it usable.",
-    "summary": "Build and maintain Next.js platforms, integrations, and deployment pipelines with documented recovery and maintenance procedures.",
+    "summary": "Build and maintain Next.js websites and applications, their system connections, and release processes. Document how to maintain and recover them.",
     "problem": "A platform needs more than a launch. Deployment, content architecture, integrations, maintenance, and recovery must remain understandable as the system changes.",
     "examine": [
       "Application architecture, hosting, and deployment process",
@@ -135,8 +135,8 @@
     "slug": "governance-remediation",
     "title": "Governance Remediation & Implementation",
     "short": "Turn findings into working controls.",
-    "summary": "Apply the permissions, identity, logging, and lifecycle changes identified in an assessment. Verify the changes and document remaining risks.",
-    "problem": "A findings document does not change a permission or retire an agent. Remediation needs engineering ownership, a defined scope, and evidence that changes behave as intended.",
+    "summary": "Fix the access, identity, activity records, and ongoing management issues found in an assessment. Test the changes and document remaining risks.",
+    "problem": "An assessment may identify problems your team still needs to fix. Agree on who will make the changes, what the work includes, and how to test that the fixes work.",
     "examine": [
       "Assessment findings and affected systems",
       "Dependencies, accountable owners, and change constraints",
@@ -148,8 +148,8 @@
       "Update integrations and operating procedures"
     ],
     "deliver": [
-      "Implemented changes with verification evidence",
-      "Updated control map and operating documentation",
+      "Completed changes and test results",
+      "An updated map of safeguards and instructions for running the system",
       "Remaining risks and a handover plan"
     ]
   }
