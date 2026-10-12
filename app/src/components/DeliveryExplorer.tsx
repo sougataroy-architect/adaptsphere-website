@@ -13,7 +13,7 @@ export function DeliveryExplorer() {
   const step = steps[active];
   return <figure className="architecture-board interactive-board delivery-board">
     <figcaption><span className="signal-dot"/>HOW WE HELP</figcaption>
-    <div className="delivery-art" key={active}><WorkflowScene variant={active}/><span className="scene-example">Illustrative workflow</span></div>
+    <p className="explorer-hint">Choose a step to see how we help and what you receive.</p>
     <ol className="architecture-nodes">{steps.map(({icon: Icon, title, detail}, i) => <li key={title} className={active === i ? "node-selected" : ""}>
       <button type="button" id={`${id}-step-${i}`} aria-expanded={active === i} aria-controls={`${id}-panel`} onClick={() => setActive(i)}>
         <span className="node-icon"><Icon size={20} aria-hidden="true"/></span>
@@ -21,6 +21,7 @@ export function DeliveryExplorer() {
         <ArrowRight size={15} aria-hidden="true"/>
       </button>
     </li>)}</ol>
+    <div className="delivery-art" key={active}><WorkflowScene variant={active}/><span className="scene-example">Illustrative workflow</span></div>
     <div className="control-panels"><section id={`${id}-panel`} aria-labelledby={`${id}-step-${active}`}>
       <h3>{step.heading}</h3><p>{step.description}</p><dl><div><dt>What you receive</dt><dd>{step.evidence}</dd></div></dl>
     </section></div>
