@@ -2,30 +2,31 @@
   {
     "slug": "governed-ai-architecture",
     "title": "Governed AI Architecture & Implementation",
-    "short": "Architecture that can be operated.",
-    "summary": "Design and build AI agents, tools that carry out tasks, and connect them to your systems. Define access, approvals, and how your team will maintain them.",
-    "problem": "An AI pilot can work in isolation and still fail when it reaches production systems. Access, integration, data boundaries, and ownership need to be designed together.",
+    "short": "Build the access path along with the agent.",
+    "summary": "Design and build an AI agent for an agreed task. Record its approved purpose, scope, accountable owner, and review conditions, then configure and test the system controls.",
+    "problem": "A demonstration can succeed while leaving unanswered who approved the agent’s purpose, what it is prohibited from doing, and when its authority must be reviewed.",
     "examine": [
       "Applications, workflows, data sources, and existing AI usage",
       "User, application, and agent identities",
       "Limits on connecting systems and responsibilities for running them"
     ],
     "change": [
-      "Define target architecture and approved agent actions",
-      "Modernize interfaces and integrate models, tools, and data",
-      "Implement access controls, approval points, and operating records"
+      "Record the agent’s purpose, permitted actions, prohibitions, accountable owner, and review triggers",
+      "Map each agent identity to its permitted resources and actions",
+      "Connect models and tools through interfaces with explicit authorization and failure handling",
+      "Configure approval points, activity records, and ownership procedures"
     ],
     "deliver": [
-      "A map of existing systems and the proposed solution design",
-      "An agreed build plan with access rules and safeguards",
-      "Working system connections, test results, and maintenance instructions"
+      "A system map and design showing identity, data, and tool paths",
+      "An authorization record and build plan with approved actions, prohibitions, approval points, owner, and dependencies",
+      "Working integrations, results from allowed and blocked action tests, and operating instructions"
     ]
   },
   {
     "slug": "ai-governance-assessment",
     "title": "AI Governance Assessment",
-    "short": "Find the gaps before they spread.",
-    "summary": "Review the AI tools you use, their access, and who is responsible. Receive prioritized findings and an agreed plan for technical fixes.",
+    "short": "Compare configured access with intended use.",
+    "summary": "Review AI tools and agents against their actual permissions, connected data, owners, release practices, and activity records. Receive prioritized findings and a technical remediation plan.",
     "problem": "Your AI policies may not match what the tools in use can actually access or do. An assessment checks the settings and responsibilities against your requirements.",
     "examine": [
       "AI tools, agents, permissions, and data reach",
@@ -46,13 +47,13 @@
   {
     "slug": "agent-governance",
     "title": "Agent Governance & Authorization",
-    "short": "Give every agent a boundary.",
-    "summary": "Specify what each AI agent can read or change, where approval is required, and how its access is reviewed and revoked.",
+    "short": "Record identity, authority, and how access ends.",
+    "summary": "Record each agent’s approved purpose, permitted and prohibited actions, accountable owner, identity, approval conditions, and review triggers. Map that decision to delegated or application access and a tested removal process.",
     "problem": "An AI agent can find information or use tools to carry out tasks. You need to know what it is allowed to do, review its access, and remove that access when needed.",
     "examine": [
       "Identity and authentication paths for each agent",
       "Tool permissions, delegated access, and resource boundaries",
-      "Owner, sponsor, approvals, monitoring, and retirement"
+      "Named decision authority, accountable owner, approval conditions, review triggers, and retirement"
     ],
     "change": [
       "Limit access and actions to what the agent needs for its task",
@@ -60,7 +61,7 @@
       "Connect access reviews, ownership changes, and offboarding"
     ],
     "deliver": [
-      "A record of each agent, its owner, and its approved access and actions",
+      "A signed or approved record of each agent’s purpose, scope, prohibitions, decision authority, and review conditions",
       "Configured safeguards and test cases",
       "Responsibilities for reviewing, changing, and removing agent access"
     ]
@@ -68,30 +69,30 @@
   {
     "slug": "microsoft-ai-governance",
     "title": "Microsoft AI Governance",
-    "short": "Connect the Microsoft control layers.",
-    "summary": "Review how your team uses Copilot and AI agents. Check identities, information access, data protection, and Power Platform settings.",
-    "problem": "Microsoft AI uses settings across several products. Your team needs to understand how those settings work together to control access, protect information, and assign responsibility.",
+    "short": "Trace permissions from content to agent action.",
+    "summary": "Trace a defined workload through Copilot content permissions, Copilot Studio authentication, Entra agent identity, Purview evidence, and Power Platform environments. Record the organizational authorization separately from product configuration.",
+    "problem": "Microsoft controls can configure and record access, but they do not decide an agent’s business purpose, prohibited actions, approving authority, or review conditions for your organization.",
     "examine": [
-      "Microsoft 365 Copilot and Copilot Studio usage",
-      "Entra identities, resource access, and agent lifecycle",
-      "Purview controls, Power Platform environments, and integration paths"
+      "SharePoint and OneDrive permissions, Copilot discovery, labels, and source data",
+      "Copilot Studio authentication choices, connectors, makers, and environment policies",
+      "Entra agent identity, Purview records, Power Platform boundaries, and the organizational authorization decision"
     ],
     "change": [
-      "Map relevant controls to actual workloads and licensing",
-      "Review source permissions and environment boundaries",
-      "Implement and verify the agreed tenant-specific changes"
+      "Map approved purpose, owner, prohibitions, review conditions, and external effects to the Microsoft configuration",
+      "Review source permissions, credential context, connectors, and environment boundaries",
+      "Implement agreed tenant-specific changes and test authorized and denied actions"
     ],
     "deliver": [
-      "A map of your Microsoft AI setup and its safeguards",
-      "Prioritized configuration and implementation work",
-      "Named owners, review requirements, and records to keep"
+      "A workload map connecting organizational authorization to Microsoft identities, data, tools, and evidence",
+      "Prioritized configuration changes and verification results",
+      "An authorization record with named approval and operating owners, review conditions, and records to retain"
     ]
   },
   {
     "slug": "ai-integration-modernization",
     "title": "AI Integration & Legacy Modernization",
-    "short": "Make existing systems AI-ready.",
-    "summary": "Connect AI to older applications through APIs, interfaces that exchange information. Define access, approval steps, and how to handle failures.",
+    "short": "Expose approved business actions through a controlled interface.",
+    "summary": "Connect AI to older applications through APIs that check identity and permissions, expose approved operations, record activity, and handle failures.",
     "problem": "Useful business information often sits in older applications and disconnected processes. Connecting AI directly to that information can bypass access rules and make failures harder to handle.",
     "examine": [
       "Legacy application interfaces and integration dependencies",
@@ -112,8 +113,8 @@
   {
     "slug": "platform-engineering",
     "title": "Platform Engineering & Technical Operations",
-    "short": "Build it. Deploy it. Keep it usable.",
-    "summary": "Build and maintain Next.js websites and applications, their system connections, and release processes. Document how to maintain and recover them.",
+    "short": "Keep the application and release path maintainable.",
+    "summary": "Build and maintain Next.js applications, integrations, and release processes. Document deployment, routine operations, and recovery so the platform can be handed over clearly.",
     "problem": "A platform needs more than a launch. Deployment, content architecture, integrations, maintenance, and recovery must remain understandable as the system changes.",
     "examine": [
       "Application architecture, hosting, and deployment process",

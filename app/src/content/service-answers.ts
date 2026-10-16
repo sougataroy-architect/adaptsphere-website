@@ -1,19 +1,19 @@
 export const serviceAnswers:Record<string,{question:string;answer:string}>={
   "governed-ai-architecture": {
     "question": "What does governed AI implementation include?",
-    "answer": "We design and build AI for an agreed business task and plan how your team will run it. Work can include agent identities, information access, APIs that connect systems, approval steps, failure handling, activity records, and ownership. We build safeguards into the connections and test both allowed and blocked actions."
+    "answer": "We document the agent’s approved purpose, scope, prohibitions, accountable owner, and review conditions, then map the identity, data, and tool paths for the task. Implementation can include delegated or application access, API authorization, approval steps, failure handling, and activity records. We test whether the configured controls enforce the recorded decision."
   },
   "ai-governance-assessment": {
     "question": "What does an AI governance assessment review?",
-    "answer": "We review how your organization uses AI and what its tools are allowed to do. We examine applications and agents, connected information, permissions, owners, release processes, and activity records. You receive prioritized findings tied to specific systems, with a clear plan for technical fixes."
+    "answer": "We inspect how AI tools and agents are configured: which systems and information they reach, which identities and credentials they use, who owns them, and what activity is recorded. Findings identify the affected systems and evidence, then prioritize technical fixes."
   },
   "agent-governance": {
     "question": "How is agent governance different from a policy document?",
-    "answer": "Agent governance defines what an AI agent is allowed to do and who is responsible. It connects its identity to approved actions, information access, review steps, and a plan for removing access. We identify the settings, system connections, and procedures that put your policy into practice."
+    "answer": "Agent governance records the business decision behind the configuration: the agent’s purpose, permitted scope, prohibitions, approving authority, accountable owner, and review conditions. The record connects that decision to identity, tool permissions, approval steps, tests, and a process for suspending or removing access when circumstances change."
   },
   "microsoft-ai-governance": {
     "question": "What does Microsoft AI governance cover?",
-    "answer": "We review the planned business task and your organization’s Microsoft setup. We check how identities, information access, agent actions, environment settings, data protection, and activity records work together. The relevant safeguards depend on your products, licenses, setup, and how the solution is deployed."
+    "answer": "We trace the planned task through Microsoft 365 content permissions, Copilot Studio authentication and connectors, Entra identity, Power Platform environments, and relevant Purview controls. Applicable safeguards depend on your tenant configuration, licenses, and deployment model."
   },
   "ai-integration-modernization": {
     "question": "Why modernize before connecting AI to legacy systems?",

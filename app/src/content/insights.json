@@ -1,9 +1,49 @@
 [
   {
+    "slug": "authorize-the-schedule-that-runs-the-agent",
+    "title": "The agent has an owner. Does its schedule?",
+    "category": "Agent authorization",
+    "summary": "A trigger can keep acting after its original decision-maker leaves. Record who approved unattended runs, why they exist, and when they must be reviewed.",
+    "sections": [
+      {
+        "title": "A run record answers only part of the question",
+        "text": "A system may record a trigger, an action, and each run. Those records help reconstruct activity. They do not necessarily identify who approved the recurring run, the business purpose it serves, or when the organization should reconsider it."
+      },
+      {
+        "title": "Treat the trigger as part of the authority",
+        "text": "Add unattended schedules and event triggers to the authorization record. Name the person accountable for the runs, state the business reason, define the permitted effect, and set a review date or change condition."
+      },
+      {
+        "title": "Connect offboarding to active triggers",
+        "text": "When an owner leaves or changes role, identify the schedules and event triggers they approved. Suspend a trigger until a new accountable owner reviews and accepts it. A reassigned agent does not by itself show that the new owner approved every recurring action."
+      }
+    ]
+  },
+  {
+    "slug": "authorize-the-agent-chain",
+    "title": "Authorize the chain, not just its parts.",
+    "category": "Multi-agent governance",
+    "summary": "Individual agent permissions do not describe what an orchestration may decide or change as a whole. Define the combined scope and trace each delegation.",
+    "sections": [
+      {
+        "title": "The outcome belongs to the composition",
+        "text": "In an orchestration, one agent may retrieve information, another may decide what to do, and a later agent may change a record or contact someone. Reviewing each component separately can leave the combined outcome outside any one agent’s approved scope."
+      },
+      {
+        "title": "Record the chain's authority",
+        "text": "Identify who initiated the workflow and for what purpose, who approved the composition, which agents act at each delegation step, and what external changes the chain may produce. Name the accountable owner for the combined outcome."
+      },
+      {
+        "title": "Test the handoffs and the final effect",
+        "text": "Verify that each handoff carries only the authority needed for the next step. Test denied tools, changed inputs, missing agents, and actions outside the chain’s approved effect. Retain evidence for the full sequence, not only the final agent call."
+      }
+    ]
+  },
+  {
     "slug": "agent-authorization-before-autonomy",
     "title": "Authorization comes before autonomy.",
     "category": "Agent governance",
-    "summary": "Five questions to answer before an agent can act on enterprise systems.",
+    "summary": "Map agent identity, delegated or application permissions, tool access, denied-action tests, and the process for removing access.",
     "sections": [
       {
         "title": "Start with the action, not the model",
@@ -27,7 +67,7 @@
     "slug": "modernization-is-an-ai-control",
     "title": "Modernization is also an AI control.",
     "category": "Architecture",
-    "summary": "Why an integration boundary matters more than a direct connection to a legacy database.",
+    "summary": "How an API can enforce approved operations, preserve application rules, and handle failures when AI reaches a legacy system.",
     "sections": [
       {
         "title": "A connection is not an integration design",
@@ -51,7 +91,7 @@
     "slug": "governance-that-survives-deployment",
     "title": "Governance that survives deployment.",
     "category": "Operating models",
-    "summary": "Translate policy into identities, permissions, reviews, and evidence.",
+    "summary": "Connect each AI policy requirement to the system setting, operating procedure, owner, and record that put it into effect.",
     "sections": [
       {
         "title": "Turn each policy requirement into a system setting or procedure",
