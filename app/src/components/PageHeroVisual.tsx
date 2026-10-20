@@ -1,11 +1,12 @@
 import type { ReactNode } from "react";
+import styles from "./PageHeroVisual.module.css";
 
 type ArtProps = { children: ReactNode; title: string };
 type ArtKind = "services" | "governance" | "microsoft" | "delivery" | "insights" | "architecture" | "assessment" | "agent-service" | "modernization" | "modernization-article" | "platform" | "remediation" | "schedule" | "chain" | "authorization" | "operating" | "privacy" | "terms" | "accessibility" | "not-found" | "about" | "contact";
 type Scene = { label: string; note: string; kind: ArtKind };
 
 function Art({ children, title }: ArtProps) {
-  return <svg className="page-hero-artwork" viewBox="0 0 520 300" role="img" aria-label={title}>{children}</svg>;
+  return <svg className={`page-hero-artwork ${styles.artwork}`} viewBox="0 0 520 300" role="img" aria-label={title}>{children}</svg>;
 }
 
 function DiagramLabel({ x, y, children, size = 20, color = "#26332e", weight = 600, anchor = "middle" }: { x: number; y: number; children: ReactNode; size?: number; color?: string; weight?: number; anchor?: "start" | "middle" | "end" }) {
@@ -40,11 +41,11 @@ function ServicesArt() {
 }
 
 function GovernanceArt() {
-  return <Art title="Four parts of an agent authorization record: purpose and scope, allowed actions, accountable owner, and review evidence">
+  return <Art title="Four parts of an agent authorization record: purpose and scope, allowed actions, business sponsor, and review evidence">
     {[
       { x: 31, y: 38, fill: "#e2edf1", stroke: "#577f90", text: "#31586b", label: ["Purpose +", "scope"], icon: "document" },
       { x: 265, y: 38, fill: "#f5eacc", stroke: "#d6a94f", text: "#655126", label: ["Allowed", "actions"], icon: "check" },
-      { x: 31, y: 154, fill: "#f1dfd5", stroke: "#bd7d55", text: "#663e38", label: ["Business", "owner"], icon: "person" },
+      { x: 31, y: 154, fill: "#f1dfd5", stroke: "#bd7d55", text: "#663e38", label: ["Business", "sponsor"], icon: "person" },
       { x: 265, y: 154, fill: "#eae2f2", stroke: "#856a9f", text: "#59456e", label: ["Review", "evidence"], icon: "review" },
     ].map((item) => <g key={item.icon}>
       <rect x={item.x} y={item.y} width="224" height="94" rx="16" fill={item.fill} stroke={item.stroke} strokeWidth="2"/>
@@ -96,13 +97,12 @@ function DeliveryArt() {
 
 function NetworkArt() {
   return <Art title="An editorial research map connecting architecture, authorization, engineering, and operations">
-    <path d="M98 78L240 134 386 62M98 78l38 145 104-89 119 111 27-183M240 134l-104 89M240 134l119 111M386 62l-27 183" fill="none" stroke="#a8b397" strokeWidth="2"/>
+    <path d="M240 139L105 72M280 139l132-67M240 175l-104 83m144-83 132 83" fill="none" stroke="#a8b397" strokeWidth="3"/>
     <circle cx="240" cy="134" r="48" fill="#31586b"/><DiagramLabel x={240} y={140} size={16} color="#fffdf7">RESEARCH</DiagramLabel>
     <circle cx="98" cy="78" r="27" fill="#e2edf1" stroke="#577f90" strokeWidth="2"/><path d="M86 72h24M86 81h17" stroke="#577f90" strokeWidth="2" strokeLinecap="round"/><DiagramLabel x={98} y={121} size={15} color="#31586b">Architecture</DiagramLabel>
-    <circle cx="386" cy="62" r="22" fill="#f5eacc" stroke="#d6a94f" strokeWidth="2"/><circle cx="386" cy="62" r="8" fill="#8b6823"/><DiagramLabel x={386} y={101} size={14} color="#655126">Authorization</DiagramLabel>
+    <circle cx="412" cy="72" r="26" fill="#f5eacc" stroke="#d6a94f" strokeWidth="2"/><circle cx="412" cy="72" r="8" fill="#8b6823"/><DiagramLabel x={412} y={116} size={14} color="#655126">Authorization</DiagramLabel>
     <circle cx="136" cy="223" r="25" fill="#eae2f2" stroke="#856a9f" strokeWidth="2"/><path d="M125 223h22M136 212v22" stroke="#856a9f" strokeWidth="2"/><DiagramLabel x={136} y={271} size={15} color="#59456e">Engineering</DiagramLabel>
-    <circle cx="359" cy="245" r="27" fill="#f1dfd5" stroke="#bd7d55" strokeWidth="2"/><path d="M348 245l8 8 15-17" fill="none" stroke="#bd7d55" strokeWidth="3"/><DiagramLabel x={359} y={289} size={15} color="#663e38">Operations</DiagramLabel>
-    <Dot x={288} y={69} fill="#bac095" r={5}/><Dot x={322} y={198} fill="#bac095" r={5}/>
+    <circle cx="412" cy="258" r="27" fill="#f1dfd5" stroke="#bd7d55" strokeWidth="2"/><path d="M401 258l8 8 15-17" fill="none" stroke="#bd7d55" strokeWidth="3"/><DiagramLabel x={412} y={294} size={15} color="#663e38">Operations</DiagramLabel>
   </Art>;
 }
 
@@ -112,10 +112,8 @@ function AssessmentArt() {
     <rect x="140" y="56" width="92" height="30" rx="8" fill="#d9e8ed"/><rect x="248" y="56" width="92" height="30" rx="8" fill="#f5eacc"/><rect x="356" y="56" width="92" height="30" rx="8" fill="#eae2f2"/>
     <DiagramLabel x={186} y={77} size={14} color="#31586b">INTENDED</DiagramLabel><DiagramLabel x={294} y={77} size={14} color="#655126">CONFIGURED</DiagramLabel><DiagramLabel x={402} y={77} size={14} color="#59456e">EVIDENCE</DiagramLabel>
     <DiagramLabel x={74} y={126} size={15} color="#31586b">READ</DiagramLabel><DiagramLabel x={74} y={178} size={15} color="#bd7d55">WRITE</DiagramLabel><DiagramLabel x={74} y={230} size={15} color="#856a9f">REVIEW</DiagramLabel>
-    {[{x:186,y:120,ok:true},{x:294,y:120,ok:false},{x:402,y:120,ok:true},{x:186,y:172,ok:true},{x:294,y:172,ok:true},{x:402,y:172,ok:false},{x:186,y:224,ok:false},{x:294,y:224,ok:true},{x:402,y:224,ok:false}].map(({x,y,ok}) => <g key={`${x}-${y}`}>
-      <circle cx={x} cy={y} r="13" fill={ok ? "#e4e9d7" : "#f0e5d8"}/><path d={ok ? `M${x-6} ${y}l4 5 9-10` : `M${x-5} ${y-5}l10 10m0-10l-10 10`} fill="none" stroke={ok ? "#52745b" : "#9b7050"} strokeWidth="2.4" strokeLinecap="round" strokeLinejoin="round"/>
-    </g>)}
-    <DiagramLabel x={180} y={278} size={14} color="#52745b">✓ MATCH</DiagramLabel><DiagramLabel x={360} y={278} size={14} color="#9b7050">× INVESTIGATE</DiagramLabel>
+    {[186,294,402].flatMap(x => [120,172,224].map(y => <g key={`${x}-${y}`}><circle cx={x} cy={y} r="8" fill="#fffdf7" stroke="#9aa988" strokeWidth="2"/><circle cx={x} cy={y} r="2" fill="#9aa988"/></g>))}
+    <DiagramLabel x={294} y={278} size={14} color="#52745b">COMPARE AGAINST EVIDENCE</DiagramLabel>
   </Art>;
 }
 
@@ -306,7 +304,7 @@ function ContactArt() {
 
 const scenes: Record<ArtKind, Scene> = {
   services: { label: "HOW AN AI WORKFLOW CONNECTS", note: "Company data reaches a scoped agent. A proposed change can pass through human review before it reaches a business app.", kind: "services" },
-  governance: { label: "AUTHORIZATION RECORD", note: "Record the agent’s purpose, allowed actions, accountable owner, and required reviews.", kind: "governance" },
+  governance: { label: "AUTHORIZATION RECORD", note: "Record the agent’s purpose, allowed actions, business sponsor, technical owner, and required reviews.", kind: "governance" },
   microsoft: { label: "MICROSOFT AI STACK", note: "Follow content access through agent identity and tools to audit records and environment controls.", kind: "microsoft" },
   delivery: { label: "FROM UNDERSTANDING TO OPERATION", note: "Understand the workflow, design controls, implement and test the system, then establish ongoing operations.", kind: "delivery" },
   insights: { label: "ENGINEERING QUESTIONS", note: "Explore how architecture, authorization, implementation, and operations connect in enterprise AI.", kind: "insights" },
@@ -327,6 +325,31 @@ const scenes: Record<ArtKind, Scene> = {
   "not-found": { label: "ROUTE RECOVERY", note: "The requested page is unavailable. Follow a working path to continue.", kind: "not-found" },
   about: { label: "SYSTEMS PRACTICE", note: "Engineering work follows how people, applications, data, and AI interact.", kind: "about" },
   contact: { label: "WHAT TO BRING", note: "Start with the workflow, the systems it touches, and any open question about access or ownership.", kind: "contact" },
+};
+
+const mobileKeys: Record<ArtKind, string[]> = {
+  services: ["Company information", "Scoped AI agent", "Business system + human review"],
+  governance: ["Purpose + scope", "Allowed actions", "Sponsor + review evidence"],
+  microsoft: ["Content permissions", "Identity + tool credentials", "Environment + audit evidence"],
+  delivery: ["Understand", "Design + implement", "Operate"],
+  insights: ["Architecture", "Authorization", "Engineering + operations"],
+  architecture: ["Agent task", "Tools + identity", "Data boundary"],
+  assessment: ["Intended use", "Configured access", "Available evidence"],
+  "agent-service": ["Technical owner", "Business sponsor", "Actions + lifecycle review"],
+  modernization: ["Legacy application", "Permission-checking API", "Approved agent tools"],
+  "modernization-article": ["Existing business rules", "Explicit API operations", "Controlled agent access"],
+  platform: ["Change", "Release + monitor", "Recovery"],
+  remediation: ["Confirmed finding", "Controlled change", "Retest"],
+  schedule: ["Approver", "Recurring run", "Review date"],
+  chain: ["Incoming request", "Delegation", "Combined permissions"],
+  authorization: ["Agent identity", "Limited tool scope", "Allow or deny"],
+  operating: ["Policy", "Configured controls", "Operation + review"],
+  privacy: ["Website visit", "Technical request record", "Separate email inquiry"],
+  terms: ["Scope + delivery", "Fees + responsibilities", "Content + rights"],
+  accessibility: ["Keyboard + screen reader", "Responsive content", "Reduced motion"],
+  "not-found": ["Unavailable route", "Home", "Services"],
+  about: ["People", "Applications + data", "AI systems"],
+  contact: ["Workflow", "Systems it touches", "Open access question"],
 };
 
 function sceneForPath(path: string): Scene {
@@ -388,11 +411,20 @@ function Artwork({ kind }: { kind: ArtKind }) {
 
 export function PageHeroVisual({ path }: { path: string }) {
   const scene = sceneForPath(path);
-  return <figure className="page-hero-visual" aria-label={scene.label}>
+  const frame = scene.kind === "governance" || scene.kind === "assessment" || scene.kind === "contact" || scene.kind === "terms" ? styles.paper
+    : scene.kind === "microsoft" || scene.kind === "architecture" || scene.kind === "modernization" || scene.kind === "modernization-article" || scene.kind === "authorization" ? styles.blueprint
+    : scene.kind === "services" || scene.kind === "delivery" || scene.kind === "chain" || scene.kind === "not-found" ? styles.route
+    : scene.kind === "platform" || scene.kind === "schedule" || scene.kind === "operating" ? styles.orbit
+    : scene.kind === "insights" || scene.kind === "about" || scene.kind === "privacy" || scene.kind === "accessibility" ? styles.editorial
+    : styles.human;
+  return <figure className={`page-hero-visual ${frame}`} aria-label={scene.label}>
     <figcaption><span><i aria-hidden="true" />{scene.label}</span></figcaption>
     <div className={`page-hero-diagram page-hero-diagram-${scene.kind}`}>
       <Artwork kind={scene.kind}/>
     </div>
+    <ul className={styles.mobileKey} aria-label="Diagram summary">
+      {mobileKeys[scene.kind].map((item) => <li key={item}>{item}</li>)}
+    </ul>
     <p className="page-hero-note">{scene.note}</p>
   </figure>;
 }
