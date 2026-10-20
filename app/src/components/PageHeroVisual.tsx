@@ -160,13 +160,22 @@ function IntegrationArt({ transformation = false }: { transformation?: boolean }
 }
 
 function PlatformArt() {
-  return <Art title="A circular software operations loop linking change, release, observation, and recovery">
-    <path d="M182 66a106 106 0 0 1 145 26M356 123a106 106 0 0 1-39 137M268 274a106 106 0 0 1-128-58M118 170A106 106 0 0 1 165 83" fill="none" stroke="#9aa988" strokeWidth="5" strokeLinecap="round"/>
-    <path d="M318 76l13 13-19 1M347 244l-18 4 5-19M143 229l-5-18 19 6M149 79l17-7-1 19" fill="#52745b"/>
-    <circle cx="260" cy="170" r="66" fill="#d9e8ed"/><circle cx="260" cy="170" r="40" fill="#31586b"/><DiagramLabel x={260} y={176} size={17} color="#fffdf7">OPERATE</DiagramLabel>
-    <rect x="206" y="31" width="108" height="44" rx="20" fill="#f5eacc" stroke="#d6a94f" strokeWidth="2"/><rect x="362" y="149" width="116" height="44" rx="20" fill="#eae2f2" stroke="#856a9f" strokeWidth="2"/><rect x="206" y="264" width="108" height="30" rx="15" fill="#f1dfd5" stroke="#bd7d55" strokeWidth="2"/><rect x="42" y="149" width="116" height="44" rx="20" fill="#e2edf1" stroke="#577f90" strokeWidth="2"/>
-    <DiagramLabel x={260} y={59} size={16} color="#655126">CHANGE</DiagramLabel><DiagramLabel x={420} y={177} size={16} color="#59456e">RELEASE</DiagramLabel><DiagramLabel x={260} y={286} size={15} color="#663e38">RECOVER</DiagramLabel><DiagramLabel x={100} y={177} size={16} color="#31586b">MONITOR</DiagramLabel>
-    <circle cx="260" cy="53" r="6" fill="#52745b"/><circle cx="420" cy="171" r="6" fill="#52745b"/><circle cx="260" cy="279" r="6" fill="#52745b"/><circle cx="100" cy="171" r="6" fill="#52745b"/>
+  return <Art title="A platform operations cycle: change is released, monitored in service, and recovered when needed">
+    <defs><marker id="platform-cycle-arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0L10 5 0 10z" fill="#52745b"/></marker></defs>
+    <path d="M319 40C367 48 402 80 424 123M445 184C429 222 380 250 321 260M199 260C149 250 106 219 80 183M75 124C97 78 146 48 201 40" fill="none" stroke="#7b8f74" strokeWidth="4" strokeLinecap="round" markerEnd="url(#platform-cycle-arrow)"/>
+    <circle cx="260" cy="151" r="54" fill="#d9e8ed"/>
+    <rect x="237" y="122" width="46" height="43" rx="7" fill="#31586b"/>
+    <path d="M245 133h30m-30 10h30m-30 10h30" stroke="#fffdf7" strokeWidth="3" strokeLinecap="round"/>
+    <circle cx="247" cy="133" r="1.5" fill="#d6a94f"/><circle cx="247" cy="143" r="1.5" fill="#d6a94f"/><circle cx="247" cy="153" r="1.5" fill="#d6a94f"/>
+    <DiagramLabel x={260} y={190} size={14} color="#31586b" weight={700}>LIVE SERVICE</DiagramLabel>
+    <rect x="203" y="17" width="114" height="43" rx="12" fill="#f5eacc" stroke="#d6a94f" strokeWidth="2"/>
+    <rect x="382" y="130" width="126" height="46" rx="12" fill="#eae2f2" stroke="#856a9f" strokeWidth="2"/>
+    <rect x="203" y="240" width="114" height="43" rx="12" fill="#e2edf1" stroke="#577f90" strokeWidth="2"/>
+    <rect x="12" y="130" width="126" height="46" rx="12" fill="#f1dfd5" stroke="#bd7d55" strokeWidth="2"/>
+    <DiagramLabel x={260} y={44} size={16} color="#655126" weight={700}>CHANGE</DiagramLabel>
+    <DiagramLabel x={445} y={158} size={16} color="#59456e" weight={700}>RELEASE</DiagramLabel>
+    <DiagramLabel x={260} y={267} size={16} color="#31586b" weight={700}>MONITOR</DiagramLabel>
+    <DiagramLabel x={75} y={158} size={16} color="#663e38" weight={700}>RECOVER</DiagramLabel>
   </Art>;
 }
 
@@ -338,7 +347,7 @@ const mobileKeys: Record<ArtKind, string[]> = {
   "agent-service": ["Technical owner", "Business sponsor", "Actions + lifecycle review"],
   modernization: ["Legacy application", "Permission-checking API", "Approved agent tools"],
   "modernization-article": ["Existing business rules", "Explicit API operations", "Controlled agent access"],
-  platform: ["Change", "Release + monitor", "Recovery"],
+  platform: ["Change", "Release", "Monitor", "Recover"],
   remediation: ["Confirmed finding", "Controlled change", "Retest"],
   schedule: ["Approver", "Recurring run", "Review date"],
   chain: ["Incoming request", "Delegation", "Combined permissions"],

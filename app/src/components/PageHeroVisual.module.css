@@ -25,7 +25,7 @@
 
 .orbit:global(.page-hero-visual) {
   border: 1px solid #d6c5e2;
-  border-radius: 48% 48% 22px 22px / 18% 18% 22px 22px;
+  border-radius: 22px;
   background: radial-gradient(ellipse at 50% 45%, #fffdf7 0 42%, #eae2f2 100%);
   box-shadow: 0 16px 36px #856a9f12;
 }
@@ -50,7 +50,6 @@
 .artwork { display: block; }
 
 @media (max-width: 767px) {
-  .orbit:global(.page-hero-visual) { border-radius: 24px; }
   .route:global(.page-hero-visual) { padding-inline: 0; }
   .mobileKey {
     display: grid;
