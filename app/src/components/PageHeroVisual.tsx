@@ -39,32 +39,41 @@ function ServicesArt() {
   </Art>;
 }
 
-function GovernanceArt({ ledger = false }: { ledger?: boolean }) {
-  if (ledger) return <Art title="A governance record with a named sponsor, defined scope, review date, and supporting evidence">
-    <path d="M64 44h246l65 64v151H64z" fill="#fffdf7" stroke="#bac095" strokeWidth="2"/><path d="M310 44v64h65" fill="#e8ebd8" stroke="#bac095" strokeWidth="2"/>
-    <DiagramLabel x={94} y={77} anchor="start" size={16} color="#31586b" weight={700}>AGENT AUTHORIZATION</DiagramLabel>
-    <DiagramLabel x={94} y={111} anchor="start" size={17}>Purpose</DiagramLabel><path d="M94 120h151" stroke="#c6d2d4" strokeWidth="2"/>
-    <DiagramLabel x={94} y={151} anchor="start" size={17}>Allowed actions</DiagramLabel><path d="M94 160h151" stroke="#e5c9b8" strokeWidth="2"/>
-    <DiagramLabel x={94} y={191} anchor="start" size={17}>Business sponsor</DiagramLabel><path d="M94 200h151" stroke="#d7cae2" strokeWidth="2"/>
-    <DiagramLabel x={94} y={231} anchor="start" size={17}>Review date</DiagramLabel><path d="M94 240h129" stroke="#c6d2d4" strokeWidth="2"/>
-    <circle cx="345" cy="217" r="62" fill="#e8ebd8"/><circle cx="345" cy="217" r="45" fill="#52745b"/><circle cx="345" cy="217" r="31" fill="none" stroke="#d4de95" strokeWidth="2"/><path d="M329 217l11 12 23-27" fill="none" stroke="#f6f4ee" strokeWidth="5" strokeLinecap="round" strokeLinejoin="round"/>
-    <rect x="252" y="139" width="95" height="39" rx="19" fill="#f2e6c9" stroke="#d6a94f" strokeWidth="2"/><Dot x={275} y={158} fill="#d6a94f" r={5}/><DiagramLabel x={310} y={164} size={14} color="#655126">SPONSOR</DiagramLabel>
-  </Art>;
-  return <Art title="Agent authority shown as nested boundaries around a permitted action">
-    <circle cx="254" cy="151" r="125" fill="#eef0e3" stroke="#bac095" strokeWidth="2" strokeDasharray="3 7"/><circle cx="254" cy="151" r="91" fill="#e4e9d7" stroke="#9aa988" strokeWidth="2"/><circle cx="254" cy="151" r="58" fill="#d4de95" stroke="#879478" strokeWidth="2"/>
-    <rect x="207" y="126" width="94" height="50" rx="14" fill="#52745b"/><path d="M226 151h56" stroke="#f6f4ee" strokeWidth="4" strokeLinecap="round"/>
-    <circle cx="254" cy="26" r="10" fill="#52745b"/><circle cx="380" cy="151" r="10" fill="#bac095"/><circle cx="254" cy="276" r="10" fill="#52745b"/><circle cx="128" cy="151" r="10" fill="#bac095"/>
-    <path d="M254 26v-8M380 151h22M254 276v8M128 151h-22" stroke="#52745b" strokeWidth="2"/>
+function GovernanceArt() {
+  return <Art title="Four parts of an agent authorization record: purpose and scope, permitted actions, accountable sponsor, and review evidence">
+    {[
+      { x: 31, y: 38, fill: "#e2edf1", stroke: "#577f90", text: "#31586b", label: "PURPOSE + SCOPE", icon: "document" },
+      { x: 265, y: 38, fill: "#f5eacc", stroke: "#d6a94f", text: "#655126", label: "ALLOWED ACTIONS", icon: "check" },
+      { x: 31, y: 154, fill: "#f1dfd5", stroke: "#bd7d55", text: "#663e38", label: "BUSINESS SPONSOR", icon: "person" },
+      { x: 265, y: 154, fill: "#eae2f2", stroke: "#856a9f", text: "#59456e", label: "REVIEW + EVIDENCE", icon: "review" },
+    ].map((item) => <g key={item.label}>
+      <rect x={item.x} y={item.y} width="224" height="94" rx="16" fill={item.fill} stroke={item.stroke} strokeWidth="2"/>
+      <circle cx={item.x + 43} cy={item.y + 47} r="24" fill="#fffdf7"/>
+      {item.icon === "document" && <g fill="none" stroke={item.stroke} strokeWidth="2.5" strokeLinecap="round"><path d={`M${item.x+36} ${item.y+32}h13l8 8v23h-21z`}/><path d={`M${item.x+49} ${item.y+32}v9h8M${item.x+40} ${item.y+47}h12m-12 7h12`}/></g>}
+      {item.icon === "check" && <g fill="none" stroke={item.stroke} strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d={`M${item.x+31} ${item.y+47}l8 8 16-18`}/></g>}
+      {item.icon === "person" && <g fill="none" stroke={item.stroke} strokeWidth="2.5" strokeLinecap="round"><circle cx={item.x+43} cy={item.y+40} r="8"/><path d={`M${item.x+29} ${item.y+65}c2-14 26-14 28 0`}/></g>}
+      {item.icon === "review" && <g fill="none" stroke={item.stroke} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><rect x={item.x+30} y={item.y+34} width="26" height="26" rx="4"/><path d={`M${item.x+30} ${item.y+42}h26m-19-12v8m12-8v8m-14 12 4 4 8-9`}/></g>}
+      <DiagramLabel x={item.x + 78} y={item.y + 53} anchor="start" size={15} color={item.text} weight={700}>{item.label}</DiagramLabel>
+    </g>)}
   </Art>;
 }
 
 function MicrosoftArt() {
   return <Art title="Microsoft AI layers connected through permissions, identity, tool access, and audit evidence">
     <path d="M93 38v222" stroke="#9aa988" strokeWidth="3" strokeDasharray="5 8"/>
-    {["#577f90", "#856a9f", "#bd7d55", "#52745b"].map((fill, i) => <g key={i}>
-      <circle cx="93" cy={66 + i*57} r="13" fill={fill} stroke="#52745b" strokeWidth="2"/>
-      <rect x="122" y={43 + i*57} width="296" height="45" rx="13" fill="#fffdf7" stroke="#bac095" strokeWidth="2"/>
-      <DiagramLabel x={143} y={70 + i*57} anchor="start" size={17} color="#26332e">{["M365 · content permissions", "Entra · agent identity", "Studio / Foundry · tools", "Purview · logs + environments"][i]}</DiagramLabel>
+    {[
+      { color: "#577f90", pale: "#e2edf1", label: "M365 · content permissions", icon: "document" },
+      { color: "#856a9f", pale: "#eae2f2", label: "Entra · agent identity", icon: "key" },
+      { color: "#bd7d55", pale: "#f1dfd5", label: "Studio / Foundry · tools", icon: "tools" },
+      { color: "#52745b", pale: "#e4e9d7", label: "Purview · logs + environments", icon: "record" },
+    ].map((item, i) => <g key={item.label}>
+      <rect x="120" y={40 + i*59} width="352" height="49" rx="13" fill="#fffdf7" stroke="#bac095" strokeWidth="2"/>
+      <rect x="130" y={48 + i*59} width="34" height="33" rx="9" fill={item.pale}/>
+      {item.icon === "document" && <g fill="none" stroke={item.color} strokeWidth="2" strokeLinecap="round"><path d={`M139 ${54+i*59}h12l6 6v14h-18zM151 ${54+i*59}v7h6M143 ${66+i*59}h10m-10 4h10`}/></g>}
+      {item.icon === "key" && <g fill="none" stroke={item.color} strokeWidth="2.5" strokeLinecap="round"><circle cx="142" cy={63+i*59} r="5"/><path d={`M147 ${63+i*59}h10m-4 0v4m-3-4v3`}/></g>}
+      {item.icon === "tools" && <g fill="none" stroke={item.color} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d={`M138 ${74+i*59}l14-14m-9-5a7 7 0 0 0 9 9m-9-9 3 3m11 10-4 4`}/></g>}
+      {item.icon === "record" && <g fill="none" stroke={item.color} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><path d={`M147 ${54+i*59}l10 4v8c0 7-5 11-10 14-5-3-10-7-10-14v-8zM142 ${66+i*59}l4 4 7-8`}/></g>}
+      <DiagramLabel x={177} y={70 + i*59} anchor="start" size={17} color="#26332e">{item.label}</DiagramLabel>
     </g>)}
     <path d="M87 97l6 6 6-6m-12 57l6 6 6-6m-12 57l6 6 6-6" fill="none" stroke="#31586b" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
   </Art>;
@@ -296,7 +305,7 @@ function ContactArt() {
 
 const scenes: Record<ArtKind, Scene> = {
   services: { label: "HOW AN AI WORKFLOW CONNECTS", note: "Company data reaches a scoped agent. A proposed change can pass through human review before it reaches a business app.", kind: "services" },
-  governance: { label: "AUTHORIZATION RECORD", note: "Record the agent’s purpose, allowed actions, business sponsor, and next review.", kind: "governance" },
+  governance: { label: "AUTHORIZATION RECORD", note: "Capture purpose and scope, permitted actions, an accountable sponsor, and review evidence in four clear parts.", kind: "governance" },
   microsoft: { label: "MICROSOFT AI STACK", note: "Follow content access through agent identity and tools to audit records and environment controls.", kind: "microsoft" },
   delivery: { label: "FROM UNDERSTANDING TO OPERATION", note: "Understand the workflow, design controls, implement and test the system, then establish ongoing operations.", kind: "delivery" },
   insights: { label: "ENGINEERING QUESTIONS", note: "Explore how architecture, authorization, implementation, and operations connect in enterprise AI.", kind: "insights" },
@@ -352,7 +361,7 @@ function sceneForPath(path: string): Scene {
 function Artwork({ kind }: { kind: ArtKind }) {
   switch (kind) {
     case "services": return <ServicesArt/>;
-    case "governance": return <GovernanceArt ledger/>;
+    case "governance": return <GovernanceArt/>;
     case "microsoft": return <MicrosoftArt/>;
     case "delivery": return <DeliveryArt/>;
     case "insights": return <NetworkArt/>;
