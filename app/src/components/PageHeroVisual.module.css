@@ -54,9 +54,10 @@
   aspect-ratio: 3 / 2;
   overflow: hidden;
   border-radius: 14px;
-  background: #e4e9d7;
+  background: var(--secondary, #E8EBD8);
 }
 .image { object-fit: cover; }
+.imageContain { object-fit: contain; background: var(--surface, #FFFFFF); }
 
 @media (max-width: 1000px) {
   .mobileKey {

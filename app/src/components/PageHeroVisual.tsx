@@ -5,31 +5,31 @@ import styles from "./PageHeroVisual.module.css";
 type ArtProps = { children: ReactNode; title: string };
 type ArtKind = "services" | "governance" | "microsoft" | "delivery" | "insights" | "architecture" | "assessment" | "agent-service" | "modernization" | "modernization-article" | "platform" | "remediation" | "schedule" | "chain" | "authorization" | "operating" | "privacy" | "terms" | "accessibility" | "not-found" | "about" | "contact";
 type Scene = { label: string; note: string; kind: ArtKind };
-type HeroImage = { src: string; alt: string; aspectRatio?: number };
+type HeroImage = { src: string; alt: string; aspectRatio?: number; fit?: "cover" | "contain" };
 
 const heroImages: Record<string, HeroImage> = {
-  "/services": { src: "/visuals/services-workflow.webp", alt: "An AI system routes an enterprise request through identity, permission, and human review gates." },
-  "/agent-governance": { src: "/visuals/authorization-boundary.webp", alt: "An agent and a human sponsor stand at a gate that separates approved actions from blocked ones." },
-  "/microsoft-ai": { src: "/visuals/microsoft-permissions.webp", alt: "Enterprise content passes through identity and tool access controls before reaching an auditable AI workflow." },
-  "/how-we-work": { src: "/visuals/delivery-route.webp", alt: "A business workflow moves through discovery, design, tested implementation, and operational handover." },
-  "/insights": { src: "/visuals/insights-index.webp", alt: "An engineer studies an enterprise system model through a magnifying lens to examine its access boundaries." },
-  "/about": { src: "/visuals/about-systems.webp", alt: "People, applications, data, and AI are connected in one enterprise system model." },
-  "/contact": { src: "/visuals/contact-conversation.webp", alt: "Two colleagues review an enterprise workflow and identify an access decision to resolve." },
-  "/privacy": { src: "/visuals/privacy-paths.webp", alt: "Separate paths show technical website request records and an email inquiry handled for a response." },
-  "/terms": { src: "/visuals/terms-agreement.webp", alt: "Colleagues review written scope, responsibilities, and delivery terms before an engagement." },
-  "/accessibility": { src: "/visuals/accessibility-design.webp", alt: "Keyboard, tactile, readable, and step-free paths lead into the same information space." },
-  "/404": { src: "/visuals/route-recovery.webp", alt: "A broken route branches toward two clear paths back into the site." },
-  "/services/governed-ai-architecture": { src: "/visuals/ai-architecture.webp", alt: "A layered AI architecture separates the business task, tool identity, and protected data boundary." },
-  "/services/ai-governance-assessment": { src: "/visuals/assessment-workbench.webp", alt: "An engineer compares intended AI use, configured access, and test evidence at an assessment workbench." },
-  "/services/agent-governance": { src: "/visuals/agent-governance.webp", alt: "An authorization record connects an AI agent’s purpose and permissions to an accountable sponsor and review." },
-  "/services/ai-integration-modernization": { src: "/visuals/legacy-integration.webp", alt: "A controlled API gateway connects a legacy business system to approved AI operations." },
-  "/services/platform-engineering": { src: "/visuals/platform-operations.webp", alt: "An operator monitors a production system, recovers service, and maintains a clear runbook." },
-  "/services/governance-remediation": { src: "/visuals/remediation.webp", alt: "A confirmed access problem is repaired through a controlled change and verification step.", aspectRatio: 2.4 },
-  "/insights/authorize-the-schedule-that-runs-the-agent": { src: "/visuals/scheduled-agent.webp", alt: "A recurring AI task is tied to its sponsor, active schedule, and review checkpoint.", aspectRatio: 2.33 },
-  "/insights/authorize-the-agent-chain": { src: "/visuals/agent-chain.webp", alt: "A human request branches to specialist agents with distinct authority before an external action." },
-  "/insights/agent-authorization-before-autonomy": { src: "/visuals/authorization-article.webp", alt: "An AI agent is positioned behind a clear access boundary held by an accountable human." },
-  "/insights/modernization-is-an-ai-control": { src: "/visuals/modernization-control.webp", alt: "Business rules in an older application are made explicit at a controlled gateway for AI access." },
-  "/insights/governance-that-survives-deployment": { src: "/visuals/governance-operations.webp", alt: "A policy is carried into system configuration, operational practice, evidence, and review." },
+  "/services": { src: "/visuals/services-workflow-v2.webp", alt: "Colleagues from operations and technology trace a business process and its system handoffs on a printed workflow map." },
+  "/agent-governance": { src: "/visuals/authorization-boundary-v2.webp", alt: "An agent identity passes through a sponsor-backed permission boundary; one path is allowed and another is blocked.", fit: "contain" },
+  "/microsoft-ai": { src: "/visuals/microsoft-permissions-v2.webp", alt: "A cloud engineer reviews shared-document access and tool permissions in an enterprise admin console." },
+  "/how-we-work": { src: "/visuals/delivery-route-v2.webp", alt: "An engineer hands a tested release checklist and operating runbook to the operations owner." },
+  "/insights": { src: "/visuals/insights-index-v2.webp", alt: "A technical field notebook and architecture sketches sit open beside an engineer’s laptop." },
+  "/about": { src: "/visuals/about-systems-v2.webp", alt: "A small engineering and operations team discusses how a business process crosses existing applications." },
+  "/contact": { src: "/visuals/contact-conversation-v2.webp", alt: "Two colleagues review a workflow map and laptop together during a working conversation." },
+  "/privacy": { src: "/visuals/privacy-paths-v2.webp", alt: "A website visit creates a technical request record, while an email question follows a separate path to a human response.", fit: "contain" },
+  "/terms": { src: "/visuals/terms-agreement-v2.webp", alt: "Colleagues review a written project scope and delivery schedule at an office table." },
+  "/accessibility": { src: "/visuals/accessibility-design-v2.webp", alt: "Keyboard, screen reader, visual, and mobile paths converge on the same page content.", fit: "contain" },
+  "/404": { src: "/visuals/route-recovery-v2.webp", alt: "A visitor reaches a dead end and can follow a clear route to the home page or services.", fit: "contain" },
+  "/services/governed-ai-architecture": { src: "/visuals/ai-architecture-v2.webp", alt: "An architect draws the agent runtime, tool boundary, and protected business data as separate system layers." },
+  "/services/ai-governance-assessment": { src: "/visuals/assessment-workbench-v2.webp", alt: "An assessor compares a written AI use case with configured access and test evidence." },
+  "/services/agent-governance": { src: "/visuals/agent-governance-v2.webp", alt: "A business sponsor and security specialist review which actions an AI agent may take." },
+  "/services/ai-integration-modernization": { src: "/visuals/legacy-integration-v2.webp", alt: "An engineer connects maintained enterprise server equipment to a modern network gateway." },
+  "/services/platform-engineering": { src: "/visuals/platform-operations-v2.webp", alt: "An operations engineer checks server racks during a routine production-system inspection." },
+  "/services/governance-remediation": { src: "/visuals/remediation-v2.webp", alt: "A confirmed configuration finding moves through an approved fix and a successful retest.", fit: "contain" },
+  "/insights/authorize-the-schedule-that-runs-the-agent": { src: "/visuals/scheduled-agent-v2.webp", alt: "A sponsor approves a recurring schedule, an agent runs, and the result is recorded.", fit: "contain" },
+  "/insights/authorize-the-agent-chain": { src: "/visuals/agent-chain-v2.webp", alt: "A request branches to specialist agents, crosses a shared permission boundary, and reaches a human checkpoint before external action.", fit: "contain" },
+  "/insights/agent-authorization-before-autonomy": { src: "/visuals/authorization-article-v2.webp", alt: "A broad set of possible tools narrows to a human-approved agent action that is recorded in an audit trail.", fit: "contain" },
+  "/insights/modernization-is-an-ai-control": { src: "/visuals/modernization-control-v2.webp", alt: "A protected legacy database exposes only approved operations through an API boundary to an AI agent.", fit: "contain" },
+  "/insights/governance-that-survives-deployment": { src: "/visuals/governance-operations-v2.webp", alt: "Policy, configured controls, operations, and evidence connect in a continuing review cycle.", fit: "contain" },
 };
 
 function Art({ children, title }: ArtProps) {
@@ -362,11 +362,11 @@ function ContactArt() {
 }
 
 const scenes: Record<ArtKind, Scene> = {
-  services: { label: "HOW AN AI WORKFLOW CONNECTS", note: "Company data reaches a scoped agent. A proposed change can pass through human review before it reaches a business app.", kind: "services" },
-  governance: { label: "AUTHORIZATION RECORD", note: "Record the agent’s purpose, allowed actions, business sponsor, technical owner, and required reviews.", kind: "governance" },
+  services: { label: "MAP THE BUSINESS WORKFLOW", note: "Trace how requests, information, approvals, and systems move before choosing what an agent should handle.", kind: "services" },
+  governance: { label: "AUTHORITY BEFORE ACTION", note: "The sponsor sets the purpose and accepted risk; identity and permissions enforce that decision.", kind: "governance" },
   microsoft: { label: "MICROSOFT AI STACK", note: "Follow content access through agent identity and tools to audit records and environment controls.", kind: "microsoft" },
   delivery: { label: "FROM UNDERSTANDING TO OPERATION", note: "Understand the workflow, design controls, implement and test the system, then establish ongoing operations.", kind: "delivery" },
-  insights: { label: "ENGINEERING QUESTIONS", note: "Explore how architecture, authorization, implementation, and operations connect in enterprise AI.", kind: "insights" },
+  insights: { label: "ENGINEERING QUESTIONS", note: "Follow the design questions behind enterprise AI, from access boundaries to the operation of a deployed system.", kind: "insights" },
   architecture: { label: "LAYERED ARCHITECTURE", note: "Separate the agent task, tool access, and data boundary in the design.", kind: "architecture" },
   assessment: { label: "ASSESSMENT IN PRACTICE", note: "Compare intended use with configured access and test evidence to identify gaps and prioritize practical fixes.", kind: "assessment" },
   "agent-service": { label: "AGENT RESPONSIBILITY", note: "Technical owners manage configuration and access. Business sponsors decide the agent’s purpose and whether it remains needed.", kind: "agent-service" },
@@ -376,13 +376,13 @@ const scenes: Record<ArtKind, Scene> = {
   remediation: { label: "FINDING TO VERIFIED CHANGE", note: "Move a confirmed issue through a controlled fix and a behavior check.", kind: "remediation" },
   schedule: { label: "SCHEDULE AUTHORITY", note: "Name who approved the recurring run, which agent acts, and when its authority must be reviewed.", kind: "schedule" },
   chain: { label: "DELEGATION CHAIN", note: "A request is routed to specialist agents; assess the combined permissions before any system action.", kind: "chain" },
-  authorization: { label: "ACTION BOUNDARY", note: "Map the agent identity to a limited tool scope, then test both permitted and denied actions.", kind: "authorization" },
+  authorization: { label: "ACTION BOUNDARY", note: "Narrow tool access to the approved task, place a human decision at the boundary, and record the result.", kind: "authorization" },
   operating: { label: "GOVERNANCE FEEDBACK LOOP", note: "Connect policy, configuration, daily operation, evidence, and review.", kind: "operating" },
   privacy: { label: "WEBSITE + EMAIL DATA", note: "A site visit creates technical request records. Email is processed separately so we can respond to an inquiry.", kind: "privacy" },
   terms: { label: "WRITTEN ENGAGEMENT", note: "Website descriptions are general. Scope, fees, responsibilities, and delivery terms are agreed in writing.", kind: "terms" },
-  accessibility: { label: "WAYS INTO THE CONTENT", note: "Keyboard access, screen readers, responsive layouts, and reduced motion support access to the same content.", kind: "accessibility" },
+  accessibility: { label: "WAYS INTO THE CONTENT", note: "Keyboard, screen readers, visual presentation, and mobile layouts should lead to the same usable information.", kind: "accessibility" },
   "not-found": { label: "ROUTE RECOVERY", note: "The requested page is unavailable. Follow a working path to continue.", kind: "not-found" },
-  about: { label: "SYSTEMS PRACTICE", note: "Engineering work follows how people, applications, data, and AI interact.", kind: "about" },
+  about: { label: "SYSTEMS PRACTICE", note: "We work with technical and operational teams to fit useful AI into the systems they already run.", kind: "about" },
   contact: { label: "WHAT TO BRING", note: "Start with the workflow, the systems it touches, and any open question about access or ownership.", kind: "contact" },
 };
 
@@ -481,7 +481,7 @@ export function PageHeroVisual({ path }: { path: string }) {
     <figcaption><span><i aria-hidden="true" />{scene.label}</span></figcaption>
     <div className={`page-hero-diagram page-hero-diagram-${scene.kind}`}>
       {image
-        ? <div className={styles.imageFrame} style={image.aspectRatio ? { aspectRatio: image.aspectRatio } : undefined}><Image src={image.src} alt={image.alt} fill priority sizes="(max-width: 767px) 92vw, (max-width: 1000px) 44vw, 40vw" className={styles.image}/></div>
+        ? <div className={styles.imageFrame} style={image.aspectRatio ? { aspectRatio: image.aspectRatio } : undefined}><Image src={image.src} alt={image.alt} fill priority sizes="(max-width: 767px) 92vw, (max-width: 1000px) 44vw, 40vw" className={image.fit === "contain" ? `${styles.image} ${styles.imageContain}` : styles.image}/></div>
         : <Artwork kind={scene.kind}/>}
     </div>
     {!image && <ul className={styles.mobileKey} aria-label="Diagram summary">
