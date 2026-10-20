@@ -40,20 +40,21 @@ function ServicesArt() {
 }
 
 function GovernanceArt() {
-  return <Art title="Four parts of an agent authorization record: purpose and scope, permitted actions, accountable sponsor, and review evidence">
+  return <Art title="Four parts of an agent authorization record: purpose and scope, allowed actions, accountable owner, and review evidence">
     {[
-      { x: 31, y: 38, fill: "#e2edf1", stroke: "#577f90", text: "#31586b", label: "PURPOSE + SCOPE", icon: "document" },
-      { x: 265, y: 38, fill: "#f5eacc", stroke: "#d6a94f", text: "#655126", label: "ALLOWED ACTIONS", icon: "check" },
-      { x: 31, y: 154, fill: "#f1dfd5", stroke: "#bd7d55", text: "#663e38", label: "BUSINESS SPONSOR", icon: "person" },
-      { x: 265, y: 154, fill: "#eae2f2", stroke: "#856a9f", text: "#59456e", label: "REVIEW + EVIDENCE", icon: "review" },
-    ].map((item) => <g key={item.label}>
+      { x: 31, y: 38, fill: "#e2edf1", stroke: "#577f90", text: "#31586b", label: ["Purpose +", "scope"], icon: "document" },
+      { x: 265, y: 38, fill: "#f5eacc", stroke: "#d6a94f", text: "#655126", label: ["Allowed", "actions"], icon: "check" },
+      { x: 31, y: 154, fill: "#f1dfd5", stroke: "#bd7d55", text: "#663e38", label: ["Business", "owner"], icon: "person" },
+      { x: 265, y: 154, fill: "#eae2f2", stroke: "#856a9f", text: "#59456e", label: ["Review", "evidence"], icon: "review" },
+    ].map((item) => <g key={item.icon}>
       <rect x={item.x} y={item.y} width="224" height="94" rx="16" fill={item.fill} stroke={item.stroke} strokeWidth="2"/>
       <circle cx={item.x + 43} cy={item.y + 47} r="24" fill="#fffdf7"/>
       {item.icon === "document" && <g fill="none" stroke={item.stroke} strokeWidth="2.5" strokeLinecap="round"><path d={`M${item.x+36} ${item.y+32}h13l8 8v23h-21z`}/><path d={`M${item.x+49} ${item.y+32}v9h8M${item.x+40} ${item.y+47}h12m-12 7h12`}/></g>}
       {item.icon === "check" && <g fill="none" stroke={item.stroke} strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d={`M${item.x+31} ${item.y+47}l8 8 16-18`}/></g>}
       {item.icon === "person" && <g fill="none" stroke={item.stroke} strokeWidth="2.5" strokeLinecap="round"><circle cx={item.x+43} cy={item.y+40} r="8"/><path d={`M${item.x+29} ${item.y+65}c2-14 26-14 28 0`}/></g>}
       {item.icon === "review" && <g fill="none" stroke={item.stroke} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><rect x={item.x+30} y={item.y+34} width="26" height="26" rx="4"/><path d={`M${item.x+30} ${item.y+42}h26m-19-12v8m12-8v8m-14 12 4 4 8-9`}/></g>}
-      <DiagramLabel x={item.x + 78} y={item.y + 53} anchor="start" size={15} color={item.text} weight={700}>{item.label}</DiagramLabel>
+      <DiagramLabel x={item.x + 78} y={item.y + 43} anchor="start" size={16} color={item.text} weight={700}>{item.label[0]}</DiagramLabel>
+      <DiagramLabel x={item.x + 78} y={item.y + 63} anchor="start" size={16} color={item.text} weight={600}>{item.label[1]}</DiagramLabel>
     </g>)}
   </Art>;
 }
@@ -305,7 +306,7 @@ function ContactArt() {
 
 const scenes: Record<ArtKind, Scene> = {
   services: { label: "HOW AN AI WORKFLOW CONNECTS", note: "Company data reaches a scoped agent. A proposed change can pass through human review before it reaches a business app.", kind: "services" },
-  governance: { label: "AUTHORIZATION RECORD", note: "Capture purpose and scope, permitted actions, an accountable sponsor, and review evidence in four clear parts.", kind: "governance" },
+  governance: { label: "AUTHORIZATION RECORD", note: "Record the agent’s purpose, allowed actions, accountable owner, and required reviews.", kind: "governance" },
   microsoft: { label: "MICROSOFT AI STACK", note: "Follow content access through agent identity and tools to audit records and environment controls.", kind: "microsoft" },
   delivery: { label: "FROM UNDERSTANDING TO OPERATION", note: "Understand the workflow, design controls, implement and test the system, then establish ongoing operations.", kind: "delivery" },
   insights: { label: "ENGINEERING QUESTIONS", note: "Explore how architecture, authorization, implementation, and operations connect in enterprise AI.", kind: "insights" },
