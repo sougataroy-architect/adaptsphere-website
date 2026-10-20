@@ -18,11 +18,11 @@ function Dot({ x, y, fill = "#52745b", r = 6 }: { x: number; y: number; fill?: s
 
 function ServicesArt() {
   return <Art title="A central AI workflow connected to information, applications, and human decisions">
-    <path d="M158 111h28M326 111h28" fill="none" stroke="#577f90" strokeWidth="4"/>
-    <path d="M178 102l12 9-12 9m156-18l12 9-12 9" fill="none" stroke="#577f90" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
+    <path d="M158 111h28" fill="none" stroke="#577f90" strokeWidth="4"/>
+    <path d="M178 102l12 9-12 9" fill="none" stroke="#577f90" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round"/>
     <rect x="24" y="68" width="134" height="88" rx="16" fill="#e2edf1" stroke="#577f90" strokeWidth="2"/>
     <path d="M46 91h28m-28 11h42m-42 11h34" stroke="#577f90" strokeWidth="3" strokeLinecap="round"/>
-    <DiagramLabel x={103} y={139} size={19}>Company data</DiagramLabel>
+    <DiagramLabel x={103} y={139} size={15}>Company data</DiagramLabel>
     <rect x="196" y="57" width="130" height="110" rx="18" fill="#31586b"/>
     <circle cx="261" cy="89" r="14" fill="#d6a94f"/>
     <DiagramLabel x={261} y={94} size={14} color="#31586b" weight={700}>AI</DiagramLabel>
@@ -30,12 +30,12 @@ function ServicesArt() {
     <rect x="362" y="68" width="134" height="88" rx="16" fill="#f4e8d6" stroke="#bd7d55" strokeWidth="2"/>
     <rect x="382" y="85" width="24" height="24" rx="6" fill="#bd7d55"/>
     <path d="M389 97l5 5 9-11" fill="none" stroke="#fffdf7" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
-    <DiagramLabel x={429} y={139} size={19}>Business app</DiagramLabel>
+    <DiagramLabel x={429} y={139} size={15}>Business app</DiagramLabel>
     <rect x="163" y="207" width="196" height="58" rx="16" fill="#f5e1dc" stroke="#b96555" strokeWidth="2"/>
     <circle cx="190" cy="235" r="9" fill="#b96555"/><path d="M179 250c2-12 20-12 22 0" fill="#b96555"/>
-    <DiagramLabel x={270} y={242} size={19} color="#663e38">Human review</DiagramLabel>
-    <path d="M261 168v23q0 10-10 10h-49" fill="none" stroke="#b96555" strokeWidth="3" strokeDasharray="5 5"/>
-    <path d="M211 193l-9 7 9 7" fill="none" stroke="#b96555" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+    <DiagramLabel x={270} y={242} size={17} color="#663e38">Human review</DiagramLabel>
+    <path d="M261 168v27M359 236h73v-67" fill="none" stroke="#b96555" strokeWidth="3" strokeDasharray="5 5"/>
+    <path d="M255 190l6 8 6-8m159-1l12-9 12 9" fill="none" stroke="#b96555" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
   </Art>;
 }
 
@@ -278,17 +278,24 @@ function AboutArt() {
 }
 
 function ContactArt() {
-  return <Art title="A project conversation organized around a workflow, systems, and an open decision">
-    <rect x="57" y="46" width="406" height="207" rx="18" fill="#fffdf7" stroke="#bac095" strokeWidth="2"/><path d="M57 92h406" stroke="#bac095" strokeWidth="2"/><circle cx="82" cy="69" r="6" fill="#577f90"/><circle cx="103" cy="69" r="6" fill="#d6a94f"/><circle cx="124" cy="69" r="6" fill="#bd7d55"/><DiagramLabel x={160} y={76} anchor="start" size={15} color="#31586b" weight={700}>PROJECT CONVERSATION</DiagramLabel>
-    <rect x="88" y="113" width="170" height="49" rx="16" fill="#e2edf1"/><DiagramLabel x={173} y={143} size={18} color="#31586b">Workflow + systems</DiagramLabel>
-    <rect x="268" y="175" width="158" height="49" rx="16" fill="#f5eacc"/><DiagramLabel x={347} y={205} size={17} color="#655126">Open decision</DiagramLabel>
-    <path d="M257 137c62 0 66 18 38 45" fill="none" stroke="#bd7d55" strokeWidth="3" strokeDasharray="5 6"/><circle cx="300" cy="181" r="5" fill="#bd7d55"/>
-    <path d="M410 122l24 62-25-17-17 24z" fill="#52745b"/><path d="M403 165l12-16" stroke="#f6f4ee" strokeWidth="2"/>
+  return <Art title="Three useful topics to bring to an initial project conversation: the workflow, its systems, and an open question">
+    <rect x="72" y="32" width="376" height="236" rx="18" fill="#fffdf7" stroke="#bac095" strokeWidth="2"/>
+    <DiagramLabel x={104} y={69} anchor="start" size={16} color="#31586b" weight={700}>PROJECT BRIEF</DiagramLabel>
+    <path d="M96 87h328" stroke="#d9ded5" strokeWidth="2"/>
+    <rect x="96" y="104" width="328" height="42" rx="10" fill="#e2edf1"/>
+    <circle cx="117" cy="125" r="12" fill="#577f90"/><DiagramLabel x={117} y={130} size={13} color="#fffdf7" weight={700}>1</DiagramLabel>
+    <DiagramLabel x={143} y={131} anchor="start" size={17} color="#31586b">Workflow to improve</DiagramLabel>
+    <rect x="96" y="157" width="328" height="42" rx="10" fill="#f5eacc"/>
+    <circle cx="117" cy="178" r="12" fill="#d6a94f"/><DiagramLabel x={117} y={183} size={13} color="#fffdf7" weight={700}>2</DiagramLabel>
+    <DiagramLabel x={143} y={184} anchor="start" size={17} color="#655126">Systems it touches</DiagramLabel>
+    <rect x="96" y="210" width="328" height="42" rx="10" fill="#f1dfd5"/>
+    <circle cx="117" cy="231" r="12" fill="#bd7d55"/><DiagramLabel x={117} y={236} size={13} color="#fffdf7" weight={700}>3</DiagramLabel>
+    <DiagramLabel x={143} y={237} anchor="start" size={17} color="#663e38">Open access question</DiagramLabel>
   </Art>;
 }
 
 const scenes: Record<ArtKind, Scene> = {
-  services: { label: "HOW AN AI WORKFLOW CONNECTS", note: "Company information reaches a scoped agent; actions can pass through human review before changing a business app.", kind: "services" },
+  services: { label: "HOW AN AI WORKFLOW CONNECTS", note: "Company data reaches a scoped agent. A proposed change can pass through human review before it reaches a business app.", kind: "services" },
   governance: { label: "AUTHORIZATION RECORD", note: "Record the agent’s purpose, allowed actions, business sponsor, and next review.", kind: "governance" },
   microsoft: { label: "MICROSOFT AI STACK", note: "Follow content access through agent identity and tools to audit records and environment controls.", kind: "microsoft" },
   delivery: { label: "FROM UNDERSTANDING TO OPERATION", note: "Understand the workflow, design controls, implement and test the system, then establish ongoing operations.", kind: "delivery" },
@@ -309,7 +316,7 @@ const scenes: Record<ArtKind, Scene> = {
   accessibility: { label: "WAYS INTO THE CONTENT", note: "Keyboard access, screen readers, responsive layouts, and reduced motion support access to the same content.", kind: "accessibility" },
   "not-found": { label: "ROUTE RECOVERY", note: "The requested page is unavailable. Follow a working path to continue.", kind: "not-found" },
   about: { label: "SYSTEMS PRACTICE", note: "Engineering work follows how people, applications, data, and AI interact.", kind: "about" },
-  contact: { label: "PROJECT CONVERSATION", note: "Start with the workflow, the systems involved, and the decision still open.", kind: "contact" },
+  contact: { label: "WHAT TO BRING", note: "Start with the workflow, the systems it touches, and any open question about access or ownership.", kind: "contact" },
 };
 
 function sceneForPath(path: string): Scene {
