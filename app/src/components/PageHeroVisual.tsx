@@ -96,13 +96,24 @@ function DeliveryArt() {
 }
 
 function NetworkArt() {
-  return <Art title="An editorial research map connecting architecture, authorization, engineering, and operations">
-    <path d="M240 139L105 72M280 139l132-67M240 175l-104 83m144-83 132 83" fill="none" stroke="#a8b397" strokeWidth="3"/>
-    <circle cx="240" cy="134" r="48" fill="#31586b"/><DiagramLabel x={240} y={140} size={16} color="#fffdf7">RESEARCH</DiagramLabel>
-    <circle cx="98" cy="78" r="27" fill="#e2edf1" stroke="#577f90" strokeWidth="2"/><path d="M86 72h24M86 81h17" stroke="#577f90" strokeWidth="2" strokeLinecap="round"/><DiagramLabel x={98} y={121} size={15} color="#31586b">Architecture</DiagramLabel>
-    <circle cx="412" cy="72" r="26" fill="#f5eacc" stroke="#d6a94f" strokeWidth="2"/><circle cx="412" cy="72" r="8" fill="#8b6823"/><DiagramLabel x={412} y={116} size={14} color="#655126">Authorization</DiagramLabel>
-    <circle cx="136" cy="223" r="25" fill="#eae2f2" stroke="#856a9f" strokeWidth="2"/><path d="M125 223h22M136 212v22" stroke="#856a9f" strokeWidth="2"/><DiagramLabel x={136} y={271} size={15} color="#59456e">Engineering</DiagramLabel>
-    <circle cx="412" cy="258" r="27" fill="#f1dfd5" stroke="#bd7d55" strokeWidth="2"/><path d="M401 258l8 8 15-17" fill="none" stroke="#bd7d55" strokeWidth="3"/><DiagramLabel x={412} y={294} size={15} color="#663e38">Operations</DiagramLabel>
+  return <Art title="An AI system in production shaped by four connected disciplines: architecture, authorization, implementation, and operations">
+    <path d="M197 89l28 24m98-24-28 24m-98 98 28-24m98 24-28-24" fill="none" stroke="#9aa988" strokeWidth="3"/>
+    <rect x="18" y="25" width="182" height="66" rx="15" fill="#e2edf1" stroke="#577f90" strokeWidth="2"/>
+    <path d="M39 45h22v7H39zM43 56h22v7H43zM47 67h22v7H47z" fill="none" stroke="#577f90" strokeWidth="2"/>
+    <DiagramLabel x={82} y={65} anchor="start" size={17} color="#31586b" weight={700}>Architecture</DiagramLabel>
+    <rect x="320" y="25" width="182" height="66" rx="15" fill="#f5eacc" stroke="#d6a94f" strokeWidth="2"/>
+    <path d="M344 44l14-6 14 6v13c0 10-8 16-14 20-6-4-14-10-14-20z" fill="none" stroke="#8b6823" strokeWidth="2"/><path d="M351 57l5 5 9-11" fill="none" stroke="#8b6823" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+    <DiagramLabel x={383} y={65} anchor="start" size={16} color="#655126" weight={700}>Authorization</DiagramLabel>
+    <rect x="18" y="209" width="182" height="66" rx="15" fill="#eae2f2" stroke="#856a9f" strokeWidth="2"/>
+    <path d="M42 230l-9 12 9 12m23-24 9 12-9 12m-5-29-8 34" fill="none" stroke="#856a9f" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+    <DiagramLabel x={82} y={250} anchor="start" size={16} color="#59456e" weight={700}>Implementation</DiagramLabel>
+    <rect x="320" y="209" width="182" height="66" rx="15" fill="#f1dfd5" stroke="#bd7d55" strokeWidth="2"/>
+    <rect x="343" y="227" width="34" height="25" rx="3" fill="none" stroke="#bd7d55" strokeWidth="2"/><path d="M349 234h22m-22 6h13m-13 6h17" stroke="#bd7d55" strokeWidth="2" strokeLinecap="round"/>
+    <DiagramLabel x={386} y={250} anchor="start" size={16} color="#663e38" weight={700}>Operations</DiagramLabel>
+    <circle cx="260" cy="150" r="58" fill="#31586b"/>
+    <circle cx="244" cy="134" r="9" fill="#d6a94f"/><circle cx="276" cy="134" r="9" fill="#9bb5bd"/><circle cx="260" cy="158" r="9" fill="#d9c5df"/>
+    <path d="M252 138l5 13m11-13-5 13m-10-17h14" fill="none" stroke="#fffdf7" strokeWidth="2"/>
+    <DiagramLabel x={260} y={188} size={15} color="#fffdf7" weight={700}>AI SYSTEM</DiagramLabel>
   </Art>;
 }
 
@@ -190,18 +201,30 @@ function RemediationArt() {
 }
 
 function ScheduleArt() {
-  return <Art title="A scheduled trigger orbiting a clock, with an explicit review checkpoint">
-    <circle cx="255" cy="151" r="108" fill="#eef0e3" stroke="#bac095" strokeWidth="2" strokeDasharray="3 8"/><circle cx="255" cy="151" r="76" fill="#fffdf7" stroke="#9aa988" strokeWidth="3"/>
-    <path d="M255 93v61l43 24" fill="none" stroke="#52745b" strokeWidth="6" strokeLinecap="round"/><circle cx="255" cy="151" r="9" fill="#d4de95"/>
-    <path d="M255 43v-20M363 151h31M255 259v20M147 151h-31" stroke="#52745b" strokeWidth="3"/><circle cx="255" cy="23" r="13" fill="#d4de95" stroke="#52745b" strokeWidth="2"/><circle cx="394" cy="151" r="13" fill="#52745b"/><circle cx="255" cy="279" r="13" fill="#bac095" stroke="#52745b" strokeWidth="2"/><circle cx="116" cy="151" r="13" fill="#fffdf7" stroke="#52745b" strokeWidth="2"/>
-    <path d="M255 43a108 108 0 0 1 108 108" fill="none" stroke="#d4de95" strokeWidth="7" strokeLinecap="round"/><path d="M353 144l11 8-10 9" fill="none" stroke="#52745b" strokeWidth="3"/>
-    <DiagramLabel x={255} y={20} size={14} color="#655126">SCHEDULE</DiagramLabel><DiagramLabel x={441} y={155} size={14} color="#59456e">AGENT RUN</DiagramLabel><DiagramLabel x={255} y={294} size={14} color="#663e38">REVIEW DATE</DiagramLabel><DiagramLabel x={78} y={155} size={14} color="#31586b">SPONSOR</DiagramLabel>
+  return <Art title="A recurring agent run linked to its approving sponsor and a scheduled authority review">
+    <circle cx="93" cy="150" r="61" fill="#e2edf1" stroke="#577f90" strokeWidth="3"/>
+    <circle cx="93" cy="150" r="43" fill="#fffdf7" stroke="#9bb5bd" strokeWidth="2"/>
+    <path d="M93 117v34l24 15" fill="none" stroke="#31586b" strokeWidth="5" strokeLinecap="round"/><circle cx="93" cy="150" r="6" fill="#d6a94f"/>
+    <DiagramLabel x={93} y={233} size={16} color="#31586b" weight={700}>RECURRING</DiagramLabel>
+    <path d="M157 150h19m98 0h19m98 0h19" fill="none" stroke="#7b8f74" strokeWidth="4" strokeLinecap="round"/>
+    <path d="M169 142l10 8-10 8m110-16 10 8-10 8m110-16 10 8-10 8" fill="none" stroke="#52745b" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
+    <rect x="180" y="103" width="98" height="94" rx="14" fill="#f5eacc" stroke="#d6a94f" strokeWidth="2"/>
+    <circle cx="229" cy="130" r="13" fill="#fffdf7"/><path d="M229 123v8l6 3" fill="none" stroke="#8b6823" strokeWidth="2" strokeLinecap="round"/>
+    <DiagramLabel x={229} y={164} size={15} color="#655126" weight={700}>SPONSOR</DiagramLabel>
+    <DiagramLabel x={229} y={183} size={13} color="#655126">approves</DiagramLabel>
+    <rect x="295" y="103" width="98" height="94" rx="14" fill="#eae2f2" stroke="#856a9f" strokeWidth="2"/>
+    <circle cx="344" cy="130" r="13" fill="#856a9f"/><path d="M337 130h14m-7-7v14" stroke="#fffdf7" strokeWidth="2" strokeLinecap="round"/>
+    <DiagramLabel x={344} y={164} size={15} color="#59456e" weight={700}>AGENT RUN</DiagramLabel>
+    <DiagramLabel x={344} y={183} size={13} color="#59456e">scheduled</DiagramLabel>
+    <rect x="410" y="103" width="98" height="94" rx="14" fill="#f1dfd5" stroke="#bd7d55" strokeWidth="2"/>
+    <path d="M435 127h48m-48 9h48" stroke="#bd7d55" strokeWidth="2" strokeLinecap="round"/><path d="M441 151l5 5 9-11" fill="none" stroke="#8c563f" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
+    <DiagramLabel x={459} y={176} size={14} color="#663e38" weight={700}>REVIEW</DiagramLabel>
   </Art>;
 }
 
 function ChainArt() {
   return <Art title="A delegated agent chain showing a user request, orchestration, specialized agents, and an external action">
-    <path d="M74 150h115M189 150h70M261 150h83M344 150h100M260 150v-87M260 150v88" fill="none" stroke="#9aa988" strokeWidth="3" strokeDasharray="5 7"/>
+    <path d="M116 150h64m80 0h43m39 0h102M258 143C302 143 294 75 342 75M258 157c44 0 36 68 84 68" fill="none" stroke="#9aa988" strokeWidth="3" strokeDasharray="5 7"/>
     <rect x="25" y="114" width="91" height="72" rx="19" fill="#e2edf1" stroke="#577f90" strokeWidth="2"/><circle cx="69" cy="142" r="13" fill="#577f90"/><path d="M49 166h40" stroke="#577f90" strokeWidth="4" strokeLinecap="round"/><DiagramLabel x={70} y={210} size={16} color="#31586b">REQUEST</DiagramLabel>
     <circle cx="220" cy="150" r="40" fill="#31586b"/><path d="M220 129v42m0-21h-14m14 0h14" stroke="#f6f4ee" strokeWidth="3" strokeLinecap="round"/><circle cx="206" cy="150" r="4" fill="#d6a94f"/><circle cx="234" cy="150" r="4" fill="#bd7d55"/><circle cx="220" cy="129" r="4" fill="#eae2f2"/><circle cx="220" cy="171" r="4" fill="#eae2f2"/><DiagramLabel x={220} y={207} size={15} color="#31586b">ROUTER</DiagramLabel>
     <rect x="342" y="44" width="86" height="62" rx="15" fill="#f5eacc" stroke="#d6a94f" strokeWidth="2"/><path d="M361 65h47M361 81h31" stroke="#8b6823" strokeWidth="4" strokeLinecap="round"/><DiagramLabel x={385} y={36} size={15} color="#655126">AGENT A</DiagramLabel>
@@ -229,9 +252,9 @@ function OperatingArt() {
     <path d="M372 79l15 12-19 3M378 220l-6 17-12-14M144 239l-19-1 10-16M115 88l12-15 6 19" fill="#52745b"/>
     <rect x="196" y="113" width="128" height="88" rx="22" fill="#31586b"/><DiagramLabel x={260} y={153} size={15} color="#fffdf7">GOVERNANCE</DiagramLabel><DiagramLabel x={260} y={174} size={15} color="#d9e8ed">IN PRACTICE</DiagramLabel>
     <circle cx="254" cy="52" r="27" fill="#f5eacc" stroke="#d6a94f" strokeWidth="2"/><DiagramLabel x={254} y={58} size={14} color="#655126">POLICY</DiagramLabel>
-    <circle cx="403" cy="166" r="27" fill="#eae2f2" stroke="#856a9f" strokeWidth="2"/><DiagramLabel x={403} y={172} size={13} color="#59456e">SETTING</DiagramLabel>
-    <circle cx="255" cy="267" r="23" fill="#f1dfd5" stroke="#bd7d55" strokeWidth="2"/><DiagramLabel x={255} y={272} size={11} color="#663e38">REVIEW</DiagramLabel>
-    <circle cx="105" cy="166" r="27" fill="#e2edf1" stroke="#577f90" strokeWidth="2"/><DiagramLabel x={105} y={172} size={13} color="#31586b">LOG</DiagramLabel>
+    <circle cx="403" cy="166" r="29" fill="#eae2f2" stroke="#856a9f" strokeWidth="2"/><DiagramLabel x={403} y={172} size={14} color="#59456e">CONFIG</DiagramLabel>
+    <circle cx="255" cy="267" r="27" fill="#f1dfd5" stroke="#bd7d55" strokeWidth="2"/><DiagramLabel x={255} y={272} size={14} color="#663e38">REVIEW</DiagramLabel>
+    <circle cx="105" cy="166" r="29" fill="#e2edf1" stroke="#577f90" strokeWidth="2"/><DiagramLabel x={105} y={172} size={14} color="#31586b">EVIDENCE</DiagramLabel>
   </Art>;
 }
 
@@ -285,7 +308,7 @@ function RouteArt() {
 
 function AboutArt() {
   return <Art title="A connected enterprise system map across people, applications, data, and AI">
-    <path d="M260 150L122 79m138 71L398 79m-138 71-30 119m30-119 138 119M122 79l108 190m168-190L230 269" fill="none" stroke="#a8b397" strokeWidth="2"/>
+    <path d="M260 150L122 79m138 71L398 79m-138 71-30 119m30-119 138 119" fill="none" stroke="#a8b397" strokeWidth="2"/>
     <rect x="198" y="103" width="124" height="94" rx="24" fill="#31586b"/><DiagramLabel x={260} y={145} size={17} color="#fffdf7">ENGINEERING</DiagramLabel><DiagramLabel x={260} y={167} size={14} color="#d9e8ed">integration + controls</DiagramLabel>
     <circle cx="122" cy="79" r="38" fill="#e2edf1" stroke="#577f90" strokeWidth="2"/><circle cx="122" cy="79" r="14" fill="#577f90"/><path d="M98 104c5-15 42-15 48 0" fill="#c5dce2"/><DiagramLabel x={122} y={132} size={16} color="#31586b">PEOPLE</DiagramLabel>
     <circle cx="398" cy="79" r="38" fill="#f5eacc" stroke="#d6a94f" strokeWidth="2"/><rect x="380" y="64" width="36" height="28" rx="4" fill="#fffdf7" stroke="#8b6823" strokeWidth="2"/><path d="M386 72h23M386 80h15" stroke="#8b6823" strokeWidth="2"/><DiagramLabel x={398} y={132} size={16} color="#655126">APPLICATIONS</DiagramLabel>
