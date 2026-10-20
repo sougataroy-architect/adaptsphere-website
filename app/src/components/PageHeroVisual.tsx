@@ -100,6 +100,11 @@ const diagrams: Record<string, HeroDiagram> = {
     note: "Page content supports different ways to navigate and understand it.",
     steps: ["Semantic structure", "Keyboard access", "Visible focus", "Text + motion options"],
   },
+  notFound: {
+    label: "PAGE ROUTE",
+    note: "The requested page was not found. Choose a destination that is available.",
+    steps: ["Requested address", "Route check", "Available pages", "Choose next step"],
+  },
   workflow: {
     label: "AI WORKFLOW",
     note: "Keep the authority and review steps visible in the system design.",
@@ -111,6 +116,7 @@ function diagramForPath(path: string): HeroDiagram {
   if (path === "/privacy") return diagrams.privacy;
   if (path === "/terms") return diagrams.terms;
   if (path === "/accessibility") return diagrams.accessibility;
+  if (path === "/404") return diagrams.notFound;
   if (path === "/microsoft-ai" || path.includes("microsoft-ai-governance")) return diagrams.microsoft;
   if (path === "/agent-governance" || path.includes("agent-governance")) return diagrams.governance;
   if (path === "/how-we-work") return diagrams.delivery;
