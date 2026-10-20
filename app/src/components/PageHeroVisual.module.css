@@ -48,6 +48,15 @@
 
 .mobileKey { display: none; }
 .artwork { display: block; }
+.imageFrame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  border-radius: 14px;
+  background: #e4e9d7;
+}
+.image { object-fit: cover; }
 
 @media (max-width: 1000px) {
   .mobileKey {
