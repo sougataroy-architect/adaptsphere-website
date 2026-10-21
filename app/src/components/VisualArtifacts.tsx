@@ -144,14 +144,3 @@ const delivery: readonly ArtifactSpec[] = [
 ];
 export function DeliveryArtifacts() { return <VisualArtifactGrid items={delivery} label="Delivery stages"/>; }
 export function DeliveryArtifactAt({ index }: { index: number }) { const item = delivery[index]; return item ? <VisualArtifact item={item} compact/> : null; }
-
-export const serviceCatalog: readonly ArtifactSpec[] = [
-  { title: "Architecture", caption: "Design the scoped route from AI to business systems.", kind: "layers", labels: ["Purpose", "Identity", "Tools"] },
-  { title: "Assessment", caption: "Compare intended safeguards with actual access and evidence.", kind: "compare", labels: ["Intent", "Settings", "Evidence"] },
-  { title: "Agent authority", caption: "Document the owner, allowed actions, and review path.", kind: "record", labels: ["Owner", "Scope", "Review"] },
-  { title: "Modernization", caption: "Preserve application rules through a controlled interface.", kind: "gate", labels: ["AI", "API", "System"] },
-  { title: "Platform operations", caption: "Move changes through test, release, and recovery.", kind: "cycle", labels: ["Build", "Test", "Run", "Recover"] },
-  { title: "Remediation", caption: "Assign, fix, retest, and close a verified finding.", kind: "timeline", labels: ["Find", "Assign", "Fix", "Retest"] },
-  { title: "Microsoft AI", caption: "Trace permissions, identities, policies, and evidence.", kind: "network", labels: ["M365", "Entra", "Studio", "Purview"] },
-];
-export function ServiceCatalogArtifactAt({ index }: { index: number }) { const item = serviceCatalog[index]; return item ? <VisualArtifact item={item} compact/> : null; }

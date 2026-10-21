@@ -1,0 +1,64 @@
+.card {
+  align-items: center;
+}
+
+.media {
+  position: relative;
+  display: block;
+  flex: 0 0 34%;
+  min-height: 166px;
+  overflow: hidden;
+  border-radius: 8px;
+  background: var(--muted);
+  isolation: isolate;
+}
+
+.media img {
+  object-fit: cover;
+  transition: transform .4s cubic-bezier(.2,.7,.2,1);
+}
+
+.card:hover .media img,
+.card:focus-visible .media img {
+  transform: scale(1.035);
+}
+
+.copy {
+  display: block;
+  min-width: 0;
+  flex: 1;
+}
+
+.copy h3 {
+  max-width: 25ch;
+}
+
+.copy p {
+  margin-top: 12px;
+}
+
+.copy :global(.card-link) {
+  margin-top: 16px;
+}
+
+:global(.service-card:first-child) .media {
+  flex-basis: 40%;
+  min-height: 245px;
+}
+
+@media (max-width: 767px) {
+  .media { min-height: 145px; }
+  :global(.service-card:first-child) .media { min-height: 190px; }
+}
+
+@media (max-width: 639px) {
+  .card { gap: 14px; }
+  .media { flex-basis: 32%; min-height: 124px; }
+  :global(.service-card:first-child) .media { flex-basis: 32%; min-height: 150px; }
+  .copy p { margin-top: 8px; }
+  .copy :global(.card-link) { margin-top: 10px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .media img { transition: none; }
+}
