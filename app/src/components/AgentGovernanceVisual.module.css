@@ -1,0 +1,26 @@
+.diagram{display:grid;gap:16px;padding:2px 4px 4px;color:var(--foreground)}
+.context{font-size:10px;font-weight:700;letter-spacing:.12em;color:var(--accent-text)}
+.context span{padding-inline:5px;color:var(--border-strong)}
+.authorization{display:grid;grid-template-columns:42px 1fr;gap:13px;align-items:start;padding:16px 17px;border:1px solid #d6a94f;border-radius:11px;background:#f7f0df}
+.authorizationMark{display:grid;width:36px;height:36px;place-items:center;border-radius:50%;background:#8b6823;color:#fffdf7;font-family:var(--font-display);font-size:22px;line-height:1}
+.eyebrow,.stepLabel{display:block;color:#655126;font-size:9px;font-weight:700;letter-spacing:.1em;line-height:1.4}
+.authorization strong{display:block;margin-top:4px;font-size:14px;line-height:1.4}
+.authorization p{margin-top:3px;color:var(--soft);font-size:12px;line-height:1.55}
+.flow{position:relative;display:grid;gap:0;padding:0 0 0 2px}
+.step{position:relative;display:grid;grid-template-columns:34px 1fr;gap:13px;min-height:70px;padding:9px 3px 12px}
+.step:not(:last-child):before{content:"";position:absolute;top:39px;bottom:-1px;left:17px;width:1px;background:var(--border-strong)}
+.number{z-index:1;display:grid;width:32px;height:32px;place-items:center;border:1px solid var(--border-strong);border-radius:50%;background:var(--surface);color:var(--accent-text);font-size:10px;font-weight:700}
+.stepLabel{color:var(--faint);font-size:9px}
+.stepCopy strong{display:block;margin-top:2px;color:var(--foreground);font-size:13px;line-height:1.4}
+.stepCopy p{margin-top:2px;color:var(--soft);font-size:11px;line-height:1.5}
+.boundaries{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.permitted,.prohibited{padding:12px 13px;border-radius:9px}
+.permitted{border:1px solid #aab99f;background:#eaf0e5}
+.prohibited{border:1px solid #cf9b7d;background:#f5e8df}
+.permitted>span,.prohibited>span{display:block;font-size:9px;font-weight:700;letter-spacing:.1em}
+.permitted>span{color:#385742}.prohibited>span{color:#804c38}
+.permitted p,.prohibited p{margin-top:4px;color:var(--foreground);font-size:11px;line-height:1.5}
+.permitted b,.prohibited b{padding:0 2px;color:var(--faint)}
+.enforcement{padding-top:12px;border-top:1px solid var(--border);font-size:10px;line-height:1.55}
+@media(max-width:1000px){.diagram{gap:12px}.authorization{padding:13px}.step{min-height:65px;padding-bottom:9px}.boundaries{grid-template-columns:1fr}}
+@media(max-width:767px){.diagram{gap:13px;padding:0}.authorization{grid-template-columns:36px 1fr}.authorizationMark{width:32px;height:32px}.authorization p{font-size:13px}.step{min-height:unset;padding:9px 0 13px}.stepCopy strong{font-size:14px}.stepCopy p{font-size:12px}.boundaries{grid-template-columns:1fr}.permitted p,.prohibited p{font-size:12px}.enforcement{font-size:11px}}

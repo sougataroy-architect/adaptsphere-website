@@ -1,6 +1,7 @@
 import type { ReactNode } from "react";
 import Image from "next/image";
 import styles from "./PageHeroVisual.module.css";
+import { AgentGovernanceVisual } from "./AgentGovernanceVisual";
 
 type ArtProps = { children: ReactNode; title: string; viewBox?: string };
 type ArtKind = "services" | "governance" | "microsoft" | "delivery" | "insights" | "architecture" | "assessment" | "agent-service" | "modernization" | "modernization-article" | "platform" | "remediation" | "schedule" | "chain" | "authorization" | "operating" | "privacy" | "terms" | "accessibility" | "not-found" | "about" | "contact";
@@ -62,39 +63,6 @@ function ServicesArt() {
     <DiagramLabel x={270} y={242} size={17} color="#663e38">Human review</DiagramLabel>
     <path d="M261 168v27M359 236h73v-67" fill="none" stroke="#b96555" strokeWidth="3" strokeDasharray="5 5"/>
     <path d="M255 190l6 8 6-8m159-1l12-9 12 9" fill="none" stroke="#b96555" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
-  </Art>;
-}
-
-function GovernanceArt() {
-  return <Art viewBox="0 0 680 340" title="Invoice governance example: a finance owner approves the agent's purpose and limits, identity and scoped permissions enforce them, the agent reads invoice and vendor records and drafts an exception for a human reviewer, while payment release and bank-detail changes are blocked.">
-    <defs><marker id="authority-arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0 8 4 0 8z" fill="#52745b"/></marker></defs>
-    <rect x="20" y="23" width="230" height="58" rx="12" fill="#f5eacc" stroke="#d6a94f" strokeWidth="2"/>
-    <circle cx="46" cy="45" r="8" fill="#8b6823"/><path d="M33 70c2-14 24-14 26 0" fill="#8b6823"/>
-    <DiagramLabel x={68} y={47} anchor="start" size={14} color="#655126" weight={700}>FINANCE OWNER</DiagramLabel><DiagramLabel x={68} y={67} anchor="start" size={12} color="#655126">approves purpose + limits</DiagramLabel>
-    <rect x="270" y="23" width="390" height="58" rx="12" fill="#e8ebd8" stroke="#8b997f" strokeWidth="2"/>
-    <circle cx="298" cy="52" r="13" fill="#52745b"/><path d="M292 52h12m-6-6v12" stroke="#fffdf7" strokeWidth="2"/>
-    <DiagramLabel x={322} y={47} anchor="start" size={14} color="#385742" weight={700}>AGENT IDENTITY + SCOPED PERMISSIONS</DiagramLabel><DiagramLabel x={322} y={67} anchor="start" size={12} color="#385742">enforce the approved boundary</DiagramLabel>
-    <path d="M135 81v22m330-22v22" fill="none" stroke="#8b997f" strokeWidth="2" strokeDasharray="4 4"/>
-
-    <rect x="18" y="103" width="472" height="158" rx="15" fill="#f3f2e9" stroke="#8b997f" strokeWidth="2" strokeDasharray="6 5"/>
-    <rect x="197" y="91" width="117" height="25" rx="12" fill="#52745b"/>
-    <DiagramLabel x={255} y={108} size={12} color="#fffdf7" weight={700}>AUTHORIZED SCOPE</DiagramLabel>
-    <rect x="30" y="139" width="118" height="82" rx="11" fill="#e2edf1" stroke="#577f90" strokeWidth="2"/>
-    <DiagramLabel x={89} y={169} size={14} color="#31586b" weight={700}>INVOICE +</DiagramLabel><DiagramLabel x={89} y={190} size={14} color="#31586b" weight={700}>VENDOR DATA</DiagramLabel><DiagramLabel x={89} y={210} size={11} color="#31586b">read only</DiagramLabel>
-    <path d="M148 180h20" fill="none" stroke="#52745b" strokeWidth="2.5" markerEnd="url(#authority-arrow)"/>
-    <rect x="170" y="139" width="133" height="82" rx="11" fill="#fffdf7" stroke="#52745b" strokeWidth="2"/>
-    <DiagramLabel x={236} y={169} size={14} color="#385742" weight={700}>INVOICE AGENT</DiagramLabel><DiagramLabel x={236} y={191} size={12} color="#385742">flags mismatches</DiagramLabel><DiagramLabel x={236} y={210} size={11} color="#58645c">cannot approve</DiagramLabel>
-    <path d="M303 180h27" fill="none" stroke="#52745b" strokeWidth="2.5" markerEnd="url(#authority-arrow)"/>
-    <rect x="333" y="139" width="143" height="82" rx="11" fill="#e8ebd8" stroke="#52745b" strokeWidth="2"/>
-    <DiagramLabel x={404} y={169} size={14} color="#385742" weight={700}>DRAFT EXCEPTION</DiagramLabel><DiagramLabel x={404} y={191} size={12} color="#385742">permitted output</DiagramLabel><DiagramLabel x={404} y={210} size={11} color="#58645c">no record change</DiagramLabel>
-    <path d="M490 180h24" fill="none" stroke="#52745b" strokeWidth="2.5" markerEnd="url(#authority-arrow)"/>
-    <rect x="518" y="139" width="142" height="82" rx="11" fill="#fffdf7" stroke="#bd7d55" strokeWidth="2"/>
-    <circle cx="540" cy="165" r="8" fill="#bd7d55"/><path d="M527 190c2-12 24-12 26 0" fill="#bd7d55"/>
-    <DiagramLabel x={597} y={169} size={13} color="#663e38" weight={700}>FINANCE REVIEW</DiagramLabel><DiagramLabel x={589} y={194} size={11} color="#663e38">person decides</DiagramLabel>
-
-    <rect x="170" y="278" width="490" height="48" rx="10" fill="#f1dfd5" stroke="#bd7d55" strokeWidth="2"/>
-    <circle cx="194" cy="302" r="11" fill="#bd7d55"/><path d="m190 298 8 8m0-8-8 8" stroke="#fffdf7" strokeWidth="2"/>
-    <DiagramLabel x={218} y={298} anchor="start" size={13} color="#663e38" weight={700}>BLOCKED BY PERMISSIONS</DiagramLabel><DiagramLabel x={218} y={316} anchor="start" size={12} color="#663e38">release payment or change vendor bank details</DiagramLabel>
   </Art>;
 }
 
@@ -477,7 +445,7 @@ function sceneForPath(path: string): Scene {
 function Artwork({ kind }: { kind: ArtKind }) {
   switch (kind) {
     case "services": return <ServicesArt/>;
-    case "governance": return <GovernanceArt/>;
+    case "governance": return <AgentGovernanceVisual/>;
     case "microsoft": return <MicrosoftArt/>;
     case "delivery": return <DeliveryArt/>;
     case "insights": return <NetworkArt/>;
@@ -517,7 +485,7 @@ export function PageHeroVisual({ path }: { path: string }) {
         ? <div className={styles.imageFrame} style={image.aspectRatio ? { aspectRatio: image.aspectRatio } : undefined}><Image src={image.src} alt={image.alt} fill priority sizes="(max-width: 767px) 92vw, (max-width: 1000px) 44vw, 40vw" className={image.fit === "contain" ? `${styles.image} ${styles.imageContain}` : styles.image}/></div>
         : <Artwork kind={scene.kind}/>}
     </div>
-    {!image && <ul className={styles.mobileKey} aria-label="Diagram summary">
+    {!image && scene.kind !== "governance" && <ul className={styles.mobileKey} aria-label="Diagram summary">
       {mobileKeys[scene.kind].map((item) => <li key={item}>{item}</li>)}
     </ul>}
     <p className="page-hero-note">{scene.note}</p>
