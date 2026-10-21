@@ -2,7 +2,7 @@ import type { ReactNode } from "react";
 import Image from "next/image";
 import styles from "./PageHeroVisual.module.css";
 
-type ArtProps = { children: ReactNode; title: string };
+type ArtProps = { children: ReactNode; title: string; viewBox?: string };
 type ArtKind = "services" | "governance" | "microsoft" | "delivery" | "insights" | "architecture" | "assessment" | "agent-service" | "modernization" | "modernization-article" | "platform" | "remediation" | "schedule" | "chain" | "authorization" | "operating" | "privacy" | "terms" | "accessibility" | "not-found" | "about" | "contact";
 type Scene = { label: string; note: string; kind: ArtKind };
 type HeroImage = { src: string; alt: string; aspectRatio?: number; fit?: "cover" | "contain" };
@@ -26,14 +26,13 @@ const heroImages: Record<string, HeroImage> = {
   "/services/platform-engineering": { src: "/visuals/platform-operations-v2.webp", alt: "An operations engineer checks server racks during a routine production-system inspection." },
   "/services/governance-remediation": { src: "/visuals/remediation-review-v3.webp", alt: "Two colleagues compare a control remediation checklist with a configuration change and test evidence on a laptop." },
   "/insights/authorize-the-schedule-that-runs-the-agent": { src: "/visuals/scheduled-agent-v2.webp", alt: "A sponsor approves a recurring schedule, an agent runs, and the result is recorded.", fit: "contain" },
-  "/insights/authorize-the-agent-chain": { src: "/visuals/agent-chain-v2.webp", alt: "A request branches to specialist agents, crosses a shared permission boundary, and reaches a human checkpoint before external action.", fit: "contain" },
   "/insights/agent-authorization-before-autonomy": { src: "/visuals/authorization-article-v2.webp", alt: "A broad set of possible tools narrows to a human-approved agent action that is recorded in an audit trail.", fit: "contain" },
   "/insights/modernization-is-an-ai-control": { src: "/visuals/modernization-control-v2.webp", alt: "A protected legacy database exposes only approved operations through an API boundary to an AI agent.", fit: "contain" },
   "/insights/governance-that-survives-deployment": { src: "/visuals/governance-operations-v2.webp", alt: "Policy, configured controls, operations, and evidence connect in a continuing review cycle.", fit: "contain" },
 };
 
-function Art({ children, title }: ArtProps) {
-  return <svg className={`page-hero-artwork ${styles.artwork}`} viewBox="0 0 520 300" role="img" aria-label={title}>{children}</svg>;
+function Art({ children, title, viewBox = "0 0 520 300" }: ArtProps) {
+  return <svg className={`page-hero-artwork ${styles.artwork}`} viewBox={viewBox} role="img" aria-label={title}>{children}</svg>;
 }
 
 function DiagramLabel({ x, y, children, size = 20, color = "#26332e", weight = 600, anchor = "middle" }: { x: number; y: number; children: ReactNode; size?: number; color?: string; weight?: number; anchor?: "start" | "middle" | "end" }) {
@@ -250,14 +249,28 @@ function ScheduleArt() {
 }
 
 function ChainArt() {
-  return <Art title="A delegated agent chain showing a user request, orchestration, specialized agents, and an external action">
-    <path d="M116 150h64m80 0h43m39 0h102M258 143C302 143 294 75 342 75M258 157c44 0 36 68 84 68" fill="none" stroke="#9aa988" strokeWidth="3" strokeDasharray="5 7"/>
-    <rect x="25" y="114" width="91" height="72" rx="19" fill="#e2edf1" stroke="#577f90" strokeWidth="2"/><circle cx="69" cy="142" r="13" fill="#577f90"/><path d="M49 166h40" stroke="#577f90" strokeWidth="4" strokeLinecap="round"/><DiagramLabel x={70} y={210} size={16} color="#31586b">REQUEST</DiagramLabel>
-    <circle cx="220" cy="150" r="40" fill="#31586b"/><path d="M220 129v42m0-21h-14m14 0h14" stroke="#f6f4ee" strokeWidth="3" strokeLinecap="round"/><circle cx="206" cy="150" r="4" fill="#d6a94f"/><circle cx="234" cy="150" r="4" fill="#bd7d55"/><circle cx="220" cy="129" r="4" fill="#eae2f2"/><circle cx="220" cy="171" r="4" fill="#eae2f2"/><DiagramLabel x={220} y={207} size={15} color="#31586b">ROUTER</DiagramLabel>
-    <rect x="342" y="44" width="86" height="62" rx="15" fill="#f5eacc" stroke="#d6a94f" strokeWidth="2"/><path d="M361 65h47M361 81h31" stroke="#8b6823" strokeWidth="4" strokeLinecap="round"/><DiagramLabel x={385} y={36} size={15} color="#655126">AGENT A</DiagramLabel>
-    <rect x="342" y="194" width="86" height="62" rx="15" fill="#eae2f2" stroke="#856a9f" strokeWidth="2"/><circle cx="369" cy="225" r="11" fill="#856a9f"/><path d="M389 219h25M389 231h19" stroke="#59456e" strokeWidth="3" strokeLinecap="round"/><DiagramLabel x={385} y={278} size={15} color="#59456e">AGENT B</DiagramLabel>
-    <rect x="444" y="115" width="62" height="70" rx="15" fill="#f1dfd5" stroke="#bd7d55" strokeWidth="2"/><path d="M461 138h29M461 151h29M461 164h18" stroke="#8c563f" strokeWidth="3" strokeLinecap="round"/><DiagramLabel x={475} y={207} size={14} color="#663e38">ACTION</DiagramLabel>
-    <Dot x={301} y={150} fill="#d6a94f" r={7}/>
+  return <Art viewBox="0 0 600 340" title="Invoice exception workflow: a finance request reaches an orchestrator, which delegates invoice matching and purchase-policy checks inside one shared authorization boundary. The agents may draft an exception for human review, but cannot release payment or change bank details.">
+    <defs><marker id="chain-arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0 8 4 0 8z" fill="#52745b"/></marker></defs>
+    <path d="M105 160h24M231 160h15v-38h23M246 160v52h23M425 127h20v33h14M425 212h20v-52h14M515 193v29" fill="none" stroke="#52745b" strokeWidth="2.5" markerEnd="url(#chain-arrow)"/>
+    <rect x="14" y="127" width="91" height="66" rx="12" fill="#e2edf1" stroke="#577f90" strokeWidth="2"/>
+    <DiagramLabel x={59} y={153} size={14} color="#31586b" weight={700}>FINANCE</DiagramLabel><DiagramLabel x={59} y={173} size={14} color="#31586b">REQUEST</DiagramLabel>
+    <rect x="129" y="127" width="102" height="66" rx="12" fill="#31586b"/>
+    <DiagramLabel x={180} y={153} size={14} color="#fffdf7" weight={700}>ORCHESTRATOR</DiagramLabel><DiagramLabel x={180} y={174} size={12} color="#d9e8ed">routes checks</DiagramLabel>
+    <rect x="116" y="69" width="333" height="202" rx="17" fill="#f3f2e9" stroke="#8b997f" strokeWidth="2" strokeDasharray="6 5"/>
+    <rect x="183" y="55" width="199" height="26" rx="13" fill="#52745b"/>
+    <DiagramLabel x={282} y={73} size={12} color="#fffdf7" weight={700}>ONE AUTHORIZATION FOR THE CHAIN</DiagramLabel>
+    <rect x="269" y="99" width="156" height="56" rx="10" fill="#f5eacc" stroke="#d6a94f" strokeWidth="2"/>
+    <DiagramLabel x={347} y={123} size={14} color="#655126" weight={700}>MATCH INVOICE</DiagramLabel><DiagramLabel x={347} y={142} size={11} color="#655126">read invoice + vendor</DiagramLabel>
+    <rect x="269" y="184" width="156" height="56" rx="10" fill="#eae2f2" stroke="#856a9f" strokeWidth="2"/>
+    <DiagramLabel x={347} y={208} size={14} color="#59456e" weight={700}>CHECK POLICY</DiagramLabel><DiagramLabel x={347} y={227} size={11} color="#59456e">read PO + spend rule</DiagramLabel>
+    <rect x="459" y="127" width="112" height="66" rx="12" fill="#e2edf1" stroke="#577f90" strokeWidth="2"/>
+    <DiagramLabel x={515} y={153} size={14} color="#31586b" weight={700}>DRAFT</DiagramLabel><DiagramLabel x={515} y={173} size={14} color="#31586b">EXCEPTION</DiagramLabel>
+    <rect x="459" y="222" width="112" height="46" rx="12" fill="#fffdf7" stroke="#bd7d55" strokeWidth="2"/>
+    <circle cx="479" cy="245" r="8" fill="#bd7d55"/><path d="M466 260c2-11 24-11 26 0" fill="#bd7d55"/>
+    <DiagramLabel x={526} y={249} size={13} color="#663e38" weight={700}>HUMAN REVIEW</DiagramLabel>
+    <path d="M267 288h304" stroke="#bd7d55" strokeWidth="2" strokeDasharray="5 4"/>
+    <circle cx="280" cy="312" r="8" fill="#f1dfd5" stroke="#bd7d55" strokeWidth="1.5"/><path d="m277 309 6 6m0-6-6 6" stroke="#8c563f" strokeWidth="1.5"/>
+    <DiagramLabel x={422} y={308} size={13} color="#663e38" weight={700}>THE AGENT CANNOT</DiagramLabel><DiagramLabel x={422} y={328} size={13} color="#663e38">release payment or change bank details</DiagramLabel>
   </Art>;
 }
 
@@ -375,7 +388,7 @@ const scenes: Record<ArtKind, Scene> = {
   platform: { label: "OPERATIONS CYCLE", note: "Release, observation, recovery, and handover stay connected over time.", kind: "platform" },
   remediation: { label: "FINDING TO VERIFIED CHANGE", note: "Move a confirmed issue through a controlled fix and a behavior check.", kind: "remediation" },
   schedule: { label: "SCHEDULE AUTHORITY", note: "Name who approved the recurring run, which agent acts, and when its authority must be reviewed.", kind: "schedule" },
-  chain: { label: "DELEGATION CHAIN", note: "A request is routed to specialist agents; assess the combined permissions before any system action.", kind: "chain" },
+  chain: { label: "INVOICE EXCEPTION CHAIN", note: "Both read-only checks share one authorization. The chain can draft an exception; a person must review it before any payment decision.", kind: "chain" },
   authorization: { label: "ACTION BOUNDARY", note: "Narrow tool access to the approved task, place a human decision at the boundary, and record the result.", kind: "authorization" },
   operating: { label: "GOVERNANCE FEEDBACK LOOP", note: "Connect policy, configuration, daily operation, evidence, and review.", kind: "operating" },
   privacy: { label: "WEBSITE + EMAIL DATA", note: "A site visit creates technical request records. Email is processed separately so we can respond to an inquiry.", kind: "privacy" },
@@ -400,7 +413,7 @@ const mobileKeys: Record<ArtKind, string[]> = {
   platform: ["Change", "Release", "Monitor", "Recover"],
   remediation: ["Confirmed finding", "Controlled change", "Retest"],
   schedule: ["Approver", "Recurring run", "Review date"],
-  chain: ["Incoming request", "Delegation", "Combined permissions"],
+  chain: ["Finance invoice request", "Invoice + policy checks", "Draft only", "Human review before payment"],
   authorization: ["Agent identity", "Limited tool scope", "Allow or deny"],
   operating: ["Policy", "Configured controls", "Operation + review"],
   privacy: ["Website visit", "Technical request record", "Separate email inquiry"],

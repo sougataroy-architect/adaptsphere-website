@@ -158,9 +158,9 @@ const articleEntries: Record<string, readonly ArtifactSpec[]> = {
     { title: "Owner departure must reach active triggers", caption: "Offboarding should expose unattended schedules for a new decision before they continue.", kind: "flow", labels: ["Owner leaves", "Find triggers", "Suspend", "Reapprove"] },
   ],
   "authorize-the-agent-chain": [
-    { title: "The final effect belongs to the whole chain", caption: "A chain can combine retrieval, interpretation, and external action across multiple agents.", kind: "flow", labels: ["Request", "Retrieve", "Decide", "Act"] },
-    { title: "Record shared authority once", caption: "Identify the initiator, composition approver, combined scope, and owner of the outcome.", kind: "record", labels: ["Initiator", "Approver", "Combined scope", "Owner"] },
-    { title: "Test each handoff and the final effect", caption: "A constrained edge between agents is as important as the permissions of each component.", kind: "gate", labels: ["Agent A", "Scoped handoff", "Agent B"] },
+    { title: "Trace one invoice through the full chain", caption: "The match and policy agents combine their read access to draft an exception; a finance approver decides whether payment can proceed.", kind: "flow", labels: ["Invoice request", "Read invoice + vendor", "Check PO policy", "Human approves"] },
+    { title: "Record the authority for the composed workflow", caption: "Keep the initiator, approver, combined allowed and blocked actions, and outcome owner together in one reviewable record.", kind: "record", labels: ["Initiator", "Approver", "Allowed + blocked acts", "Outcome owner"] },
+    { title: "Pass only the needed data at each handoff", caption: "The match agent returns a discrepancy, not the full vendor record; the policy agent receives only fields needed to check the purchase rule.", kind: "flow", labels: ["Match agent", "Discrepancy only", "Policy agent"] },
   ],
   "agent-authorization-before-autonomy": [
     { title: "Different actions require different authority", caption: "Read, change, and send each have different consequences and should be scoped separately.", kind: "matrix", center: "ACTION", groups: ["AUTHORITY / CONTROL", ""], labels: ["Read", "Change", "Send", "Approve"], details: ["Information access", "Record mutation", "External effect", "Decision right"] },
@@ -184,7 +184,7 @@ const articleEntries: Record<string, readonly ArtifactSpec[]> = {
 
 const insightOverview: Record<string, ArtifactSpec> = {
   "authorize-the-schedule-that-runs-the-agent": { title: "A schedule extends an agent’s authority through time", caption: "Review who approved the trigger, what it can do unattended, and when it should stop.", kind: "cycle", labels: ["Approve", "Schedule", "Run", "Review"] },
-  "authorize-the-agent-chain": { title: "The composed workflow has a combined effect", caption: "Follow the request across delegated agents and stop at the actual business change.", kind: "flow", labels: ["Request", "Agent A", "Agent B", "External effect"] },
+  "authorize-the-agent-chain": { title: "Example: an invoice exception chain", caption: "Two agents check an invoice and its purchase policy. They may draft an exception; a finance approver decides before payment changes.", kind: "flow", labels: ["Invoice request", "Match invoice", "Check PO policy", "Human approval"] },
   "agent-authorization-before-autonomy": { title: "Autonomy begins inside a named boundary", caption: "Purpose, identity, permitted actions, approval, and evidence belong in one review path.", kind: "gate", labels: ["Purpose", "Identity", "Action"] },
   "modernization-is-an-ai-control": { title: "The application interface carries the business rules", caption: "A narrow API can validate an AI request before the legacy application changes a record.", kind: "layers", labels: ["Agent request", "API rules", "App logic", "Record"] },
   "governance-that-survives-deployment": { title: "Governance connects policy to daily operations", caption: "A requirement lives through a configured setting, an operating owner, and reviewable evidence.", kind: "flow", labels: ["Policy", "Setting", "Operator", "Evidence"] },
