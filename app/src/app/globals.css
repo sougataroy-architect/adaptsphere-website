@@ -167,6 +167,12 @@
 @media(max-width:767px){.delivery-art{margin:8px auto 16px}.process-grid>li{padding-top:22px}}
 .workflow-scene text{display:none}
 .scene-legend{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;text-align:center;font-size:16px;line-height:1.4;color:#435a49;margin-top:-12px;padding:0 8px 12px}
+
+/* Keep top-level navigation readable without shrinking it at intermediate widths. */
+.site-header .desktop-nav,.site-header .header-contact,.site-header .menu-button{font-size:16px}
+@media(640px <= width < 1040px){.desktop-nav .nav-item-3{display:none}.overflow-nav a.nav-item-3{display:block}}
+@media(640px <= width < 940px){.desktop-nav .nav-item-2{display:none}.overflow-nav a.nav-item-2{display:block}}
+@media(640px <= width < 840px){.desktop-nav .nav-item-1{display:none}.overflow-nav a.nav-item-1{display:block}}
 /* Give marketing page headers the same original workflow illustration used on the homepage. */
 .page-header-visual{padding:52px 0 60px}
 .page-header-grid{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(360px,.95fr);align-items:center;gap:clamp(36px,5vw,72px)}
