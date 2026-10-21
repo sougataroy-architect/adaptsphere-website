@@ -96,6 +96,15 @@
 /* Recolor the supplied alpha silhouette without redrawing the logo. */
 .wordmark .brand-gradient{display:inline-block;flex-shrink:0;background:linear-gradient(45deg,#2f6f58 15%,#52745b 52%,#8fa77b 88%);mask-image:url('/brand/as-supplied.png');mask-size:contain;mask-position:center;mask-repeat:no-repeat;-webkit-mask-image:url('/brand/as-supplied.png');-webkit-mask-size:contain;-webkit-mask-position:center;-webkit-mask-repeat:no-repeat}
 
+/* Give the header logo a deliberate, balanced two-line lockup. */
+.site-header .wordmark{gap:12px}
+.site-header .wordmark .brand-image{width:78px;height:52px;margin:0}
+.site-header .wordmark-type{display:flex;flex-direction:column;align-items:flex-start;gap:2px;line-height:1}
+.site-header .wordmark-name{font-size:25px;font-weight:600;letter-spacing:-.05em;line-height:1.05;white-space:nowrap}
+.site-header .wordmark .wordmark-sub{font-size:16px;line-height:1.25;letter-spacing:.08em;margin-top:0;white-space:nowrap}
+.site-header .wordmark .brand-trademark{font-size:11px;vertical-align:super;margin-left:2px}
+@media(width < 640px){.site-header .wordmark .brand-image{width:64px;height:43px}.site-header .wordmark{gap:10px}.site-header .wordmark-name{font-size:21px}.site-header .wordmark .wordmark-sub{font-size:14px;letter-spacing:.04em}}
+
 /* Readable supporting text on every screen, including interactive boards. */
 .wordmark .wordmark-sub{font-size:16px;line-height:1.3;letter-spacing:.08em;margin-top:6px}
 .architecture-board figcaption,.board-ref,.board-intent>span,.node-index,.control-panels dt,.board-caption,.breadcrumbs,.article-meta,.finder-progress li,.service-scene h4,.finder-result h4,.footer-grid nav h3{font-size:var(--type-meta);line-height:1.6}
