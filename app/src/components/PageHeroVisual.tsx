@@ -9,7 +9,6 @@ type HeroImage = { src: string; alt: string; aspectRatio?: number; fit?: "cover"
 
 const heroImages: Record<string, HeroImage> = {
   "/services": { src: "/visuals/services-workflow-v2.webp", alt: "Colleagues from operations and technology trace a business process and its system handoffs on a printed workflow map." },
-  "/agent-governance": { src: "/visuals/authorization-boundary-v2.webp", alt: "An agent identity passes through a sponsor-backed permission boundary; one path is allowed and another is blocked.", fit: "contain" },
   "/microsoft-ai": { src: "/visuals/microsoft-permissions-v2.webp", alt: "A cloud engineer reviews shared-document access and tool permissions in an enterprise admin console." },
   "/how-we-work": { src: "/visuals/delivery-route-v2.webp", alt: "An engineer hands a tested release checklist and operating runbook to the operations owner." },
   "/insights": { src: "/visuals/insights-index-v2.webp", alt: "A technical field notebook and architecture sketches sit open beside an engineer’s laptop." },
@@ -67,22 +66,35 @@ function ServicesArt() {
 }
 
 function GovernanceArt() {
-  return <Art title="Four parts of an agent authorization record: purpose and scope, allowed actions, business sponsor, and review evidence">
-    {[
-      { x: 31, y: 38, fill: "#e2edf1", stroke: "#577f90", text: "#31586b", label: ["Purpose +", "scope"], icon: "document" },
-      { x: 265, y: 38, fill: "#f5eacc", stroke: "#d6a94f", text: "#655126", label: ["Allowed", "actions"], icon: "check" },
-      { x: 31, y: 154, fill: "#f1dfd5", stroke: "#bd7d55", text: "#663e38", label: ["Business", "sponsor"], icon: "person" },
-      { x: 265, y: 154, fill: "#eae2f2", stroke: "#856a9f", text: "#59456e", label: ["Review", "evidence"], icon: "review" },
-    ].map((item) => <g key={item.icon}>
-      <rect x={item.x} y={item.y} width="224" height="94" rx="16" fill={item.fill} stroke={item.stroke} strokeWidth="2"/>
-      <circle cx={item.x + 43} cy={item.y + 47} r="24" fill="#fffdf7"/>
-      {item.icon === "document" && <g fill="none" stroke={item.stroke} strokeWidth="2.5" strokeLinecap="round"><path d={`M${item.x+36} ${item.y+32}h13l8 8v23h-21z`}/><path d={`M${item.x+49} ${item.y+32}v9h8M${item.x+40} ${item.y+47}h12m-12 7h12`}/></g>}
-      {item.icon === "check" && <g fill="none" stroke={item.stroke} strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d={`M${item.x+31} ${item.y+47}l8 8 16-18`}/></g>}
-      {item.icon === "person" && <g fill="none" stroke={item.stroke} strokeWidth="2.5" strokeLinecap="round"><circle cx={item.x+43} cy={item.y+40} r="8"/><path d={`M${item.x+29} ${item.y+65}c2-14 26-14 28 0`}/></g>}
-      {item.icon === "review" && <g fill="none" stroke={item.stroke} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><rect x={item.x+30} y={item.y+34} width="26" height="26" rx="4"/><path d={`M${item.x+30} ${item.y+42}h26m-19-12v8m12-8v8m-14 12 4 4 8-9`}/></g>}
-      <DiagramLabel x={item.x + 78} y={item.y + 43} anchor="start" size={16} color={item.text} weight={700}>{item.label[0]}</DiagramLabel>
-      <DiagramLabel x={item.x + 78} y={item.y + 63} anchor="start" size={16} color={item.text} weight={600}>{item.label[1]}</DiagramLabel>
-    </g>)}
+  return <Art viewBox="0 0 680 340" title="Invoice governance example: a finance owner approves the agent's purpose and limits, identity and scoped permissions enforce them, the agent reads invoice and vendor records and drafts an exception for a human reviewer, while payment release and bank-detail changes are blocked.">
+    <defs><marker id="authority-arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0 8 4 0 8z" fill="#52745b"/></marker></defs>
+    <rect x="20" y="23" width="230" height="58" rx="12" fill="#f5eacc" stroke="#d6a94f" strokeWidth="2"/>
+    <circle cx="46" cy="45" r="8" fill="#8b6823"/><path d="M33 70c2-14 24-14 26 0" fill="#8b6823"/>
+    <DiagramLabel x={68} y={47} anchor="start" size={14} color="#655126" weight={700}>FINANCE OWNER</DiagramLabel><DiagramLabel x={68} y={67} anchor="start" size={12} color="#655126">approves purpose + limits</DiagramLabel>
+    <rect x="270" y="23" width="390" height="58" rx="12" fill="#e8ebd8" stroke="#8b997f" strokeWidth="2"/>
+    <circle cx="298" cy="52" r="13" fill="#52745b"/><path d="M292 52h12m-6-6v12" stroke="#fffdf7" strokeWidth="2"/>
+    <DiagramLabel x={322} y={47} anchor="start" size={14} color="#385742" weight={700}>AGENT IDENTITY + SCOPED PERMISSIONS</DiagramLabel><DiagramLabel x={322} y={67} anchor="start" size={12} color="#385742">enforce the approved boundary</DiagramLabel>
+    <path d="M135 81v22m330-22v22" fill="none" stroke="#8b997f" strokeWidth="2" strokeDasharray="4 4"/>
+
+    <rect x="18" y="103" width="472" height="158" rx="15" fill="#f3f2e9" stroke="#8b997f" strokeWidth="2" strokeDasharray="6 5"/>
+    <rect x="197" y="91" width="117" height="25" rx="12" fill="#52745b"/>
+    <DiagramLabel x={255} y={108} size={12} color="#fffdf7" weight={700}>AUTHORIZED SCOPE</DiagramLabel>
+    <rect x="30" y="139" width="118" height="82" rx="11" fill="#e2edf1" stroke="#577f90" strokeWidth="2"/>
+    <DiagramLabel x={89} y={169} size={14} color="#31586b" weight={700}>INVOICE +</DiagramLabel><DiagramLabel x={89} y={190} size={14} color="#31586b" weight={700}>VENDOR DATA</DiagramLabel><DiagramLabel x={89} y={210} size={11} color="#31586b">read only</DiagramLabel>
+    <path d="M148 180h20" fill="none" stroke="#52745b" strokeWidth="2.5" markerEnd="url(#authority-arrow)"/>
+    <rect x="170" y="139" width="133" height="82" rx="11" fill="#fffdf7" stroke="#52745b" strokeWidth="2"/>
+    <DiagramLabel x={236} y={169} size={14} color="#385742" weight={700}>INVOICE AGENT</DiagramLabel><DiagramLabel x={236} y={191} size={12} color="#385742">flags mismatches</DiagramLabel><DiagramLabel x={236} y={210} size={11} color="#58645c">cannot approve</DiagramLabel>
+    <path d="M303 180h27" fill="none" stroke="#52745b" strokeWidth="2.5" markerEnd="url(#authority-arrow)"/>
+    <rect x="333" y="139" width="143" height="82" rx="11" fill="#e8ebd8" stroke="#52745b" strokeWidth="2"/>
+    <DiagramLabel x={404} y={169} size={14} color="#385742" weight={700}>DRAFT EXCEPTION</DiagramLabel><DiagramLabel x={404} y={191} size={12} color="#385742">permitted output</DiagramLabel><DiagramLabel x={404} y={210} size={11} color="#58645c">no record change</DiagramLabel>
+    <path d="M490 180h24" fill="none" stroke="#52745b" strokeWidth="2.5" markerEnd="url(#authority-arrow)"/>
+    <rect x="518" y="139" width="142" height="82" rx="11" fill="#fffdf7" stroke="#bd7d55" strokeWidth="2"/>
+    <circle cx="540" cy="165" r="8" fill="#bd7d55"/><path d="M527 190c2-12 24-12 26 0" fill="#bd7d55"/>
+    <DiagramLabel x={597} y={169} size={13} color="#663e38" weight={700}>FINANCE REVIEW</DiagramLabel><DiagramLabel x={589} y={194} size={11} color="#663e38">person decides</DiagramLabel>
+
+    <rect x="170" y="278" width="490" height="48" rx="10" fill="#f1dfd5" stroke="#bd7d55" strokeWidth="2"/>
+    <circle cx="194" cy="302" r="11" fill="#bd7d55"/><path d="m190 298 8 8m0-8-8 8" stroke="#fffdf7" strokeWidth="2"/>
+    <DiagramLabel x={218} y={298} anchor="start" size={13} color="#663e38" weight={700}>BLOCKED BY PERMISSIONS</DiagramLabel><DiagramLabel x={218} y={316} anchor="start" size={12} color="#663e38">release payment or change vendor bank details</DiagramLabel>
   </Art>;
 }
 
@@ -275,14 +287,22 @@ function ChainArt() {
 }
 
 function AuthorizationArt() {
-  return <Art title="An authority boundary around agent identity, scoped tools, and denied actions">
-    <path d="M74 85h372v146H74z" fill="#eef0e3" stroke="#9aa988" strokeWidth="2" strokeDasharray="5 7"/><path d="M104 112h312v92H104z" fill="#fffdf7" stroke="#bac095" strokeWidth="2"/>
-    <DiagramLabel x={149} y={101} size={14} color="#31586b">AGENT ID</DiagramLabel><DiagramLabel x={255} y={101} size={14} color="#655126">TOOL SCOPE</DiagramLabel><DiagramLabel x={367} y={101} size={14} color="#52745b">ALLOW</DiagramLabel><DiagramLabel x={425} y={101} size={14} color="#8c563f">DENY</DiagramLabel>
-    <circle cx="149" cy="158" r="24" fill="#d4de95"/><path d="M140 158h18M149 149v18" stroke="#52745b" strokeWidth="2.5"/>
-    <path d="M175 158h53m52 0h53" stroke="#52745b" strokeWidth="3" strokeDasharray="5 6"/><path d="M218 149l11 9-11 9M324 149l11 9-11 9" fill="none" stroke="#52745b" strokeWidth="2.5"/>
-    <rect x="232" y="136" width="47" height="44" rx="12" fill="#e4e9d7" stroke="#bac095" strokeWidth="2"/><rect x="338" y="136" width="60" height="44" rx="12" fill="#52745b"/><path d="M355 158l9 9 18-19" fill="none" stroke="#f6f4ee" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"/>
-    <path d="M412 109v98" stroke="#a46d51" strokeWidth="4"/><circle cx="412" cy="158" r="16" fill="#f0e5d8" stroke="#a46d51" strokeWidth="2"/><path d="M405 151l14 14m0-14l-14 14" stroke="#a46d51" strokeWidth="2"/>
-    <Dot x={73} y={158} r={7}/><Dot x={445} y={158} r={7}/>
+  return <Art title="Four parts of an agent authorization record: purpose and scope, allowed actions, business sponsor, and review evidence">
+    {[
+      { x: 31, y: 38, fill: "#e2edf1", stroke: "#577f90", text: "#31586b", label: ["Purpose +", "scope"], icon: "document" },
+      { x: 265, y: 38, fill: "#f5eacc", stroke: "#d6a94f", text: "#655126", label: ["Allowed", "actions"], icon: "check" },
+      { x: 31, y: 154, fill: "#f1dfd5", stroke: "#bd7d55", text: "#663e38", label: ["Business", "sponsor"], icon: "person" },
+      { x: 265, y: 154, fill: "#eae2f2", stroke: "#856a9f", text: "#59456e", label: ["Review", "evidence"], icon: "review" },
+    ].map((item) => <g key={item.icon}>
+      <rect x={item.x} y={item.y} width="224" height="94" rx="16" fill={item.fill} stroke={item.stroke} strokeWidth="2"/>
+      <circle cx={item.x + 43} cy={item.y + 47} r="24" fill="#fffdf7"/>
+      {item.icon === "document" && <g fill="none" stroke={item.stroke} strokeWidth="2.5" strokeLinecap="round"><path d={`M${item.x+36} ${item.y+32}h13l8 8v23h-21z`}/><path d={`M${item.x+49} ${item.y+32}v9h8M${item.x+40} ${item.y+47}h12m-12 7h12`}/></g>}
+      {item.icon === "check" && <g fill="none" stroke={item.stroke} strokeWidth="3" strokeLinecap="round" strokeLinejoin="round"><path d={`M${item.x+31} ${item.y+47}l8 8 16-18`}/></g>}
+      {item.icon === "person" && <g fill="none" stroke={item.stroke} strokeWidth="2.5" strokeLinecap="round"><circle cx={item.x+43} cy={item.y+40} r="8"/><path d={`M${item.x+29} ${item.y+65}c2-14 26-14 28 0`}/></g>}
+      {item.icon === "review" && <g fill="none" stroke={item.stroke} strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><rect x={item.x+30} y={item.y+34} width="26" height="26" rx="4"/><path d={`M${item.x+30} ${item.y+42}h26m-19-12v8m12-8v8m-14 12 4 4 8-9`}/></g>}
+      <DiagramLabel x={item.x + 78} y={item.y + 43} anchor="start" size={16} color={item.text} weight={700}>{item.label[0]}</DiagramLabel>
+      <DiagramLabel x={item.x + 78} y={item.y + 63} anchor="start" size={16} color={item.text} weight={600}>{item.label[1]}</DiagramLabel>
+    </g>)}
   </Art>;
 }
 
@@ -376,7 +396,7 @@ function ContactArt() {
 
 const scenes: Record<ArtKind, Scene> = {
   services: { label: "MAP THE BUSINESS WORKFLOW", note: "Trace how requests, information, approvals, and systems move before choosing what an agent should handle.", kind: "services" },
-  governance: { label: "AUTHORITY BEFORE ACTION", note: "The sponsor sets the purpose and accepted risk; identity and permissions enforce that decision.", kind: "governance" },
+  governance: { label: "INVOICE AGENT: APPROVED SCOPE", note: "The finance owner approves the task and limits. Scoped access permits a draft for review; payment release and bank-detail changes remain blocked.", kind: "governance" },
   microsoft: { label: "MICROSOFT AI STACK", note: "Follow content access through agent identity and tools to audit records and environment controls.", kind: "microsoft" },
   delivery: { label: "FROM UNDERSTANDING TO OPERATION", note: "Understand the workflow, design controls, implement and test the system, then establish ongoing operations.", kind: "delivery" },
   insights: { label: "ENGINEERING QUESTIONS", note: "Follow the design questions behind enterprise AI, from access boundaries to the operation of a deployed system.", kind: "insights" },
@@ -401,7 +421,7 @@ const scenes: Record<ArtKind, Scene> = {
 
 const mobileKeys: Record<ArtKind, string[]> = {
   services: ["Company information", "Scoped AI agent", "Business system + human review"],
-  governance: ["Purpose + scope", "Allowed actions", "Sponsor + review evidence"],
+  governance: ["Finance owner approves task + limits", "Agent reads invoice + vendor records", "Agent drafts an exception only", "Human reviews; payment changes stay blocked"],
   microsoft: ["Content permissions", "Identity + tool credentials", "Environment + audit evidence"],
   delivery: ["Understand", "Design + implement", "Operate"],
   insights: ["Architecture", "Authorization", "Engineering + operations"],
