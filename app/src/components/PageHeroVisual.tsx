@@ -24,7 +24,7 @@ const heroImages: Record<string, HeroImage> = {
   "/services/agent-governance": { src: "/visuals/agent-governance-v2.webp", alt: "A business sponsor and security specialist review which actions an AI agent may take." },
   "/services/ai-integration-modernization": { src: "/visuals/legacy-integration-v2.webp", alt: "An engineer connects maintained enterprise server equipment to a modern network gateway." },
   "/services/platform-engineering": { src: "/visuals/platform-operations-v2.webp", alt: "An operations engineer checks server racks during a routine production-system inspection." },
-  "/services/governance-remediation": { src: "/visuals/remediation-v2.webp", alt: "A confirmed configuration finding moves through an approved fix and a successful retest.", fit: "contain" },
+  "/services/governance-remediation": { src: "/visuals/remediation-review-v3.webp", alt: "Two colleagues compare a control remediation checklist with a configuration change and test evidence on a laptop." },
   "/insights/authorize-the-schedule-that-runs-the-agent": { src: "/visuals/scheduled-agent-v2.webp", alt: "A sponsor approves a recurring schedule, an agent runs, and the result is recorded.", fit: "contain" },
   "/insights/authorize-the-agent-chain": { src: "/visuals/agent-chain-v2.webp", alt: "A request branches to specialist agents, crosses a shared permission boundary, and reaches a human checkpoint before external action.", fit: "contain" },
   "/insights/agent-authorization-before-autonomy": { src: "/visuals/authorization-article-v2.webp", alt: "A broad set of possible tools narrows to a human-approved agent action that is recorded in an audit trail.", fit: "contain" },
