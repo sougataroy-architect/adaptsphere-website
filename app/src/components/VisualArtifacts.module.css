@@ -4,11 +4,11 @@
 .artifact figcaption strong{display:block;color:var(--foreground);font:600 16px/1.4 var(--font-ui)}
 .artifact figcaption span{display:block;margin-top:8px;color:var(--soft);font:400 14px/1.55 var(--font-ui)}
 .artifact svg{display:block;width:100%;height:auto;min-height:172px;overflow:visible}
-.artifact svg text{fill:#26332e;font:600 12px/1 var(--font-ui),Arial,sans-serif;paint-order:stroke;stroke:#fffdf7;stroke-width:3px;stroke-linejoin:round}
+.artifact svg text{font-family:var(--font-ui),Arial,sans-serif;font-weight:500;paint-order:normal;stroke:none}
 .compact{padding:12px;border-radius:10px;box-shadow:none;background:transparent;border:0}
 .compact figcaption{min-height:42px}
 .compact figcaption strong{font-size:12px}
 .compact figcaption span{display:none}
 .compact svg{min-height:60px}
 .grid:empty{display:none}
-@media(max-width:767px){.grid{grid-template-columns:1fr;gap:16px;margin:30px 0}.artifact{padding:18px}.artifact figcaption{min-height:unset;margin-bottom:6px}.artifact svg{min-height:120px}}
+@media(max-width:767px){.grid{grid-template-columns:1fr;gap:16px;margin:30px 0}.artifact{padding:18px}.artifact figcaption{min-height:unset;margin-bottom:6px}.artifact svg{min-height:120px}.artifact svg text{font-size:18px!important}}
