@@ -197,3 +197,29 @@
 .conversation-copy h2{font-size:clamp(44px,5vw,58px);letter-spacing:-.025em}
 .conversation-copy>p:not(.eyebrow){font-size:17px;line-height:1.8;color:var(--soft)}
 @media(width < 768px){.conversation-popup{grid-template-columns:1fr;gap:24px;width:calc(100vw - 28px);padding:56px 20px 24px;border-radius:24px}.conversation-art{align-self:stretch;height:390px;padding:0;border-radius:18px}.conversation-photo-label{left:15px;top:15px;font-size:10px}.conversation-brief{left:12px;right:12px;bottom:12px;padding:15px 16px 17px}.conversation-brief>p{margin-bottom:12px;font-size:20px}.conversation-brief ol{gap:6px}.conversation-brief li{font-size:11px}.conversation-brief li span{font-size:10px}.conversation-copy{padding:0}.conversation-copy .eyebrow{margin-bottom:14px}.conversation-copy h2{font-size:38px}.conversation-copy>p:not(.eyebrow){font-size:17px}}
+
+/* Contact section: show what to send and the decisions those details clarify. */
+.contact-grid{align-items:start;gap:clamp(40px,6vw,80px)}
+.contact-panel{display:flex;flex-direction:column;min-height:0;padding:clamp(28px,4vw,44px);border:1px solid var(--border);background:var(--secondary);color:var(--foreground)}
+.contact-panel .eyebrow{margin-bottom:20px;color:var(--accent-text)}
+.contact-panel .email-link{width:fit-content;max-width:100%;font-size:clamp(22px,2.6vw,30px);line-height:1.2;gap:10px}
+.contact-panel .email-link svg{flex:none;width:21px;height:21px}
+.contact-panel .contact-address{margin-top:22px;color:var(--soft);font-size:14px;line-height:1.7}
+.contact-panel .contact-invitation{margin-top:24px;max-width:470px;color:var(--soft);font-size:16px;line-height:1.75}
+.contact-flow{margin-top:32px;padding-top:26px;border-top:1px solid var(--border-strong)}
+.contact-flow>p{margin-bottom:14px;color:var(--accent-text);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
+.contact-flow ol{display:flex;align-items:center;gap:18px}
+.contact-flow li{position:relative;flex:1;min-width:0;padding:12px 10px;border:1px solid var(--border);border-radius:10px;background:#f6f4ee;color:var(--foreground);font-size:12px;font-weight:600;line-height:1.35;text-align:center}
+.contact-flow li:not(:last-child)::after{position:absolute;right:-15px;top:50%;content:"→";transform:translateY(-50%);color:var(--accent-text);font-size:15px;font-weight:400}
+.contact-guidance{padding:10px 0 0}
+.contact-guidance .eyebrow{margin-bottom:12px}
+.contact-guidance h2{max-width:620px;font-size:clamp(38px,4vw,48px);line-height:1.1}
+.contact-guidance-intro{max-width:620px;margin-top:14px;color:var(--soft);font-size:16px;line-height:1.7}
+.contact-guidance .contact-list{margin-top:24px}
+.contact-guidance .contact-list li{display:grid;grid-template-columns:36px minmax(0,1fr);gap:14px;align-items:start;padding:16px 0;border-bottom:1px solid var(--border)}
+.contact-number{padding-top:2px;color:var(--accent-text);font-size:12px;font-weight:700;letter-spacing:.08em}
+.contact-guidance .contact-list h3{color:var(--foreground);font-size:17px;font-weight:600}
+.contact-guidance .contact-list p{margin-top:3px;color:var(--soft);font-size:14px;line-height:1.55}
+.contact-guidance .callout{margin-top:24px}
+.contact-guidance .small-note{margin-top:18px;color:var(--faint);font-size:13px;line-height:1.6}
+@media(max-width:767px){.contact-grid{gap:36px}.contact-panel{min-height:0}.contact-flow{margin-top:32px;padding-top:26px}.contact-flow ol{gap:12px}.contact-flow li{padding:10px 7px;font-size:11px}.contact-flow li:not(:last-child)::after{right:-11px;font-size:12px}.contact-guidance{padding-top:0}.contact-guidance h2{font-size:36px}.contact-guidance .contact-list li{grid-template-columns:30px minmax(0,1fr);gap:10px;padding:14px 0}}
