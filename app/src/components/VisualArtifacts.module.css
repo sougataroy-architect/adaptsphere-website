@@ -1,0 +1,14 @@
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;margin:42px 0}
+.artifact{min-width:0;border:1px solid var(--border);border-radius:var(--radius);padding:20px 22px 14px;background:linear-gradient(145deg,#fff 0%,#f5f6ef 100%);overflow:hidden}
+.artifact figcaption{min-height:72px}
+.artifact figcaption strong{display:block;color:var(--foreground);font:600 14px/1.35 var(--font-ui)}
+.artifact figcaption span{display:block;margin-top:6px;color:var(--soft);font:400 12px/1.5 var(--font-ui)}
+.artifact svg{display:block;width:100%;height:auto;min-height:145px;overflow:visible}
+.artifact svg text{fill:#26332e;font:600 11px/1 var(--font-ui),Arial,sans-serif;paint-order:stroke;stroke:#fffdf7;stroke-width:3px;stroke-linejoin:round}
+.compact{padding:12px;border-radius:10px;box-shadow:none;background:transparent;border:0}
+.compact figcaption{min-height:42px}
+.compact figcaption strong{font-size:12px}
+.compact figcaption span{display:none}
+.compact svg{min-height:60px}
+.grid:empty{display:none}
+@media(max-width:767px){.grid{grid-template-columns:1fr;gap:16px;margin:30px 0}.artifact{padding:18px}.artifact figcaption{min-height:unset;margin-bottom:6px}.artifact svg{min-height:120px}}
