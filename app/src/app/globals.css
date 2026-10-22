@@ -174,7 +174,6 @@
 .platform-section .platform-grid article{background:linear-gradient(135deg,#f9f7ef,#e8ecdf);border:1px solid #d5ddc9;border-radius:20px;padding:32px;position:relative;overflow:hidden}
 .platform-section .platform-grid article::after{content:"";width:140px;height:140px;border:1px solid #bac095;border-radius:50%;position:absolute;right:-70px;top:-70px;pointer-events:none}
 @media(max-width:767px){.delivery-art{margin:8px auto 16px}.process-grid>li{padding-top:22px}}
-.workflow-scene text{display:none}
 .scene-legend{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;text-align:center;font-size:16px;line-height:1.4;color:#435a49;margin-top:-12px;padding:0 8px 12px}
 
 /* Keep top-level navigation readable without shrinking it at intermediate widths. */
