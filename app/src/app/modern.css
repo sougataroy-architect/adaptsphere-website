@@ -353,6 +353,11 @@ html[data-scroll-motion="ready"] [data-scroll-reveal].is-visible {
   .service-grid > .service-card:nth-child(n + 3) { grid-column: span 6; }
 }
 
+@media (max-width: 900px) and (min-width: 768px) {
+  .service-grid > .service-card:first-child { grid-column: span 12; }
+  .service-grid > .service-card:nth-child(2) { grid-column: span 6; }
+}
+
 @media (max-width: 767px) {
   body { background-attachment: scroll; }
   .home-network { inset: 8% -20% 18% 12%; opacity: .36; }
