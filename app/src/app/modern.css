@@ -360,8 +360,8 @@ html[data-scroll-motion="ready"] [data-scroll-reveal].is-visible {
 
 @media (max-width: 767px) {
   body { background-attachment: scroll; }
-  .home-network { inset: 8% -20% 18% 12%; opacity: .36; }
-  .governance-network { inset: 0 -25% 15% 0; opacity: .32; }
+  .home-network { inset: 8% 0 18% 12%; opacity: .36; }
+  .governance-network { inset: 0 0 15% 0; opacity: .32; }
   .page-header-copy { padding-top: 0; }
   .hero-copy h1,
   .page-header-copy h1 { font-size: clamp(40px, 10vw, 56px); line-height: 1.06; }

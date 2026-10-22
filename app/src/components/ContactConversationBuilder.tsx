@@ -33,7 +33,7 @@ const questions = [
   },
   {
     title: "What should the AI be able to do?",
-    note: "Think about its role in the workflow. You can describe approval points and actions that should stay out of scope below.",
+    note: "Think about its role in the workflow. You can describe approval points, security concerns, and actions that should stay out of scope below.",
     progress: "Authority",
     options: [
       { value: "find and summarize approved information", label: "Find and summarize information", detail: "Read permitted sources and return a useful, traceable answer" },
@@ -71,7 +71,7 @@ export function ContactConversationBuilder() {
   const heading = useRef<HTMLHeadingElement>(null);
   const draft = useRef<HTMLTextAreaElement>(null);
   const question = questions[step];
-  const subject = "AI workflow and implementation conversation";
+  const subject = "Governed and secure AI workflow discussion";
 
   function go(next: number) {
     setStep(next);
@@ -91,7 +91,7 @@ export function ContactConversationBuilder() {
     ].filter(Boolean);
     const detailSection = optionalLines.length ? `\n\nA little more context\n${optionalLines.map((line) => `• ${line}`).join("\n")}` : "";
     setMessage(
-      `Hello AdaptSphere,\n\nI’d like to discuss an AI implementation question.\n\nWhat we are trying to improve: ${answers[0]}.\nSystems and information involved: ${answers[1]}.\nThe AI’s intended role: ${answers[2]}.\nA useful next step: ${answers[3]}.${detailSection}\n\nI can provide more detail in a conversation, including who owns the workflow and any timing or review requirements.\n\nRegards,`,
+      `Hello AdaptSphere,\n\nI’d like to discuss a governed AI workflow and its security boundaries.\n\nWhat we are trying to improve: ${answers[0]}.\nSystems and information involved: ${answers[1]}.\nThe AI’s intended role: ${answers[2]}.\nA useful next step: ${answers[3]}.${detailSection}\n\nI’d be glad to discuss the environment and agree on a practical first step.\n\nRegards,`,
     );
     go(4);
   }
@@ -165,7 +165,7 @@ export function ContactConversationBuilder() {
               {step < 4 && (
                 <div className="contact-extra-context">
                   <label htmlFor={`${id}-detail-${step}`}>
-                    {step === 0 ? "Optional: what happens today or where does the work get stuck?" : step === 1 ? "Optional: which systems or information sources are involved?" : step === 2 ? "Optional: what should require a person’s approval or stay out of scope?" : "Optional: what outcome would help, who owns the workflow, or when are you hoping to act?"}
+                    {step === 0 ? "Optional: what happens today or where does the work get stuck?" : step === 1 ? "Optional: which systems or information sources are involved?" : step === 2 ? "Optional: what should require approval, stay out of scope, or be protected from misuse?" : "Optional: what outcome would help, who owns the workflow, or when are you hoping to act?"}
                   </label>
                   <textarea
                     id={`${id}-detail-${step}`}
@@ -173,7 +173,7 @@ export function ContactConversationBuilder() {
                     onChange={(event) => setDetails((current) => current.map((detail, index) => index === step ? event.target.value : detail))}
                     rows={2}
                     maxLength={180}
-                    placeholder={step === 0 ? "A sentence is enough. Leave out confidential details." : step === 1 ? "For example, SharePoint, Dynamics, or an internal API." : step === 2 ? "For example, a person approves external messages or record changes." : "For example, reduce manual triage; owned by Operations; this quarter."}
+                    placeholder={step === 0 ? "A sentence is enough. Leave out confidential details." : step === 1 ? "For example, SharePoint, Dynamics, or an internal API." : step === 2 ? "For example, protect sensitive files; require approval before external messages." : "For example, reduce manual triage; owned by Operations; this quarter."}
                   />
                 </div>
               )}

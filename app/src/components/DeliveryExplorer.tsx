@@ -3,9 +3,9 @@ import { useId, useState } from "react";
 import { WorkflowScene } from "./WorkflowScene";
 import { Search, Lightbulb, Wrench, ArrowRight } from "lucide-react";
 const steps = [
-  { icon: Search, title: "Review your systems", detail: "Workflows, applications, and data", heading: "Understand the work before choosing AI.", description: "Map how work gets done, where time is lost, and which systems and data are involved.", evidence: "A map of your existing systems and an agreed business problem." },
-  { icon: Lightbulb, title: "Identify useful AI opportunities", detail: "Value, feasibility, and risk", heading: "Choose a use case worth implementing.", description: "Compare the potential benefit with the information available, the effort to connect systems, and the risks. Agree on how the team will test the solution.", evidence: "A priority use case, an agreed build plan, and measures for testing it." },
-  { icon: Wrench, title: "Build, integrate, and verify", detail: "Working software your team can maintain", heading: "Put the solution into the existing workflow.", description: "Build the integrations, test task performance and failure cases, and prepare deployment and handover.", evidence: "Working system connections, test results, and clear responsibilities." }
+  { icon: Search, title: "Review your systems", detail: "Workflows, applications, data, and exposure", heading: "Understand the work before choosing AI.", description: "Map how work gets done, what information is used, which identities and tools are involved, and where untrusted inputs or sensitive actions enter.", evidence: "A system and access map, an agreed business problem, and open security questions." },
+  { icon: Lightbulb, title: "Identify useful AI opportunities", detail: "Value, feasibility, authority, and risk", heading: "Choose a use case worth implementing.", description: "Compare business value with data access, tool authority, misuse exposure, and delivery effort. Decide what needs a person’s approval and how the team will verify the controls.", evidence: "A priority use case, a governed design, and a practical verification plan." },
+  { icon: Wrench, title: "Build, integrate, and verify", detail: "Enforced safeguards and maintainable software", heading: "Put the solution into the existing workflow.", description: "Build the integrations and enforce boundaries in the surrounding systems. Test expected use, malicious instructions, denied actions, and failure paths before handover.", evidence: "Working system connections, control test results, and clear monitoring and response responsibilities." }
 ];
 const visualCaptions = ["Example · late-order workflow", "Example · value and readiness", "Example · build and release gates"];
 export function DeliveryExplorer() {
@@ -26,6 +26,6 @@ export function DeliveryExplorer() {
     <div className="control-panels"><section id={`${id}-panel`} aria-labelledby={`${id}-step-${active}`}>
       <h3>{step.heading}</h3><p>{step.description}</p><dl><div><dt>What you receive</dt><dd>{step.evidence}</dd></div></dl>
     </section></div>
-    <div className="board-caption"><span className="signal-dot"/><span>Access, approvals, and ownership defined throughout.</span></div>
+    <div className="board-caption"><span className="signal-dot"/><span>Governance and security engineered throughout.</span></div>
   </figure>;
 }
