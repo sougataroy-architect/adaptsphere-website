@@ -167,31 +167,6 @@
 .home-hero .hero-copy{padding-top:0}
 .delivery-art{max-width:440px;margin:8px auto 12px}
 .delivery-board .control-panels{min-height:0}
-.delivery-board .explorer-hint,
-.delivery-board .architecture-nodes,
-.delivery-board .control-panels,
-.delivery-board .board-caption{position:relative;z-index:1}
-.delivery-board .delivery-art{position:absolute;inset:72px 12px auto auto;width:49%;max-width:none;margin:0;z-index:0;opacity:.18;pointer-events:none;filter:saturate(.72)}
-.delivery-board .delivery-art .workflow-scene{width:100%;}
-.delivery-board .delivery-art .scene-legend{display:none}
-.delivery-board .architecture-nodes{max-width:58%;margin-top:20px}
-.delivery-board .control-panels{max-width:58%;}
-.delivery-board .board-caption{max-width:58%;}
-.visual-use-cases .problem-grid{grid-template-columns:repeat(3,minmax(0,1fr));align-items:stretch}
-.visual-use-cases .problem-grid article{display:flex;flex-direction:column;min-width:0}
-.visual-use-cases .use-case-art{display:flex;align-items:center;justify-content:center;min-height:250px;padding:12px;overflow:hidden}
-.visual-use-cases .use-case-art .workflow-scene{width:100%;max-width:480px}
-.visual-use-cases .use-case-art .scene-legend{width:100%;font-size:13px;gap:6px;margin-top:-8px;padding:0 4px 8px}
-.visual-use-cases .problem-grid h3{min-height:2.3em}
-.visual-use-cases .problem-grid p{font-size:16px;line-height:1.7}
-@media(max-width:767px){
-  .delivery-board .delivery-art{inset:78px 0 auto auto;width:54%;opacity:.13}
-  .delivery-board .architecture-nodes,.delivery-board .control-panels,.delivery-board .board-caption{max-width:100%}
-  .visual-use-cases .problem-grid{grid-template-columns:1fr}
-  .visual-use-cases .use-case-art{max-width:none;min-height:230px}
-  .visual-use-cases .use-case-art .workflow-scene{max-width:430px}
-  .visual-use-cases .problem-grid h3{min-height:0}
-}
 .process-grid{position:relative;gap:28px}
 .process-grid>li{position:relative;border-top:2px solid #bac095;padding-top:24px}
 .process-grid>li::before{content:"";position:absolute;top:-7px;left:0;width:12px;height:12px;border-radius:50%;background:#52745b;border:3px solid #f6f4ee}
