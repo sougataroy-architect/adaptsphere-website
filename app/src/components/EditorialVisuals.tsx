@@ -153,6 +153,7 @@ const visuals = {
 } satisfies Record<string, EditorialVisualSpec>;
 
 export const homeEditorialVisuals = [visuals.invoice, visuals.knowledge] as const;
+export const homeUseCaseVisuals = [visuals.workflowMap, visuals.contentPermissions, visuals.apiControl] as const;
 export const servicesEditorialVisuals = [visuals.scopeWorkshop] as const;
 export const governanceEditorialVisual = visuals.owner;
 export const microsoftEditorialVisuals = [visuals.contentPermissions, visuals.copilotStudio, visuals.entra, visuals.purview] as const;

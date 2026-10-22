@@ -152,17 +152,17 @@
 .visual-use-cases{background:#fcfaf4;border-top:1px solid #e0e4d6;border-bottom:1px solid #e0e4d6}
 .visual-use-cases .problem-grid{gap:28px;margin-top:36px}
 .visual-use-cases .problem-grid article{padding:0 0 24px;border:0;background:transparent}
-.use-case-art{border-radius:22px;background:linear-gradient(150deg,#eef0e3,#e3e8d6);margin-bottom:24px;padding:10px;border:1px solid #dde3d1;transition:background .5s ease}
+.use-case-art{aspect-ratio:1.68;overflow:hidden;border-radius:22px;background:linear-gradient(150deg,#eef0e3,#e3e8d6);margin-bottom:24px;padding:10px;border:1px solid #dde3d1}
 .problem-grid article:nth-child(2) .use-case-art{background:linear-gradient(150deg,#f3eddf,#e9eddd)}
 .problem-grid article:nth-child(3) .use-case-art{background:linear-gradient(150deg,#e4eade,#f1f3e8)}
-.use-case-visual{display:block;width:100%;height:auto;border-radius:14px}
+.use-case-art img{display:block;width:100%;height:100%;object-fit:cover;object-position:center;border-radius:14px}
 .visual-use-cases .problem-grid h3{font-family:var(--font-display),Georgia,serif;font-weight:500;font-size:32px;margin:10px 0 14px;line-height:1.15}
 .visual-use-cases .problem-grid p{font-size:19px;line-height:1.65}
 @keyframes scene-appear{from{opacity:.4;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
 @media(min-width:1200px){.home-hero .container{max-width:1340px}}
 @media(max-width:1000px){.home-hero .hero-grid{gap:32px}.home-hero .hero-copy h1{font-size:58px}}
 @media(max-width:767px){.home-hero{padding-top:36px}.home-hero .hero-grid{grid-template-columns:1fr;gap:36px}.home-hero .hero-copy h1{font-size:48px;max-width:600px}.home-hero .hero-copy>p:not(.eyebrow):not(.hero-footnote){font-size:19px;line-height:1.65}.delivery-board{padding:20px}.delivery-board .board-intent p{font-size:30px}.visual-use-cases .problem-grid{grid-template-columns:1fr;gap:32px}.use-case-art{max-width:520px}.home-hero .hero-baseline{margin-top:32px}.visual-use-cases .problem-grid p{font-size:19px}}
-@media(prefers-reduced-motion:reduce){.delivery-art{animation:none}.use-case-art .scene-engine,.use-case-art .scene-result{transition:none;transform:none}}
+@media(prefers-reduced-motion:reduce){.delivery-art{animation:none}}
 .home-hero .hero-copy{padding-top:0}
 .delivery-art{width:100%;max-width:none;margin:8px 0 12px}
 .delivery-board .control-panels{min-height:0}
