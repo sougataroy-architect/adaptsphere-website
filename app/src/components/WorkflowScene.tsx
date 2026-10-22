@@ -135,88 +135,87 @@ export function WorkflowScene({ variant = 0, mode = "example" }: { variant?: num
 /** A three-part view of our engagement: map the work, select a use case, then verify the implementation. */
 function DeliveryWorkflowScene({ variant, id }: { variant: number; id: string }) {
   const titles = [
-    "A current-state workflow map connects the business task to its systems and manual handoffs",
-    "Candidate AI tasks are compared by business value and implementation readiness",
-    "An implementation passes through scoped access and verification before release",
+    "A late-order request moves from the customer to support, which checks the order system and emails the warehouse by hand",
+    "Use cases are compared by business value and readiness, with policy answers from approved sources as a contained starting point",
+    "A governed implementation moves from approved purpose through scoped build and tests to an operational release gate",
   ];
+  const arrowId = `${id}-delivery-arrow`;
   return <svg className={`workflow-scene workflow-scene-delivery workflow-scene-delivery-${variant}`} viewBox="0 0 720 360" role="img" aria-labelledby={`${id}-title`}>
     <title id={`${id}-title`}>{titles[variant]}</title>
     <defs>
       <linearGradient id={`${id}-delivery-bg`} x1="0" y1="0" x2="1" y2="1"><stop stopColor="#fbfaf5"/><stop offset="1" stopColor="#e7ebdc"/></linearGradient>
-      <marker id={`${id}-delivery-arrow`} markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="#6b826d"/></marker>
-      <filter id={`${id}-delivery-shadow`} x="-15%" y="-20%" width="130%" height="145%"><feDropShadow dx="0" dy="5" stdDeviation="5" floodColor="#455b4c" floodOpacity=".10"/></filter>
+      <marker id={arrowId} markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="#587565"/></marker>
     </defs>
     <rect x="8" y="8" width="704" height="344" rx="20" fill={`url(#${id}-delivery-bg)`}/>
     {variant === 0 && <g fontFamily="inherit" strokeLinejoin="round">
-      <text x="36" y="42" fill="#56705c" fontSize="12" fontWeight="700" letterSpacing="1.7">CURRENT-STATE WORKFLOW</text>
-      <text x="36" y="69" fill="#53684f" fontSize="14">Follow one late order through the people and tools that resolve it.</text>
-      <rect x="30" y="99" width="660" height="222" rx="16" fill="#fffdf7" stroke="#cbd4c4" strokeWidth="1.5"/>
-      <text x="52" y="126" fill="#6a7b69" fontSize="10" fontWeight="700" letterSpacing="1.2">WHAT HAPPENS TODAY</text>
-      <g filter={`url(#${id}-delivery-shadow)`}>
-        <rect x="52" y="151" width="132" height="112" rx="13" fill="#f3eadb" stroke="#c6a574" strokeWidth="1.5"/>
-        <text x="68" y="179" fill="#705835" fontSize="10" fontWeight="700" letterSpacing=".8">CUSTOMER ISSUE</text>
-        <text x="68" y="207" fill="#26342d" fontSize="15" fontWeight="700">Late order</text>
-        <text x="68" y="230" fill="#53684f" fontSize="11">Needs an update</text>
-        <rect x="232" y="151" width="124" height="112" rx="13" fill="#e7eee7" stroke="#78927c" strokeWidth="1.5"/>
-        <circle cx="294" cy="180" r="12" fill="#63816b"/><path d="M274 208q20-25 40 0" fill="#63816b"/>
-        <text x="294" y="232" textAnchor="middle" fill="#314b3b" fontSize="12" fontWeight="700">Support</text>
-        <text x="294" y="249" textAnchor="middle" fill="#53684f" fontSize="10">checks the request</text>
-        <rect x="412" y="151" width="124" height="112" rx="13" fill="#e5edf0" stroke="#7899a4" strokeWidth="1.5"/>
-        <rect x="466" y="166" width="17" height="23" rx="3" fill="none" stroke="#52798b" strokeWidth="2"/><path d="M470 173h9m-9 5h9m-9 5h6" stroke="#52798b" strokeWidth="1.4"/>
-        <text x="474" y="218" textAnchor="middle" fill="#35596a" fontSize="11" fontWeight="700">Order system</text>
-        <text x="474" y="237" textAnchor="middle" fill="#53684f" fontSize="10">confirms status</text>
-        <rect x="592" y="151" width="76" height="112" rx="13" fill="#edf0e3" stroke="#9aaa91" strokeWidth="1.5"/>
-        <path d="M612 171h34v25h-34z m5-6h34v25" fill="none" stroke="#71856d" strokeWidth="2"/>
-        <text x="630" y="218" textAnchor="middle" fill="#314b3b" fontSize="10" fontWeight="700">Warehouse</text>
-        <text x="630" y="236" textAnchor="middle" fill="#53684f" fontSize="9">contact</text>
-      </g>
-      <path d="M184 207h39m133 0h49m123 0h49" fill="none" stroke="#879b81" strokeWidth="2.5" markerEnd={`url(#${id}-delivery-arrow)`}/>
-      <path d="M365 218v38" stroke="#c8835c" strokeWidth="1.5" strokeDasharray="4 4"/>
-      <rect x="327" y="268" width="138" height="30" rx="15" fill="#f4e7dc" stroke="#cc9b7d"/>
-      <text x="396" y="287" textAnchor="middle" fill="#754d39" fontSize="10" fontWeight="700">PERSONAL HANDOFF</text>
-      <text x="52" y="340" fill="#53684f" fontSize="10">The support team checks status, then contacts the warehouse by hand.</text>
+      <text x="36" y="39" fill="#56705c" fontSize="13" fontWeight="700" letterSpacing="1.4">CURRENT-STATE WORKFLOW</text>
+      <text x="36" y="64" fill="#53684f" fontSize="15">A late-order update crosses one system and one manual handoff.</text>
+      <rect x="28" y="88" width="664" height="235" rx="17" fill="#fffdf8" stroke="#d3dacd"/>
+      <text x="48" y="115" fill="#71806f" fontSize="11" fontWeight="700" letterSpacing="1.1">WHAT HAPPENS TODAY</text>
+      <rect x="48" y="139" width="168" height="113" rx="12" fill="#f4ebdc" stroke="#c6a574" strokeWidth="1.4"/>
+      <circle cx="69" cy="161" r="6" fill="#c88557"/><text x="83" y="164" fill="#715b3b" fontSize="11" fontWeight="700" letterSpacing=".7">CUSTOMER REQUEST</text>
+      <text x="64" y="199" fill="#26342d" fontSize="18" fontWeight="700">Late order</text><text x="64" y="222" fill="#53684f" fontSize="13">Needs an update</text>
+      <rect x="276" y="139" width="168" height="113" rx="12" fill="#e8efea" stroke="#7d9883" strokeWidth="1.4"/>
+      <circle cx="297" cy="161" r="6" fill="#587565"/><text x="311" y="164" fill="#395846" fontSize="10.5" fontWeight="700" letterSpacing=".5">SUPPORT + SYSTEM</text>
+      <text x="292" y="199" fill="#26342d" fontSize="17" fontWeight="700">Check status</text><text x="292" y="222" fill="#53684f" fontSize="12">Support looks up the order</text>
+      <rect x="504" y="139" width="168" height="113" rx="12" fill="#e7edf0" stroke="#88a2aa" strokeWidth="1.4"/>
+      <circle cx="525" cy="161" r="6" fill="#6389a0"/><text x="539" y="164" fill="#355e72" fontSize="11" fontWeight="700" letterSpacing=".7">WAREHOUSE</text>
+      <text x="520" y="199" fill="#26342d" fontSize="17" fontWeight="700">Confirm delay</text><text x="520" y="222" fill="#53684f" fontSize="12">Replies to shared mailbox</text>
+      <path d="M218 194H266M446 194H494" fill="none" stroke="#78917c" strokeWidth="2.4" markerEnd={`url(#${arrowId})`}/>
+      <rect x="396" y="264" width="148" height="27" rx="13.5" fill="#f5e8df" stroke="#cd9473"/>
+      <path d="M470 252v12" stroke="#c57d56" strokeWidth="1.5" strokeDasharray="3 3"/>
+      <text x="470" y="282" textAnchor="middle" fill="#794f3a" fontSize="10.5" fontWeight="700" letterSpacing=".5">MANUAL EMAIL HANDOFF</text>
+      <text x="48" y="305" fill="#53684f" fontSize="11">Support checks status, then emails the warehouse; nothing updates itself.</text>
     </g>}
     {variant === 1 && <g fontFamily="inherit" strokeLinejoin="round">
-      <text x="36" y="42" fill="#56705c" fontSize="12" fontWeight="700" letterSpacing="1.7">USE-CASE PRIORITIZATION</text>
-      <text x="36" y="69" fill="#53684f" fontSize="14">Start with tasks that matter and are feasible to control.</text>
-      <rect x="111" y="101" width="560" height="215" rx="14" fill="#fffdf7" stroke="#d3dacd"/>
-      <rect x="112" y="102" width="279" height="106" rx="13" fill="#f2f3eb"/><rect x="392" y="102" width="278" height="106" rx="13" fill="#e7eedf"/>
-      <rect x="112" y="209" width="279" height="106" rx="13" fill="#f6f1e8"/><rect x="392" y="209" width="278" height="106" rx="13" fill="#f1eee5"/>
-      <path d="M391 101v215M111 208h560" stroke="#cbd4c4" strokeWidth="1.3"/>
-      <path d="M95 299V117m0 0-5 8m5-8 5 8M112 333h541m0 0-8-5m8 5-8 5" fill="none" stroke="#708771" strokeWidth="1.6"/>
-      <text x="112" y="93" fill="#677866" fontSize="10" fontWeight="700" letterSpacing=".8">MORE BUSINESS VALUE ↑</text>
-      <text x="323" y="352" textAnchor="middle" fill="#677866" fontSize="10" fontWeight="700" letterSpacing=".8">EASIER TO IMPLEMENT</text>
-      <text x="125" y="124" fill="#758172" fontSize="9" fontWeight="700" letterSpacing=".6">PROVE FEASIBILITY</text>
-      <text x="405" y="124" fill="#45634e" fontSize="9" fontWeight="700" letterSpacing=".6">GOOD FIRST CANDIDATE</text>
-      <text x="125" y="232" fill="#758172" fontSize="9" fontWeight="700" letterSpacing=".6">DEFER</text>
-      <text x="405" y="232" fill="#758172" fontSize="9" fontWeight="700" letterSpacing=".6">REASSESS VALUE</text>
-      <g filter={`url(#${id}-delivery-shadow)`}>
-        <rect x="414" y="144" width="230" height="48" rx="10" fill="#fffdf7" stroke="#81977b" strokeWidth="1.5"/><circle cx="432" cy="168" r="6" fill="#55765b"/><text x="448" y="165" fill="#314b3b" fontSize="11" fontWeight="700">Policy Q&amp;A from approved sources</text><text x="448" y="181" fill="#53684f" fontSize="10">Low-impact answers · citations included</text>
-        <rect x="137" y="144" width="226" height="48" rx="10" fill="#fffdf7" stroke="#8ca7ae" strokeWidth="1.3"/><circle cx="155" cy="168" r="6" fill="#5d8290"/><text x="171" y="165" fill="#35596a" fontSize="11" fontWeight="700">Summarize case history</text><text x="171" y="181" fill="#53684f" fontSize="10">Useful, but data access needs review</text>
-        <rect x="414" y="250" width="230" height="48" rx="10" fill="#fffdf7" stroke="#c9a578" strokeWidth="1.3"/><circle cx="432" cy="274" r="6" fill="#b8874c"/><text x="448" y="271" fill="#705835" fontSize="11" fontWeight="700">Draft payment exceptions</text><text x="448" y="287" fill="#6e6454" fontSize="10">Human retains the payment decision</text>
-      </g>
-      <rect x="410" y="138" width="238" height="60" rx="13" fill="none" stroke="#52745b" strokeWidth="2" strokeDasharray="5 4"/>
+      <text x="36" y="39" fill="#56705c" fontSize="13" fontWeight="700" letterSpacing="1.4">USE-CASE PRIORITIZATION</text>
+      <text x="36" y="64" fill="#53684f" fontSize="15">Compare likely business value with readiness to build and verify.</text>
+      <rect x="112" y="104" width="568" height="204" rx="12" fill="#fffdf8" stroke="#cad4c8" strokeWidth="1.4"/>
+      <path d="M396 105v202M113 206h566" stroke="#cbd4c4" strokeWidth="1.2" strokeDasharray="4 5"/>
+      <rect x="114" y="106" width="281" height="98" rx="10" fill="#f1f2e9"/>
+      <rect x="398" y="106" width="280" height="98" rx="10" fill="#e8efe4"/>
+      <rect x="114" y="208" width="281" height="98" rx="10" fill="#f5eee4"/>
+      <rect x="398" y="208" width="280" height="98" rx="10" fill="#f3f3ec"/>
+      <path d="M88 290V127m0 0-5 8m5-8 5 8M113 326h548m0 0-8-5m8 5-8 5" fill="none" stroke="#637e6b" strokeWidth="1.7"/>
+      <text x="21" y="213" transform="rotate(-90 21 213)" textAnchor="middle" fill="#526d5a" fontSize="11" fontWeight="700" letterSpacing=".7">BUSINESS VALUE · LOW TO HIGH</text>
+      <text x="302" y="346" textAnchor="middle" fill="#697969" fontSize="11" fontWeight="700" letterSpacing=".5">DELIVERY READINESS</text>
+      <text x="114" y="322" fill="#697969" fontSize="10" fontWeight="700" letterSpacing=".5">LOW</text>
+      <text x="660" y="322" textAnchor="end" fill="#697969" fontSize="10" fontWeight="700" letterSpacing=".5">HIGH →</text>
+      <text x="128" y="127" fill="#6c796a" fontSize="9.5" fontWeight="700" letterSpacing=".6">HIGH VALUE · UNREADY</text>
+      <text x="412" y="127" fill="#49644e" fontSize="9.5" fontWeight="700" letterSpacing=".6">HIGH VALUE · READY</text>
+      <text x="128" y="230" fill="#78634c" fontSize="9.5" fontWeight="700" letterSpacing=".6">LOW VALUE · UNREADY</text>
+      <text x="412" y="230" fill="#6c796a" fontSize="9.5" fontWeight="700" letterSpacing=".6">LOW VALUE · READY</text>
+      <rect x="128" y="141" width="251" height="51" rx="8" fill="#fffefa" stroke="#91a3a2"/>
+      <circle cx="144" cy="157" r="4.5" fill="#6389a0"/><text x="157" y="160" fill="#35596a" fontSize="11.5" fontWeight="700">Summarize case history</text><text x="157" y="178" fill="#53684f" fontSize="10.5">Confirm record-level access first</text>
+      <rect x="412" y="141" width="250" height="51" rx="8" fill="#fffefa" stroke="#6c8b74" strokeWidth="1.5"/>
+      <circle cx="428" cy="157" r="4.5" fill="#55765b"/><text x="441" y="160" fill="#314b3b" fontSize="11.5" fontWeight="700">Answer policy questions</text><text x="441" y="178" fill="#53684f" fontSize="10">Approved sources · citations included</text>
+      <rect x="128" y="244" width="251" height="51" rx="8" fill="#fffefa" stroke="#c8ae87"/>
+      <circle cx="144" cy="260" r="4.5" fill="#b8874c"/><text x="157" y="263" fill="#705835" fontSize="11.5" fontWeight="700">Automate record archiving</text><text x="157" y="281" fill="#6e6454" fontSize="10">Ownership and retention unclear</text>
+      <rect x="412" y="244" width="250" height="51" rx="8" fill="#fffefa" stroke="#bac095"/>
+      <circle cx="428" cy="260" r="4.5" fill="#80946d"/><text x="441" y="263" fill="#435a49" fontSize="11.5" fontWeight="700">Draft meeting notes</text><text x="441" y="281" fill="#53684f" fontSize="10">Contained sources · easy to verify</text>
+      <rect x="600" y="148" width="54" height="16" rx="8" fill="#52745b"/><text x="627" y="159" textAnchor="middle" fill="#fffdf8" fontSize="7" fontWeight="700" letterSpacing=".5">START</text>
     </g>}
     {variant === 2 && <g fontFamily="inherit" strokeLinejoin="round">
-      <text x="36" y="42" fill="#56705c" fontSize="12" fontWeight="700" letterSpacing="1.7">IMPLEMENTATION + RELEASE</text>
-      <text x="36" y="69" fill="#53684f" fontSize="14">Each gate produces evidence for the next decision.</text>
-      <path d="M175 182h28m134 0h28m134 0h28" fill="none" stroke="#879b81" strokeWidth="2.5" markerEnd={`url(#${id}-delivery-arrow)`}/>
-      <g filter={`url(#${id}-delivery-shadow)`}>
-        <rect x="38" y="117" width="137" height="132" rx="14" fill="#fffdf7" stroke="#9aaa91" strokeWidth="1.5"/>
-        <circle cx="61" cy="143" r="12" fill="#e7edba"/><text x="61" y="147" textAnchor="middle" fill="#63785e" fontSize="11" fontWeight="700">1</text>
-        <text x="58" y="180" fill="#314b3b" fontSize="12" fontWeight="700">Approve scope</text><text x="58" y="202" fill="#53684f" fontSize="10">Purpose, owner,</text><text x="58" y="217" fill="#53684f" fontSize="10">limits and risk</text>
-        <rect x="203" y="117" width="134" height="132" rx="14" fill="#e8edf0" stroke="#7598a5" strokeWidth="1.5"/>
-        <circle cx="226" cy="143" r="12" fill="#d5e5e9"/><text x="226" y="147" textAnchor="middle" fill="#52798b" fontSize="11" fontWeight="700">2</text>
-        <text x="223" y="180" fill="#35596a" fontSize="12" fontWeight="700">Limit access</text><text x="223" y="202" fill="#53684f" fontSize="10">Identity and tools</text><text x="223" y="217" fill="#53684f" fontSize="10">match approved scope</text>
-        <rect x="365" y="117" width="134" height="132" rx="14" fill="#fffdf7" stroke="#9aaa91" strokeWidth="1.5"/>
-        <circle cx="388" cy="143" r="12" fill="#e7eddf"/><text x="388" y="147" textAnchor="middle" fill="#52745b" fontSize="11" fontWeight="700">3</text>
-        <text x="385" y="180" fill="#314b3b" fontSize="12" fontWeight="700">Test behavior</text><text x="385" y="202" fill="#53684f" fontSize="10">Allowed and denied</text><text x="385" y="217" fill="#53684f" fontSize="10">cases in staging</text>
-        <rect x="527" y="117" width="155" height="132" rx="14" fill="#e7eedf" stroke="#81977b" strokeWidth="1.5"/>
-        <circle cx="550" cy="143" r="12" fill="#dce8d5"/><text x="550" y="147" textAnchor="middle" fill="#52745b" fontSize="11" fontWeight="700">4</text>
-        <text x="547" y="180" fill="#314b3b" fontSize="12" fontWeight="700">Release &amp; hand over</text><text x="547" y="202" fill="#53684f" fontSize="10">Monitoring, runbook,</text><text x="547" y="217" fill="#53684f" fontSize="10">named operator</text>
-      </g>
-      <rect x="38" y="271" width="644" height="42" rx="10" fill="#f3eadb" stroke="#d7c39e"/>
-      <text x="58" y="297" fill="#705835" fontSize="11" fontWeight="700">Release gate</text><text x="151" y="297" fill="#6e6454" fontSize="11">No production access until scope is approved and the tests pass.</text>
+      <text x="36" y="39" fill="#56705c" fontSize="13" fontWeight="700" letterSpacing="1.4">IMPLEMENTATION + RELEASE</text>
+      <text x="36" y="64" fill="#53684f" fontSize="15">A controlled path from approved design to software the team can operate.</text>
+      <rect x="28" y="91" width="664" height="232" rx="16" fill="#fffdf8" stroke="#d3dacd"/>
+      <path d="M178 179h23m146 0h23m146 0h23" fill="none" stroke="#78917c" strokeWidth="2.3" markerEnd={`url(#${arrowId})`}/>
+      <rect x="42" y="120" width="136" height="136" rx="12" fill="#f2f1e6" stroke="#a2aa85" strokeWidth="1.4"/>
+      <circle cx="64" cy="144" r="12" fill="#dfe8bb"/><text x="64" y="148" textAnchor="middle" fill="#48624f" fontSize="10" fontWeight="700">01</text>
+      <text x="58" y="181" fill="#314b3b" fontSize="14" fontWeight="700">Approve scope</text><text x="58" y="202" fill="#53684f" fontSize="12">Purpose · owner</text><text x="58" y="217" fill="#53684f" fontSize="12">Actions + limits</text>
+      <rect x="201" y="120" width="146" height="136" rx="12" fill="#e8edf0" stroke="#819eaa" strokeWidth="1.4"/>
+      <circle cx="223" cy="144" r="12" fill="#d7e5e9"/><text x="223" y="148" textAnchor="middle" fill="#355e72" fontSize="10" fontWeight="700">02</text>
+      <text x="217" y="181" fill="#35596a" fontSize="14" fontWeight="700">Build in staging</text><text x="217" y="202" fill="#53684f" fontSize="12">Scoped identity</text><text x="217" y="217" fill="#53684f" fontSize="12">Approved tools only</text>
+      <rect x="371" y="120" width="146" height="136" rx="12" fill="#f4f4ee" stroke="#9aaa91" strokeWidth="1.4"/>
+      <circle cx="393" cy="144" r="12" fill="#e5eddf"/><text x="393" y="148" textAnchor="middle" fill="#52745b" fontSize="10" fontWeight="700">03</text>
+      <text x="387" y="181" fill="#314b3b" fontSize="14" fontWeight="700">Verify behavior</text><text x="387" y="202" fill="#53684f" fontSize="12">Allowed tests pass</text><text x="387" y="217" fill="#53684f" fontSize="12">Denied actions blocked</text>
+      <rect x="541" y="120" width="136" height="136" rx="12" fill="#e7eee3" stroke="#81977b" strokeWidth="1.4"/>
+      <circle cx="563" cy="144" r="12" fill="#dce8d5"/><text x="563" y="148" textAnchor="middle" fill="#52745b" fontSize="10" fontWeight="700">04</text>
+      <text x="557" y="181" fill="#314b3b" fontSize="11.5" fontWeight="700">Release + hand over</text><text x="557" y="202" fill="#53684f" fontSize="12">Monitor · recover</text><text x="557" y="217" fill="#53684f" fontSize="12">Named operator</text>
+      <rect x="42" y="276" width="635" height="31" rx="8" fill="#f2e9d8" stroke="#d2bb91"/>
+      <circle cx="60" cy="291.5" r="6" fill="#b8874c"/><path d="M57 291.5h6" stroke="#fff" strokeWidth="1.5"/>
+      <text x="75" y="295" fill="#705835" fontSize="10" fontWeight="700" letterSpacing=".6">PRODUCTION GATE</text>
+      <text x="186" y="295" fill="#6e6454" fontSize="11">Owner named · scope tested · rollback understood</text>
     </g>}
   </svg>;
 }

@@ -2,6 +2,7 @@ import { PageHeader,Section,Container,Eyebrow } from "@/components/UI";
 import { pageMeta } from "@/lib/metadata";
 import { site } from "@/lib/site";
 import { ArrowUpRight } from "lucide-react";
+import { EditorialVisualGrid, contactEditorialVisual } from "@/components/EditorialVisuals";
 export const metadata=pageMeta("Contact","Discuss an AI agent or Copilot workflow, the systems and permissions it touches, and the authorization or implementation work needed.","/contact");
 const emailPrompts = [
   { title: "The task and your role", detail: "What work your team wants help with, and your role in the organization." },
@@ -40,6 +41,7 @@ export default function Page(){
             <p className="small-note">This link opens your email application. There is no website submission form or automated booking service.</p>
           </div>
         </div>
+        <div className="contact-editorial"><EditorialVisualGrid items={[contactEditorialVisual]} columns={1} label="An example of the first project conversation"/></div>
       </Container>
     </Section>
   </>;

@@ -7,6 +7,7 @@ const steps = [
   { icon: Lightbulb, title: "Identify useful AI opportunities", detail: "Value, feasibility, and risk", heading: "Choose a use case worth implementing.", description: "Compare the potential benefit with the information available, the effort to connect systems, and the risks. Agree on how the team will test the solution.", evidence: "A priority use case, an agreed build plan, and measures for testing it." },
   { icon: Wrench, title: "Build, integrate, and verify", detail: "Working software your team can maintain", heading: "Put the solution into the existing workflow.", description: "Build the integrations, test task performance and failure cases, and prepare deployment and handover.", evidence: "Working system connections, test results, and clear responsibilities." }
 ];
+const visualCaptions = ["Example · late-order workflow", "Example · value and readiness", "Example · build and release gates"];
 export function DeliveryExplorer() {
   const [active, setActive] = useState(0);
   const id = useId();
@@ -21,7 +22,7 @@ export function DeliveryExplorer() {
         <ArrowRight size={15} aria-hidden="true"/>
       </button>
     </li>)}</ol>
-    <div className="delivery-art" key={active}><WorkflowScene variant={active} mode="delivery"/><span className="scene-example">Illustrative engagement map</span></div>
+    <div className="delivery-art" key={active}><WorkflowScene variant={active} mode="delivery"/><span className="scene-example">{visualCaptions[active]}</span></div>
     <div className="control-panels"><section id={`${id}-panel`} aria-labelledby={`${id}-step-${active}`}>
       <h3>{step.heading}</h3><p>{step.description}</p><dl><div><dt>What you receive</dt><dd>{step.evidence}</dd></div></dl>
     </section></div>
