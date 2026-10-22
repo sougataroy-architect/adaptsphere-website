@@ -30,7 +30,7 @@ const insightArtwork: Record<string, { src: string; alt: string }> = {
   "authorize-the-agent-chain": { src: "/visuals/agent-chain-v2.webp", alt: "A request moves through specialist agents, with the combined authority checked before action" },
   "agent-authorization-before-autonomy": { src: "/visuals/authorization-article-v2.webp", alt: "An agent’s identity and permitted actions are checked at an authorization boundary" },
   "modernization-is-an-ai-control": { src: "/visuals/modernization-control-v2.webp", alt: "An API boundary preserves business rules as an AI workflow connects to an existing system" },
-  "governance-that-survives-deployment": { src: "/visuals/governance-operations-v2.webp", alt: "Governance requirements connect to technical controls, an operating owner, and review evidence" },
+  "governance-that-survives-deployment": { src: "/visuals/remediation-v2.webp", alt: "A failed control is corrected and retested before the operation is allowed" },
 };
 
 export function InsightCard({item}:{item:typeof insights[number]}){
