@@ -155,10 +155,9 @@
 .use-case-art{border-radius:22px;background:linear-gradient(150deg,#eef0e3,#e3e8d6);margin-bottom:24px;padding:10px;border:1px solid #dde3d1;transition:background .5s ease}
 .problem-grid article:nth-child(2) .use-case-art{background:linear-gradient(150deg,#f3eddf,#e9eddd)}
 .problem-grid article:nth-child(3) .use-case-art{background:linear-gradient(150deg,#e4eade,#f1f3e8)}
+.use-case-visual{display:block;width:100%;height:auto;border-radius:14px}
 .visual-use-cases .problem-grid h3{font-family:var(--font-display),Georgia,serif;font-weight:500;font-size:32px;margin:10px 0 14px;line-height:1.15}
 .visual-use-cases .problem-grid p{font-size:19px;line-height:1.65}
-.use-case-art .scene-engine,.use-case-art .scene-result{transition:transform .5s cubic-bezier(.22,1,.36,1);transform-box:fill-box;transform-origin:center}
-@media(hover:hover){.problem-grid article:hover .scene-engine{transform:translateY(-6px)}.problem-grid article:hover .scene-result{transform:translateY(-3px)}}
 @keyframes scene-appear{from{opacity:.4;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
 @media(min-width:1200px){.home-hero .container{max-width:1340px}}
 @media(max-width:1000px){.home-hero .hero-grid{gap:32px}.home-hero .hero-copy h1{font-size:58px}}
