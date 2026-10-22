@@ -7,8 +7,9 @@ const labels = [
 ];
 
 /** Three distinct workflow examples. These are illustrative patterns, not client deployments. */
-export function WorkflowScene({ variant = 0 }: { variant?: number }) {
+export function WorkflowScene({ variant = 0, mode = "example" }: { variant?: number; mode?: "example" | "delivery" }) {
   const id = useId().replace(/:/g, "");
+  if (mode === "delivery") return <DeliveryWorkflowScene variant={variant} id={id}/>;
   const title = [
     "Invoice details extracted into a draft that a person reviews",
     "An employee question is answered only from permitted sources, with citations",
@@ -129,4 +130,78 @@ export function WorkflowScene({ variant = 0 }: { variant?: number }) {
       </g>
     </svg>
   );
+}
+
+/** A three-part view of our engagement: map the work, select a use case, then verify the implementation. */
+function DeliveryWorkflowScene({ variant, id }: { variant: number; id: string }) {
+  const titles = [
+    "A current-state workflow map connects the business task to its systems and manual handoffs",
+    "Candidate AI tasks are compared by business value and implementation readiness",
+    "An implementation passes through scoped access and verification before release",
+  ];
+  return <svg className={`workflow-scene workflow-scene-delivery workflow-scene-delivery-${variant}`} viewBox="0 0 720 330" role="img" aria-labelledby={`${id}-title`}>
+    <title id={`${id}-title`}>{titles[variant]}</title>
+    <defs>
+      <linearGradient id={`${id}-delivery-bg`} x1="0" y1="0" x2="1" y2="1"><stop stopColor="#fbfaf5"/><stop offset="1" stopColor="#e7ebdc"/></linearGradient>
+      <marker id={`${id}-delivery-arrow`} markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="#6b826d"/></marker>
+      <filter id={`${id}-delivery-shadow`} x="-15%" y="-20%" width="130%" height="145%"><feDropShadow dx="0" dy="5" stdDeviation="5" floodColor="#455b4c" floodOpacity=".10"/></filter>
+    </defs>
+    <rect x="8" y="8" width="704" height="314" rx="20" fill={`url(#${id}-delivery-bg)`}/>
+    {variant === 0 && <g fontFamily="inherit" strokeLinejoin="round">
+      <text x="36" y="42" fill="#56705c" fontSize="12" fontWeight="700" letterSpacing="1.7">CURRENT-STATE WORKFLOW</text>
+      <text x="36" y="69" fill="#53684f" fontSize="14">One business task, mapped across people and systems</text>
+      <g filter={`url(#${id}-delivery-shadow)`}>
+        <rect x="35" y="106" width="142" height="142" rx="15" fill="#fffdf7" stroke="#9aaa91" strokeWidth="2"/>
+        <path d="M35 139h142" stroke="#d7ddcf" strokeWidth="2"/>
+        <circle cx="53" cy="123" r="5" fill="#c88658"/><text x="68" y="127" fill="#506356" fontSize="10" fontWeight="700" letterSpacing=".8">BUSINESS TASK</text>
+        <text x="52" y="166" fill="#1f2a27" fontSize="14" fontWeight="700">Resolve a late</text><text x="52" y="185" fill="#1f2a27" fontSize="14" fontWeight="700">customer order</text>
+        <path d="M52 205h99" stroke="#aab59d" strokeWidth="3" strokeLinecap="round"/><path d="M52 220h72" stroke="#aab59d" strokeWidth="3" strokeLinecap="round"/>
+      </g>
+      <path d="M179 177h31" fill="none" stroke="#879b81" strokeWidth="2.5" markerEnd={`url(#${id}-delivery-arrow)`}/>
+      <rect x="219" y="91" width="464" height="183" rx="15" fill="#fdfcf7" stroke="#cbd4c4" strokeWidth="1.5"/>
+      <text x="240" y="119" fill="#6a7b69" fontSize="10" fontWeight="700" letterSpacing="1.3">PEOPLE + SYSTEMS INVOLVED</text>
+      <path d="M257 175h370" stroke="#aab59d" strokeWidth="2" markerEnd={`url(#${id}-delivery-arrow)`}/>
+      <g filter={`url(#${id}-delivery-shadow)`}>
+        <rect x="241" y="142" width="106" height="72" rx="10" fill="#e7eee7" stroke="#78927c" strokeWidth="1.5"/>
+        <circle cx="261" cy="162" r="8" fill="#63816b"/><path d="M247 190q14-21 28 0" fill="#63816b"/><text x="294" y="170" fill="#314b3b" fontSize="11" fontWeight="700">Support</text><text x="294" y="188" fill="#53684f" fontSize="10">checks request</text>
+        <rect x="378" y="142" width="106" height="72" rx="10" fill="#e5edf0" stroke="#7899a4" strokeWidth="1.5"/>
+        <rect x="395" y="157" width="21" height="26" rx="3" fill="none" stroke="#52798b" strokeWidth="2"/><path d="M400 165h11m-11 6h11m-11 6h7" stroke="#52798b" strokeWidth="1.5"/><text x="425" y="170" fill="#35596a" fontSize="11" fontWeight="700">Order system</text><text x="425" y="188" fill="#53684f" fontSize="10">checks status</text>
+        <rect x="515" y="142" width="140" height="72" rx="10" fill="#f3eadb" stroke="#c6a574" strokeWidth="1.5"/>
+        <path d="M533 160h21v22h-21z m5-6h21v22" fill="none" stroke="#987648" strokeWidth="2"/><text x="565" y="170" fill="#705835" fontSize="11" fontWeight="700">Shared mailbox</text><text x="565" y="188" fill="#53684f" fontSize="10">contacts warehouse</text>
+      </g>
+      <circle cx="366" cy="175" r="8" fill="#c8835c" stroke="#fffdf7" strokeWidth="3"/><path d="M366 186v35" stroke="#c8835c" strokeWidth="1.5" strokeDasharray="4 4"/><rect x="317" y="224" width="99" height="27" rx="13" fill="#f4e7dc" stroke="#cc9b7d"/><text x="366" y="242" textAnchor="middle" fill="#754d39" fontSize="9" fontWeight="700" letterSpacing=".5">MANUAL HANDOFF</text>
+      <text x="37" y="288" fill="#53684f" fontSize="11">Map where information lives, who moves it, and where work waits.</text>
+    </g>}
+    {variant === 1 && <g fontFamily="inherit" strokeLinejoin="round">
+      <text x="36" y="42" fill="#56705c" fontSize="12" fontWeight="700" letterSpacing="1.7">USE-CASE PRIORITIZATION</text>
+      <text x="36" y="69" fill="#53684f" fontSize="14">Compare business value with delivery readiness</text>
+      <rect x="84" y="96" width="570" height="180" rx="12" fill="#fffdf7" stroke="#d3dacd"/>
+      <path d="M369 96v180M84 186h570" stroke="#d3dacd" strokeDasharray="5 5"/>
+      <path d="M101 259V117m0 0-6 9m6-9 6 9M103 259h530m0 0-9-6m9 6-9 6" fill="none" stroke="#708771" strokeWidth="1.5"/>
+      <text x="96" y="106" fill="#677866" fontSize="9" fontWeight="700" letterSpacing=".8">HIGH BUSINESS VALUE</text>
+      <text x="589" y="294" fill="#677866" fontSize="9" fontWeight="700" letterSpacing=".8">READY TO IMPLEMENT</text>
+      <text x="115" y="167" fill="#798676" fontSize="9">Worth exploring</text><text x="114" y="251" fill="#798676" fontSize="9">Defer</text>
+      <text x="426" y="169" fill="#45634e" fontSize="9" fontWeight="700">PRIORITIZE</text><text x="429" y="251" fill="#798676" fontSize="9">Low value</text>
+      <g filter={`url(#${id}-delivery-shadow)`}>
+        <rect x="413" y="112" width="183" height="43" rx="9" fill="#e7eedf" stroke="#81977b" strokeWidth="1.5"/><circle cx="432" cy="133" r="6" fill="#55765b"/><text x="447" y="130" fill="#314b3b" fontSize="10" fontWeight="700">Answer policy questions</text><text x="447" y="144" fill="#53684f" fontSize="9">Approved knowledge · low impact</text>
+        <rect x="137" y="131" width="176" height="43" rx="9" fill="#e7edf0" stroke="#8ca7ae"/><circle cx="156" cy="152" r="6" fill="#5d8290"/><text x="171" y="149" fill="#35596a" fontSize="10" fontWeight="700">Summarize case history</text><text x="171" y="163" fill="#53684f" fontSize="9">Useful · data access to resolve</text>
+        <rect x="424" y="203" width="177" height="43" rx="9" fill="#f3e9dc" stroke="#c9a578"/><circle cx="443" cy="224" r="6" fill="#b8874c"/><text x="458" y="221" fill="#705835" fontSize="10" fontWeight="700">Approve supplier payments</text><text x="458" y="235" fill="#6e6454" fontSize="9">High consequence · human decision</text>
+      </g>
+      <rect x="411" y="106" width="187" height="55" rx="12" fill="none" stroke="#52745b" strokeWidth="2" strokeDasharray="5 4"/>
+      <text x="36" y="310" fill="#53684f" fontSize="11">Select a task whose value, data access, risk, and test plan are all understood.</text>
+    </g>}
+    {variant === 2 && <g fontFamily="inherit" strokeLinejoin="round">
+      <text x="36" y="42" fill="#56705c" fontSize="12" fontWeight="700" letterSpacing="1.7">IMPLEMENTATION + RELEASE</text>
+      <text x="36" y="69" fill="#53684f" fontSize="14">A controlled path from approved design to operating software</text>
+      <path d="M148 176h104m122 0h74m111 0h67" fill="none" stroke="#879b81" strokeWidth="2.5" markerEnd={`url(#${id}-delivery-arrow)`}/>
+      <g filter={`url(#${id}-delivery-shadow)`}>
+        <rect x="36" y="114" width="112" height="123" rx="14" fill="#fffdf7" stroke="#9aaa91" strokeWidth="1.5"/><circle cx="59" cy="139" r="10" fill="#e7edba"/><path d="M55 139h8m-4-4v8" stroke="#63785e" strokeWidth="1.5"/><text x="53" y="171" fill="#314b3b" fontSize="11" fontWeight="700">Approved</text><text x="53" y="187" fill="#314b3b" fontSize="11" fontWeight="700">design</text><text x="53" y="213" fill="#53684f" fontSize="9">Purpose · scope</text><text x="53" y="226" fill="#53684f" fontSize="9">· owner · limits</text>
+        <rect x="256" y="114" width="118" height="123" rx="14" fill="#e8edf0" stroke="#7598a5" strokeWidth="1.5"/><path d="M281 134h22v19h-22z M286 129v10m12-10v10" fill="none" stroke="#52798b" strokeWidth="1.8"/><text x="275" y="177" fill="#35596a" fontSize="11" fontWeight="700">Test boundary</text><text x="275" y="196" fill="#53684f" fontSize="9">Scoped identity</text><text x="275" y="210" fill="#53684f" fontSize="9">Allowed tools only</text>
+        <rect x="450" y="114" width="112" height="123" rx="14" fill="#fffdf7" stroke="#9aaa91" strokeWidth="1.5"/><rect x="470" y="131" width="72" height="31" rx="7" fill="#e8efe1" stroke="#90a48b"/><path d="M480 147l6 6 12-14" fill="none" stroke="#52745b" strokeWidth="2.5"/><text x="486" y="185" fill="#314b3b" fontSize="11" fontWeight="700">Verification</text><text x="467" y="203" fill="#53684f" fontSize="9">Expected behavior</text><text x="467" y="217" fill="#53684f" fontSize="9">· failure cases</text>
+        <rect x="580" y="114" width="104" height="123" rx="14" fill="#e7eedf" stroke="#81977b" strokeWidth="1.5"/><path d="M603 153v-13a8 8 0 0 1 16 0v13m-19 0h22v17h-22z" fill="none" stroke="#55765b" strokeWidth="2"/><text x="597" y="192" fill="#314b3b" fontSize="11" fontWeight="700">Release</text><text x="597" y="210" fill="#53684f" fontSize="9">Monitor · hand over</text>
+      </g>
+      <rect x="239" y="257" width="144" height="27" rx="13" fill="#f3e9dc" stroke="#c9a578"/><text x="311" y="275" textAnchor="middle" fill="#705835" fontSize="9" fontWeight="700" letterSpacing=".5">TEST IN A SAFE ENVIRONMENT</text>
+      <text x="36" y="309" fill="#53684f" fontSize="11">Verify permissions and failure behavior before the team relies on it.</text>
+    </g>}
+  </svg>;
 }

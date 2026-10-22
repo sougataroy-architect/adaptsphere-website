@@ -21,7 +21,7 @@ export function DeliveryExplorer() {
         <ArrowRight size={15} aria-hidden="true"/>
       </button>
     </li>)}</ol>
-    <div className="delivery-art" key={active}><WorkflowScene variant={active}/><span className="scene-example">Illustrative workflow</span></div>
+    <div className="delivery-art" key={active}><WorkflowScene variant={active} mode="delivery"/><span className="scene-example">Illustrative engagement map</span></div>
     <div className="control-panels"><section id={`${id}-panel`} aria-labelledby={`${id}-step-${active}`}>
       <h3>{step.heading}</h3><p>{step.description}</p><dl><div><dt>What you receive</dt><dd>{step.evidence}</dd></div></dl>
     </section></div>
