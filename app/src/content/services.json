@@ -1,8 +1,8 @@
 [
   {
     "slug": "governed-ai-architecture",
-    "title": "Governed AI Architecture & Implementation",
-    "short": "Build the access path and security boundaries with the agent.",
+    "title": "Governed AI Architecture & Secure Implementation",
+    "short": "Build an agent with approved access and security boundaries.",
     "summary": "Design and build an AI agent for an agreed task. Record its approved purpose, scope, accountable owner, and review conditions, then enforce and test identity, data, and tool boundaries.",
     "problem": "A demonstration can work while leaving unclear who approved the agent’s purpose, what it can reach or change, how it handles malicious instructions, and who responds when a control fails.",
     "examine": [
@@ -26,8 +26,8 @@
   },
   {
     "slug": "ai-governance-assessment",
-    "title": "AI Governance Assessment",
-    "short": "Compare configured access with intended use.",
+    "title": "AI Governance & Security Assessment",
+    "short": "Compare real system access and safeguards with intended use.",
     "summary": "Review AI tools and agents against their actual permissions, connected data, threat exposure, owners, release practices, and activity records. Receive prioritized findings and a technical remediation plan.",
     "problem": "Your AI policies may not match what the tools in use can actually access or do. Review whether identity, data, and tool controls contain risks such as prompt injection, excessive access, and unsafe actions.",
     "examine": [
@@ -49,8 +49,8 @@
   },
   {
     "slug": "agent-governance",
-    "title": "Agent Governance & Authorization",
-    "short": "Authorize identity, tools, and actions for the task.",
+    "title": "Agent Governance & Security",
+    "short": "Set and enforce an agent’s identity, access, and action limits.",
     "summary": "Record each agent’s approved purpose, permitted and prohibited actions, accountable owner, identity, approval conditions, and review triggers. Enforce least-privilege access, test misuse and denial paths, and prepare a removal process.",
     "problem": "An AI agent can read information and use tools to act. A prompt can be manipulated and a legitimate connector can still expose too much. Set enforceable limits, decide which actions need approval, and make access reviewable and revocable.",
     "examine": [
@@ -73,8 +73,8 @@
   },
   {
     "slug": "microsoft-ai-governance",
-    "title": "Microsoft AI Governance",
-    "short": "Trace security and authority from content to agent action.",
+    "title": "Microsoft AI Governance & Security",
+    "short": "Trace governance and safeguards from content to agent action.",
     "summary": "Trace a defined workload through Copilot content permissions, Copilot Studio authentication, Entra agent identity, Purview evidence, and Power Platform environments. Review prompt-injection exposure, connector scope, and action controls, and record organizational authorization separately from product configuration.",
     "problem": "Microsoft controls can configure and record access, but they do not decide an agent’s business purpose, prohibited actions, approving authority, or review conditions for your organization.",
     "examine": [
@@ -95,7 +95,7 @@
   },
   {
     "slug": "ai-integration-modernization",
-    "title": "AI Integration & Legacy Modernization",
+    "title": "Secure AI Integration & Legacy Modernization",
     "short": "Expose approved business actions through a controlled interface.",
     "summary": "Connect AI to older applications through APIs that check identity and permissions, expose only approved operations, record activity, and handle failures safely.",
     "problem": "Useful business information often sits in older applications and disconnected processes. A direct AI connection can bypass access rules, expose sensitive records, or allow an unsafe action to propagate when something fails.",
@@ -139,7 +139,7 @@
   },
   {
     "slug": "governance-remediation",
-    "title": "Governance Remediation & Implementation",
+    "title": "Governance & Security Remediation",
     "short": "Turn findings into working controls.",
     "summary": "Fix the access, identity, data boundary, activity-record, and ongoing management issues found in an assessment. Test the changes and document remaining risks.",
     "problem": "An assessment may identify problems your team still needs to fix. Agree on who will make the changes, what the work includes, and how to test that the fixes work.",

@@ -1,19 +1,19 @@
 export const serviceAnswers:Record<string,{question:string;answer:string}>={
   "governed-ai-architecture": {
-    "question": "What does governed AI implementation include?",
+    "question": "What does governed and secure AI implementation include?",
     "answer": "We document the agent’s approved purpose, scope, prohibitions, accountable owner, and review conditions, then map the identity, data, and tool paths for the task. Implementation can include delegated or application access, API authorization, approval steps, failure handling, and activity records. We test whether the configured controls enforce the recorded decision."
   },
   "ai-governance-assessment": {
-    "question": "What does an AI governance assessment review?",
-    "answer": "We inspect how AI tools and agents are configured: which systems and information they reach, which identities and credentials they use, who owns them, and what activity is recorded. Findings identify the affected systems and evidence, then prioritize technical fixes."
+    "question": "What does an AI governance and security assessment review?",
+    "answer": "We compare intended use and governance decisions with how AI tools and agents are configured. We review which systems and information they reach, which identities and credentials they use, exposure to prompt injection or unsafe actions, who owns them, and what activity is recorded. Findings identify the affected systems and evidence, then prioritize practical security and governance fixes."
   },
   "agent-governance": {
-    "question": "How is agent governance different from a policy document?",
-    "answer": "Agent governance records the business decision behind the configuration: the agent’s purpose, permitted scope, prohibitions, approving authority, accountable owner, and review conditions. The record connects that decision to identity, tool permissions, approval steps, tests, and a process for suspending or removing access when circumstances change."
+    "question": "How do agent governance and security work together?",
+    "answer": "Governance records the approved purpose, scope, prohibitions, decision owner, and review conditions. Security engineering enforces those decisions through identity and tool permissions, approval steps, misuse tests, and a process for suspending or removing access when circumstances change."
   },
   "microsoft-ai-governance": {
-    "question": "What does Microsoft AI governance cover?",
-    "answer": "We trace the planned task through Microsoft 365 content permissions, Copilot Studio authentication and connectors, Entra identity, Power Platform environments, and relevant Purview controls. Applicable safeguards depend on your tenant configuration, licenses, and deployment model."
+    "question": "What does Microsoft AI governance and security cover?",
+    "answer": "We trace a planned task through Microsoft 365 content permissions, Copilot Studio authentication and connectors, Entra identity, Power Platform environments, and relevant Purview controls. We connect organizational approval and ownership to the safeguards configured in the tenant, then test the access and actions that matter for the workload. Applicable controls depend on your configuration, licenses, and deployment model."
   },
   "ai-integration-modernization": {
     "question": "Why modernize before connecting AI to legacy systems?",
