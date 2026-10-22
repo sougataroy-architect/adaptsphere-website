@@ -165,7 +165,7 @@
 @media(max-width:767px){.home-hero{padding-top:36px}.home-hero .hero-grid{grid-template-columns:1fr;gap:36px}.home-hero .hero-copy h1{font-size:48px;max-width:600px}.home-hero .hero-copy>p:not(.eyebrow):not(.hero-footnote){font-size:19px;line-height:1.65}.delivery-board{padding:20px}.delivery-board .board-intent p{font-size:30px}.visual-use-cases .problem-grid{grid-template-columns:1fr;gap:32px}.use-case-art{max-width:520px}.home-hero .hero-baseline{margin-top:32px}.visual-use-cases .problem-grid p{font-size:19px}}
 @media(prefers-reduced-motion:reduce){.delivery-art{animation:none}.use-case-art .scene-engine,.use-case-art .scene-result{transition:none;transform:none}}
 .home-hero .hero-copy{padding-top:0}
-.delivery-art{max-width:440px;margin:8px auto 12px}
+.delivery-art{width:100%;max-width:none;margin:8px 0 12px}
 .delivery-board .control-panels{min-height:0}
 .process-grid{position:relative;gap:28px}
 .process-grid>li{position:relative;border-top:2px solid #bac095;padding-top:24px}
