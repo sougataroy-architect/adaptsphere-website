@@ -3,14 +3,8 @@ import { pageMeta } from "@/lib/metadata";
 import { site } from "@/lib/site";
 import { ArrowUpRight } from "lucide-react";
 import { EditorialVisualGrid, contactEditorialVisual } from "@/components/EditorialVisuals";
+import { ContactPromptExplorer } from "@/components/ContactPromptExplorer";
 export const metadata=pageMeta("Contact","Discuss an AI agent or Copilot workflow, the systems and permissions it touches, and the authorization or implementation work needed.","/contact");
-const emailPrompts = [
-  { title: "The task and your role", detail: "What work your team wants help with, and your role in the organization." },
-  { title: "The workflow and systems", detail: "The tools, applications, and data sources the work touches." },
-  { title: "The authority boundary", detail: "What the agent should do, and what must stay outside its authority." },
-  { title: "The decision owner", detail: "Who approves actions, owns the workflow, or reviews exceptions." },
-  { title: "Timing", detail: "An approximate timeframe, if one is already known." },
-];
 
 export default function Page(){
   return <>
@@ -34,9 +28,7 @@ export default function Page(){
             <Eyebrow>What to include</Eyebrow>
             <h2>Help us understand the work</h2>
             <p className="contact-guidance-intro">A few specifics help us see where the workflow starts, what it can access, and where a person needs to decide.</p>
-            <ol className="contact-list">
-              {emailPrompts.map((prompt,index)=><li key={prompt.title}><span className="contact-number">0{index+1}</span><div><h3>{prompt.title}</h3><p>{prompt.detail}</p></div></li>)}
-            </ol>
+            <ContactPromptExplorer/>
             <div className="callout"><strong>Keep the first message general.</strong><p>Do not send credentials, confidential architecture, personal data, or sensitive documents. Agree on an appropriate exchange process first.</p></div>
             <p className="small-note">This link opens your email application. There is no website submission form or automated booking service.</p>
           </div>
