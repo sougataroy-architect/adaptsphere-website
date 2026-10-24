@@ -2,7 +2,7 @@ import styles from "./GovernanceRaci.module.css";
 
 const roles = ["Executive sponsor", "Business owner", "Operations + IT", "Risk + security"] as const;
 const rows = [
-  { task: "Approve business purpose", values: ["C", "A", "R", "C"] },
+  { task: "Approve business purpose", values: ["A", "R", "C", "C"] },
   { task: "Set access + data boundaries", values: ["I", "A", "R", "C"] },
   { task: "Monitor + respond to incidents", values: ["I", "A", "R", "C"] },
   { task: "Review continued need + retire", values: ["C", "A", "R", "C"] },
