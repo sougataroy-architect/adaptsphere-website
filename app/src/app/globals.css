@@ -237,3 +237,13 @@
 .contact-builder-workspace .finder-reset{margin-left:12px}
 @media(max-width:767px){.contact-builder-section>.container{grid-template-columns:1fr}.contact-builder-workspace{min-height:0}.contact-builder-workspace .finder-progress{flex-wrap:wrap}.contact-draft-actions{flex-direction:column;align-items:stretch}.contact-draft-actions .button{width:100%}.contact-builder-workspace .finder-reset{margin-left:0}}
 @media(max-width:639px){.contact-privacy-note{padding:14px}}
+
+/* Keep the governance authorization path and its four record cards on a clear, full-width grid. */
+.governance-authorization-path{grid-template-columns:minmax(0,1fr);gap:48px}
+.governance-authorization-path .architecture-board{width:100%;max-width:none}
+.governance-record-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:24px}
+@media(max-width:1023px){.governance-record-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:28px 24px}}
+@media(max-width:639px){.governance-authorization-path{gap:30px}.governance-record-grid{grid-template-columns:minmax(0,1fr)}}
+
+/* Fit the nine Microsoft capability items into complete desktop rows. */
+@media(min-width:1024px){.microsoft-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
