@@ -251,3 +251,15 @@
 /* Keep authorization-record cards readable inside their four-column layout. */
 .problem-grid.governance-record-grid>article{padding:24px}
 .problem-grid.governance-record-grid>article>p{margin-top:12px;font-size:16px;line-height:1.6}
+
+/* Let the workflow introduction use the same content width as its example. */
+.governance-workflow-section .section-heading{max-width:none}
+.governance-workflow-section .section-heading>p:not(.eyebrow){max-width:none}
+
+/* Align wide governance panels with the introductions directly above them. */
+.governance-decision-section>.container>.section-heading,.governance-record-section>.container>.section-heading{max-width:none}
+.governance-decision-section>.container>.section-heading>p:not(.eyebrow),.governance-record-section>.container>.section-heading>p:not(.eyebrow){max-width:none}
+
+/* Keep section introductions aligned to the wide diagrams and grids directly below. */
+.editorial-examples>.section-heading,.home-process-section>.container>.section-heading,.microsoft-focus-section>.container>.section-heading,.microsoft-editorial>.section-heading,.assessment-result>.section-heading{max-width:none}
+.editorial-examples>.section-heading>p:not(.eyebrow),.home-process-section>.container>.section-heading>p:not(.eyebrow),.microsoft-focus-section>.container>.section-heading>p:not(.eyebrow),.microsoft-editorial>.section-heading>p:not(.eyebrow),.assessment-result>.section-heading>p:not(.eyebrow){max-width:none}

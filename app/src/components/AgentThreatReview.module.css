@@ -83,3 +83,6 @@
 @media (prefers-reduced-motion: reduce) {
   .photo img { transition: none; }
 }
+
+.section :global(.section-heading) { max-width: none; }
+.section :global(.section-heading > p:not(.eyebrow)) { max-width: none; }
