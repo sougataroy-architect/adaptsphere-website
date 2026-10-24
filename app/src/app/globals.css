@@ -263,3 +263,9 @@
 /* Keep section introductions aligned to the wide diagrams and grids directly below. */
 .editorial-examples>.section-heading,.home-process-section>.container>.section-heading,.microsoft-focus-section>.container>.section-heading,.microsoft-editorial>.section-heading,.assessment-result>.section-heading{max-width:none}
 .editorial-examples>.section-heading>p:not(.eyebrow),.home-process-section>.container>.section-heading>p:not(.eyebrow),.microsoft-focus-section>.container>.section-heading>p:not(.eyebrow),.microsoft-editorial>.section-heading>p:not(.eyebrow),.assessment-result>.section-heading>p:not(.eyebrow){max-width:none}
+
+/* Align the governance authorization and threat review copy with their full-width panels. */
+.governance-authorization-section>.container>.governance-authorization-path>.section-heading,.governance-authorization-section>.container>.governance-authorization-path>div:first-child>.section-heading{max-width:none}
+.governance-authorization-section>.container>.governance-authorization-path>div:first-child>.section-heading>p:not(.eyebrow){max-width:none}
+
+.governance-record-grid>article{min-width:0;overflow-wrap:anywhere}
