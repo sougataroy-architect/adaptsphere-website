@@ -247,3 +247,7 @@
 
 /* Fit the nine Microsoft capability items into complete desktop rows. */
 @media(min-width:1024px){.microsoft-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
+
+/* Keep authorization-record cards readable inside their four-column layout. */
+.problem-grid.governance-record-grid>article{padding:24px}
+.problem-grid.governance-record-grid>article>p{margin-top:12px;font-size:16px;line-height:1.6}
