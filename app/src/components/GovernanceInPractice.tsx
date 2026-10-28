@@ -77,7 +77,7 @@ export function GovernanceInPractice() {
       </div>
 
       <p className={styles.attribution}>
-        Framework attribution: the Context–Intent–Governance structure is reproduced here in adapted form from Sougata Roy’s <a href="https://sougataroy.com/frameworks/intent-architecture-stack" target="_blank" rel="noreferrer">Intent Architecture Stack</a>. The invoice scenario and control mapping are AdaptSphere’s illustrative application, not a client case. NIST AI RMF actions are continuous and are not a prescribed step-by-step checklist.
+        The invoice scenario and control mapping are AdaptSphere’s illustrative application, not a client case. NIST AI RMF actions are continuous and are not a prescribed step-by-step checklist.
       </p>
     </figure>
   );

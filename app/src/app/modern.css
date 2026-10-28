@@ -321,9 +321,7 @@ h3 { font-weight: 600; letter-spacing: -.035em; }
 
 .process-grid { gap: 16px; }
 .process-grid > li { min-height: 230px; padding: 24px; border-top: 1px solid var(--glass-line); }
-.platform-section { background: transparent; border-color: var(--glass-line); }
 .platform-grid { gap: 18px; }
-.platform-section .platform-grid article { border-color: var(--glass-edge); background: linear-gradient(145deg, rgb(255 255 255 / 72%), rgb(238 241 234 / 56%)); }
 .technology-grid { gap: 12px; }
 .technology-grid > div,
 .technology-grid > article { padding: 18px; }
