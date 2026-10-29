@@ -16,57 +16,27 @@ const questions = [
   { title: "How clear are the safeguards today?", note: "A candid estimate is more useful than a perfect answer.", options: ["Controls and owners are documented and tested", "Some controls exist, but coverage varies", "Teams rely on guidance or manual checks", "We do not yet have a clear picture"] }
 ];
 
-type DecisionBrief = { headline: string; summary: string; priority: string; why: string; checks: string[]; evidence: string };
+type DecisionBrief = { headline: string; meaning: string; first: string; checks: string[]; done: string };
+const decisionBriefs: DecisionBrief[] = [
+  { headline: "Choose a safe first use case", meaning: "You are exploring AI or looking for a place to begin. Start with one everyday task where a person can check the work before it affects a customer, employee, or business record.", first: "Ask one team to name a repetitive task that takes time and has a clear human owner.", checks: ["Write down the task and who is responsible for the result.", "List the information the AI truly needs for that task.", "Decide what the AI may prepare and what the person must decide.", "Try it on sample work and have the owner check accuracy and access."], done: "A one-page use case: task, owner, allowed data, human check, and test results." },
+  { headline: "Put a person at the right decision point", meaning: "The AI is helping with a recommendation or decision. Make it clear when a person needs to review the answer and what they should check before acting.", first: "Pick one decision the AI supports and define the point where work pauses for review.", checks: ["Show the person the source information behind the recommendation.", "Explain what the AI is unsure about or cannot verify.", "Give the reviewer a clear way to approve, correct, or reject the suggestion.", "Record who made the final decision for important cases."], done: "A simple review path with source evidence, a named decision owner, and a record of the decision." },
+  { headline: "Limit what the AI can change", meaning: "The workflow can update records or trigger actions. Set permissions so the AI can only make approved changes, and pause for a person before changes with larger consequences.", first: "List the systems and actions the AI can reach. Start with the action that would be hardest to undo.", checks: ["Separate permission to read information from permission to change it.", "Limit the AI account to the specific records and actions it needs.", "Require approval before sending, spending, deleting, or changing important records.", "Test that blocked actions stay blocked, even when instructions try to bypass the rule."], done: "An action list, limited system permissions, approval points, and proof that blocked actions fail." },
+  { headline: "Map the full chain of connected tools", meaning: "The AI can take several steps across tools. Each connection can add access and authority, so map how a request moves and where a person can stop it.", first: "Draw the path from the request through every AI step and connected system to the final action.", checks: ["Name the identity used at each step.", "Write down what information each tool can read or change.", "Set a limit on which steps can happen without human review.", "Test what happens when a tool returns bad information or stops responding."], done: "A workflow map showing identities, data, actions, approval points, and failure handling." },
+  { headline: "Check who can see the information", meaning: "Your main concern is access to private or sensitive information. Check the whole path from the person asking, through the AI, to each connected data source.", first: "Choose one sensitive source and trace who can ask for it and what the AI returns.", checks: ["List the connected files, systems, and accounts.", "Confirm the AI follows the access rights of the person asking.", "Try a request from someone who should not see the information.", "Check that answers show their source and do not expose extra details."], done: "A source and access map, a test showing restricted information stays restricted, and a named owner." },
+  { headline: "Make answers easy to check", meaning: "You are concerned that an AI answer may be wrong or hard to explain. Give people a clear way to verify important answers before they rely on them.", first: "Choose the answer type that could cause the most harm or rework if it were wrong.", checks: ["List the sources the AI is allowed to use.", "Ask it questions where the source is missing, old, or disagrees.", "Show reviewers where each important answer came from.", "Decide when the AI should say it does not know and ask a person."], done: "A small set of test questions, expected answers, source links, and a clear human review rule." },
+  { headline: "Name who responds when something goes wrong", meaning: "You are unsure who owns the workflow or its failures. A useful control plan names people who can review activity, handle problems, and stop the AI if needed.", first: "For one workflow, name the business owner and the person who can change or pause the system.", checks: ["Decide who reviews approvals and unusual activity.", "Choose where staff report a wrong or unsafe result.", "Write down who investigates and who tells affected teams.", "Practice how to pause access and safely restart the workflow."], done: "A short responsibility list with an owner, support contact, escalation path, and pause procedure." },
+  { headline: "Make one shared view of AI use", meaning: "Different teams are adopting AI in different ways. Create a simple list of the workflows with the most access or decision power so leaders can see what needs attention first.", first: "Ask each team to list its live AI workflows, then start with the ones that can see sensitive data or change systems.", checks: ["Record the business purpose and owner for each workflow.", "List the data, connected tools, and actions each one can use.", "Note how approvals, testing, and monitoring work today.", "Assign an owner and next review date to the most important gaps."], done: "A prioritized list of AI workflows with owners, access, actions, gaps, and next steps." },
+];
 function decisionBrief(answers: number[]): DecisionBrief {
-  const [adoption, authority, concern, safeguards] = answers;
-  if (authority >= 2 || concern === 2) return {
-    headline: "Set the action and approval boundary",
-    summary: "Your answers point to AI that can move work forward in connected systems, with concern about access or approval. The key decision is which actions it may prepare, which it may complete, and which must stop for a person.",
-    priority: "Start with the workflow that can make the most consequential change.",
-    why: "An approval screen alone is not a control if the connected account can still perform the action directly. Permissions need to be enforced where the system changes.",
-    checks: ["List each tool and system action the AI can call.", "Use separate permissions for reading, drafting, and changing records.", "Require an accountable person to approve high-impact or hard-to-reverse changes.", "Test denied actions, altered instructions, and approval bypass attempts."],
-    evidence: "A written action map, named approvers, and test results showing prohibited actions are blocked."
-  };
-  if (concern === 0) return {
-    headline: "Trace data access from user to answer",
-    summary: "Your main concern is who can see information and whether the answer can be trusted. Map the data path through the user, AI service, connected sources, and any tools that store or return results.",
-    priority: "Choose one workflow that uses sensitive or decision-critical information.",
-    why: "A model can only respect access boundaries that are correctly applied by the connected identity and source systems.",
-    checks: ["Identify every source, connector, service account, and output location.", "Confirm access follows the requesting user’s permissions and business purpose.", "Test a user who should not be able to retrieve a restricted record.", "Show where answers came from and define how users report an incorrect result."],
-    evidence: "A data-flow and access map, restricted-access test results, and an answer review path."
-  };
-  if (concern === 3 || safeguards === 3 || adoption === 3) return {
-    headline: "Name the people who run the control",
-    summary: "Your answers suggest adoption may be moving faster than ownership and operating procedures. Before adding more use cases, make clear who is accountable when the workflow behaves unexpectedly.",
-    priority: "Pick one live or planned workflow and walk it from approval through incident response.",
-    why: "A control needs an owner who can review evidence, respond to exceptions, and stop access when conditions change.",
-    checks: ["Name the business owner and technical operator.", "Assign responsibility for approvals, monitoring, incident triage, and access removal.", "Define what events are logged and who reviews them.", "Write a simple pause and recovery procedure, then rehearse it."],
-    evidence: "A responsibility map, monitoring and escalation path, and a tested pause procedure."
-  };
-  if (concern === 1 || safeguards >= 2) return {
-    headline: "Make the answer verifiable before expanding use",
-    summary: "Your concern centers on whether people can rely on the output. Set a clear quality threshold and human review path for the decision the AI supports.",
-    priority: "Start with the decision where a plausible but incorrect answer could cause the most rework or harm.",
-    why: "A polished answer can still be unsupported. Teams need a way to check sources, recognize uncertainty, and correct errors before they affect the workflow.",
-    checks: ["Define what a correct answer must include and which sources are allowed.", "Test representative, ambiguous, outdated, and adversarial inputs.", "Require citations or source links where users need to verify claims.", "Set a human review threshold and a path to correct recurring failures."],
-    evidence: "A test set, agreed acceptance criteria, review rules, and a record of known failure cases."
-  };
-  if (adoption === 0) return {
-    headline: "Choose a bounded first use case",
-    summary: "You are still exploring. The best first step is a workflow with a clear owner, a measurable business task, limited data access, and a person who can review the result.",
-    priority: "Compare a few everyday tasks before selecting a model or platform.",
-    why: "Starting with the work and its boundaries helps avoid a demo that cannot be safely connected to real operations.",
-    checks: ["Describe the task, current process, and person accountable for the outcome.", "Identify the minimum data and system access needed.", "Define what the AI may prepare and what a person decides.", "Agree how to test usefulness, errors, and access restrictions."],
-    evidence: "A use-case brief, a bounded design, an accountable owner, and a test plan."
-  };
-  return {
-    headline: "Turn scattered controls into one workflow view",
-    summary: "Your answers suggest AI is in use across teams, but controls are not applied consistently. Build a shared view of the workflows before trying to standardize every tool at once.",
-    priority: "Inventory the live workflows with the greatest access or decision authority first.",
-    why: "A focused inventory helps leaders see where permissions, owners, approvals, and operating practices differ in ways that matter.",
-    checks: ["Record each workflow, business owner, connected systems, and user group.", "Classify its data access and the actions it can take.", "Compare approval, logging, testing, and incident procedures.", "Assign the gaps that need a shared control and the team responsible for it."],
-    evidence: "A prioritized workflow inventory, control gaps, assigned owners, and a sequence for closing them."
-  };
+  const [, authority, concern, safeguards] = answers;
+  if (concern === 0) return decisionBriefs[4];
+  if (concern === 1) return decisionBriefs[5];
+  if (concern === 2) return decisionBriefs[2];
+  if (concern === 3 || safeguards === 3) return decisionBriefs[6];
+  if (authority === 3) return decisionBriefs[3];
+  if (authority === 2) return decisionBriefs[2];
+  if (authority === 1) return decisionBriefs[1];
+  return decisionBriefs[0];
 }
 
 export function DeliveryExplorer() {
@@ -106,7 +76,7 @@ export function DeliveryExplorer() {
         <p className="pressure-question-count">QUESTION {answerStep + 1} OF {questions.length}</p><h3>{questions[answerStep].title}</h3><p>{questions[answerStep].note}</p>
         <div className="pressure-options">{questions[answerStep].options.map((option, i) => <button type="button" key={option} className={answers[answerStep] === i ? "selected" : ""} aria-pressed={answers[answerStep] === i} onClick={() => setAnswers(current => current.map((value, index) => index === answerStep ? i : value))}><span>{option}</span><ArrowRight size={15} aria-hidden="true"/></button>)}</div>
         <div className="pressure-actions"><button type="button" className="pressure-back" disabled={answerStep === 0} onClick={() => setAnswerStep(current => current - 1)}><ArrowLeft size={15} aria-hidden="true"/>Back</button><button type="button" className="pressure-next" disabled={answers[answerStep] < 0} onClick={() => setAnswerStep(current => current + 1)}>{answerStep === questions.length - 1 ? "Build my decision brief" : "Next question"}<ArrowRight size={15} aria-hidden="true"/></button></div>
-      </section> : <section aria-live="polite" className="pressure-result"><p className="pressure-label"><span className="signal-dot"/>YOUR AI WORKFLOW DECISION BRIEF</p><h3>{brief.headline}</h3><p className="pressure-summary">{brief.summary}</p><p className="pressure-priority"><strong>Where to start</strong><span>{brief.priority}</span></p><h4>Why this matters</h4><p className="pressure-why">{brief.why}</p><h4>Checks for your team</h4><ol className="pressure-checks">{brief.checks.map((check, i) => <li key={check}><span>{i + 1}</span>{check}</li>)}</ol><div className="pressure-action"><strong>What a useful output looks like</strong><p>{brief.evidence}</p></div><p className="pressure-disclaimer">This guide uses only your selections in this page. It is a starting point for discussion, not a formal security assessment. Your answers are not sent or saved.</p><button type="button" className="pressure-back" onClick={() => { setAnswers([-1, -1, -1, -1]); setAnswerStep(0); }}><RotateCcw size={14} aria-hidden="true"/>Start over</button></section>}
+      </section> : <section aria-live="polite" className="pressure-result"><p className="pressure-label"><span className="signal-dot"/>YOUR AI WORKFLOW DECISION BRIEF</p><h3>{brief.headline}</h3><h4>What your answers point to</h4><p className="pressure-summary">{brief.meaning}</p><div className="pressure-priority"><strong>1. Start here</strong><span>{brief.first}</span></div><h4>2. Work through these checks</h4><ol className="pressure-checks">{brief.checks.map((check, i) => <li key={check}><span>{i + 1}</span>{check}</li>)}</ol><div className="pressure-action"><strong>3. You are ready to move on when</strong><p>{brief.done}</p></div><p className="pressure-disclaimer">This guide uses only your selections in this page. It is a starting point for discussion, not a formal security assessment. Your answers are not sent or saved.</p><button type="button" className="pressure-back" onClick={() => { setAnswers([-1, -1, -1, -1]); setAnswerStep(0); }}><RotateCcw size={14} aria-hidden="true"/>Start over</button></section>}
       {!finished && <div className="board-caption"><span className="signal-dot"/><span>Your selections stay on this page. No company details or email required.</span></div>}
     </div>}
   </figure>;
