@@ -219,10 +219,22 @@
 .use-case-art img{display:block;width:100%;height:100%;object-fit:cover;object-position:center;border-radius:14px}
 .visual-use-cases .problem-grid h3{font-family:var(--font-display),Georgia,serif;font-weight:500;font-size:32px;margin:10px 0 14px;line-height:1.15}
 .visual-use-cases .problem-grid p{font-size:19px;line-height:1.65}
+.workflow-shift{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:42px}
+.workflow-shift>li{display:flex;flex-direction:column;min-width:0;padding:24px;border:1px solid #d9ded5;border-radius:16px;background:linear-gradient(155deg,#fffefa,#f1f2e9);box-shadow:0 12px 34px #52745b0a}
+.workflow-shift-number{display:grid;place-items:center;width:40px;height:40px;border:1px solid #bac095;border-radius:50%;background:#e8ebd8;color:#35483a;font-size:14px;font-weight:700}
+.workflow-shift-label{margin-top:21px;color:#636b2f;font-size:12px;font-weight:700;letter-spacing:.12em}
+.workflow-shift h3{margin-top:7px;font-family:var(--font-display),Georgia,serif;font-size:29px;font-weight:500;line-height:1.15;color:#18211c}
+.workflow-shift>li>p:not(.workflow-shift-label){margin-top:12px;color:#4a5852;font-size:17px;line-height:1.6}
+.workflow-shift-outcome{margin-top:auto;padding-top:22px}
+.workflow-shift-outcome strong{display:block;padding:13px 14px;border-left:3px solid #8e9a66;border-radius:0 7px 7px 0;background:#e8ebd8;color:#29392f;font-size:14px;line-height:1.5}
+.workflow-shift-takeaway{display:flex;align-items:flex-start;gap:11px;margin-top:20px;padding:16px 18px;border:1px solid #cbd3c2;border-radius:10px;background:#eef1ea;color:#35483a}
+.workflow-shift-takeaway .signal-dot{margin-top:8px;flex:none;background:#636b2f}
+.workflow-shift-takeaway span:last-child{font-size:16px;line-height:1.6}
+.workflow-shift-takeaway strong{color:#26372d}
 @keyframes scene-appear{from{opacity:.4;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
 @media(min-width:1200px){.home-hero .container{max-width:1340px}}
 @media(max-width:1000px){.home-hero .hero-grid{gap:32px}.home-hero .hero-copy h1{font-size:58px}}
-@media(max-width:767px){.home-hero{padding-top:36px}.home-hero .hero-grid{grid-template-columns:1fr;gap:36px}.home-hero .hero-copy h1{font-size:48px;max-width:600px}.home-hero .hero-copy>p:not(.eyebrow):not(.hero-footnote){font-size:19px;line-height:1.65}.hero-visual>img{height:auto;aspect-ratio:1.2;object-position:center}.hero-tools-section{padding-top:52px}.hero-tools-intro{grid-template-columns:1fr;gap:16px;margin-bottom:26px}.hero-tools-intro h2{font-size:38px}.hero-tools-intro>p{font-size:18px}.delivery-board{padding:20px}.delivery-board .board-intent p{font-size:30px}.delivery-modes{grid-template-columns:1fr 1.15fr}.delivery-modes button{padding:9px}.delivery-board .delivery-modes button[role="tab"]:last-child strong{font-size:14px}.visual-use-cases .problem-grid{grid-template-columns:1fr;gap:32px}.use-case-art{max-width:520px}.home-hero .hero-baseline{margin-top:32px}.visual-use-cases .problem-grid p{font-size:19px}}
+@media(max-width:767px){.home-hero{padding-top:36px}.home-hero .hero-grid{grid-template-columns:1fr;gap:36px}.home-hero .hero-copy h1{font-size:48px;max-width:600px}.home-hero .hero-copy>p:not(.eyebrow):not(.hero-footnote){font-size:19px;line-height:1.65}.hero-visual>img{height:auto;aspect-ratio:1.2;object-position:center}.hero-tools-section{padding-top:52px}.hero-tools-intro{grid-template-columns:1fr;gap:16px;margin-bottom:26px}.hero-tools-intro h2{font-size:38px}.hero-tools-intro>p{font-size:18px}.delivery-board{padding:20px}.delivery-board .board-intent p{font-size:30px}.delivery-modes{grid-template-columns:1fr 1.15fr}.delivery-modes button{padding:9px}.delivery-board .delivery-modes button[role="tab"]:last-child strong{font-size:14px}.visual-use-cases .problem-grid{grid-template-columns:1fr;gap:32px}.workflow-shift{grid-template-columns:1fr;gap:14px;margin-top:30px}.workflow-shift>li{padding:22px}.workflow-shift h3{font-size:28px}.workflow-shift>li>p:not(.workflow-shift-label){font-size:18px}.workflow-shift-outcome{margin-top:18px}.use-case-art{max-width:520px}.home-hero .hero-baseline{margin-top:32px}.visual-use-cases .problem-grid p{font-size:19px}}
 @media(prefers-reduced-motion:reduce){.delivery-art{animation:none}}
 .home-hero .hero-copy{padding-top:0}
 .delivery-art{width:100%;max-width:none;margin:8px 0 12px}
