@@ -149,16 +149,26 @@
 .delivery-board .control-panels h3{font-size:20px}
 .delivery-board .control-panels dl{margin-top:12px}
 .delivery-board .board-caption{margin-top:16px}
-.delivery-modes{display:flex;gap:8px;flex-wrap:wrap;margin:18px 0 8px;border-bottom:1px solid #bfc8bc;padding-bottom:10px}
-.delivery-modes button{display:inline-flex;align-items:center;gap:8px;border:1px solid transparent;border-radius:999px;padding:9px 13px;background:transparent;color:#4a5852;font-size:14px;font-weight:600}
-.delivery-modes button[aria-selected="true"]{background:#fff;border-color:#bfc8bc;color:#263b30}
-.delivery-modes button:hover{color:#263b30}
+.delivery-modes{display:grid;grid-template-columns:1fr 1.25fr;align-items:stretch;gap:9px;margin:18px 0 12px}
+.delivery-modes button{display:flex;align-items:center;gap:8px;min-height:49px;border:1px solid #c5cdbb;border-radius:9px;padding:10px 13px;background:#ffffff82;color:#3c4e43;font-size:14px;font-weight:600;text-align:left}
+.delivery-modes button[aria-selected="true"]{background:#fff;border-color:#9ba88b;color:#263b30}
+.delivery-modes button[role="tab"]:last-child{position:relative;display:grid;grid-template-columns:1fr auto;grid-template-rows:auto auto;gap:2px 8px;padding:13px 15px;border-color:#52745b;background:#52745b;color:#fff;box-shadow:0 5px 16px #405e4926}
+.delivery-modes button[role="tab"]:last-child span{grid-column:1;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#e4edcf}
+.delivery-modes button[role="tab"]:last-child strong{grid-column:1;font-size:16px;line-height:1.35;font-weight:700}
+.delivery-modes button[role="tab"]:last-child small{grid-column:1;font-size:12px;color:#f1f4e9}
+.delivery-modes button[role="tab"]:last-child svg{grid-column:2;grid-row:1/4;align-self:center}
+.delivery-modes button[role="tab"]:last-child[aria-selected="true"]{background:#405e49;border-color:#405e49;box-shadow:inset 0 0 0 2px #d4de95,0 5px 16px #405e4926}
+.delivery-modes button:hover{border-color:#82916a}
 .delivery-board .delivery-modes+.explorer-hint{margin-top:12px}
-.pressure-test{padding-top:4px}
+.pressure-test{padding-top:2px}
+.pressure-intro{padding:5px 0 2px}
+.pressure-intro h2{font-size:clamp(29px,3vw,38px);line-height:1.1;color:#18211c}
+.pressure-intro p{margin-top:8px;font-size:15px;line-height:1.55}
 .pressure-progress{display:flex;gap:10px;margin:20px 0 22px}
 .pressure-progress li span:not(.sr-only){display:grid;place-items:center;width:29px;height:29px;border:1px solid #aab59d;border-radius:50%;font-size:13px;color:#4a5852}
 .pressure-progress li.reached span:not(.sr-only){background:#d4de95;border-color:#8c9b5e;color:#263b30}
 .pressure-question h3,.pressure-result h3{font-family:var(--font-display),Georgia,serif;font-weight:500;font-size:30px;line-height:1.15;color:#18211c}
+.pressure-question .pressure-question-count{margin:0 0 5px;color:#636b2f;font-size:11px;font-weight:700;letter-spacing:.12em}
 .pressure-question>p{font-size:15px;line-height:1.55;margin-top:7px}
 .pressure-options{display:grid;gap:8px;margin-top:18px}
 .pressure-options button{display:flex;align-items:center;justify-content:space-between;gap:14px;text-align:left;min-height:50px;padding:11px 14px;border:1px solid #c5cdbb;border-radius:8px;background:#ffffffad;color:#26352d;font-size:14px;line-height:1.45}
@@ -173,7 +183,15 @@
 .pressure-result{padding-top:2px}
 .pressure-result .pressure-label{display:flex;align-items:center;gap:8px;color:#636b2f;font-size:11px;font-weight:700;letter-spacing:.12em}
 .pressure-result h3{margin-top:12px}
-.pressure-why{margin-top:8px;font-size:15px;line-height:1.55}
+.pressure-summary{margin-top:10px;font-size:16px;line-height:1.65;color:#33483b}
+.pressure-priority{display:grid;gap:4px;margin-top:16px;padding:13px 15px;border-radius:8px;background:#e8ebd8;color:#28372e}
+.pressure-priority strong,.pressure-result h4{font-size:14px;color:#3e553f}
+.pressure-priority span{font-size:14px;line-height:1.55}
+.pressure-result h4{margin-top:18px}
+.pressure-why{margin-top:5px;font-size:15px;line-height:1.6}
+.pressure-checks{display:grid;gap:10px;margin-top:10px}
+.pressure-checks li{display:grid;grid-template-columns:25px 1fr;gap:10px;align-items:start;color:#3b4b41;font-size:14px;line-height:1.55}
+.pressure-checks li span{display:grid;place-items:center;width:23px;height:23px;border-radius:50%;background:#d4de95;color:#33483b;font-size:12px;font-weight:700}
 .pressure-action{margin-top:18px;padding:15px 16px;border-left:3px solid #a2b36c;border-radius:0 8px 8px 0;background:#ffffffad}
 .pressure-action strong{font-size:14px;color:#26352d}
 .pressure-action p{margin-top:6px;font-size:14px;line-height:1.6;color:#4a5852}
